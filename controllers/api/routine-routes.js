@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Routines, Exercise, Users } = require('../../models');
+const withAuth = require('../../utils/authorize');
 
 
 router.get('/', async (req, res) => {
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
                 },
                 {
                     model: Exercise,
-                    attributes: ['id','name','weight', 'reps']
+                    attributes: ['id', 'name', 'weight', 'reps']
                 }
             ]
         });
@@ -22,8 +23,8 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/', async (req,res) => {
-    try{
+router.post('/', withAuth, async (req, res) => {
+    try {
         const postRoutine = await Routines.create({
             name: req.body.name,
             share: req.body.share,
@@ -31,22 +32,22 @@ router.post('/', async (req,res) => {
             user_id: req.body.user_id
         });
         res.status(200).json(postRoutine);
-    } catch(err){
+    } catch (err) {
         res.status(500).json(err)
     }
 })
 
-router.get('/:id', async (req,res) => {
-    try{
+router.get('/:id', async (req, res) => {
+    try {
         const findRoutine = await Routines.findByPk(req.params.id
         )
         res.status(200).json(findRoutine);
-    } catch (err){
-        res.status(500).json({message: "no routine at this id"})
+    } catch (err) {
+        res.status(500).json({ message: "no routine at this id" })
     }
 });
 
-router.put('/:id', async (req,res)=> {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const findRoutine = await Routines.findByPk(req.params.id);
         const updateRoutine = await findRoutine.update({
@@ -56,17 +57,17 @@ router.put('/:id', async (req,res)=> {
             user_id: req.body.user_id
         });
         res.status(200).json(updateRoutine)
-    } catch(err){
+    } catch (err) {
         res.status(500).json(err)
     }
 });
 
-router.delete('/:id', async (req,res) => {
-    try{
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
         const findRoutine = await Routines.findByPk(req.params.id);
         await findRoutine.destroy();
-        res.status(200).json({message: "Routine Deleted!"})
-    } catch(err){
+        res.status(200).json({ message: "Routine Deleted!" })
+    } catch (err) {
         res.status(500).json(err);
     }
 })
