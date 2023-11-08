@@ -1,11 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection')
+const sequelize = require('../config/connection');
 
-const User = require('./users');
+class Exercise extends Model { }
 
-class Routine extends Model { }
-
-Routine.init(
+Exercise.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,31 +15,30 @@ Routine.init(
             type: DataTypes.STRING,
             notNull: true,
         },
-        share: {
-            type: DataTypes.BOOLEAN,
+        weight: {
+            type: DataTypes.INTEGER,
             notNull: true,
         },
-        description: {
-            type: DataTypes.TEXT,
+        reps: {
+            type: DataTypes.INTEGER,
             notNull: true,
         },
-        user_id: {
+        routine_id: {
             type: DataTypes.INTEGER,
             notNull: true,
             references: {
-                model: User,
-                key: 'id'
+                model: 'routine',
+                key: 'id',
             }
-        },
+        }
     },
-
     {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'routine',
+        modelName: 'exercise',
     }
 );
 
-module.exports = Routine;
+module.exports = Exercise ;
