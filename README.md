@@ -33,7 +33,7 @@
 
   ## Contributing
 
-  Feel free to fork the project and create pull requests should you wish. I am always happy to find new ways to grow!
+  Feel free to fork the project and create pull requests! Any ideas or contributions are welcome and appreciated!
 
   ## Tests
 
