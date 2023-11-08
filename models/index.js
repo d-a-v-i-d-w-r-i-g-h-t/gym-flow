@@ -1,6 +1,6 @@
 const User = require('./users');
 const Routine = require('./routines');
-const Exercise = require('./Exercise');
+const Exercise = require('./exercises');
 
 // associations
 
