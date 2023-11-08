@@ -30,7 +30,7 @@
   ```
   Enter your user name and password within that file in the empty spaces. After saving the file run the following in your terminal to have the initial data be seeded into the database:
   ```
-  npm run seed
+  npm run seeds
   ```
   Once the data has been seeded the user can then start the server. Each time your wish to start the server, simply run the following code in your terminal:
   ```
