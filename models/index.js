@@ -4,11 +4,11 @@ const Exercise = require('./exercise');
 
 Routines.belongsTo(Users, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE',
 });
 
 Users.hasMany(Routines, {
   foreignKey: 'user_id',
+  onDelete: 'CASCADE',
 });
 
 Routines.hasMany(Exercise, {

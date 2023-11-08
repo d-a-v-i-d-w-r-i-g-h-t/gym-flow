@@ -17,7 +17,6 @@ Routines.init(
         name: {
             type: DataTypes.STRING,
             notNull: true,
-            unique: true,
         },
         share: {
             type: DataTypes.BOOLEAN,
