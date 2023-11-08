@@ -18,7 +18,21 @@
 
   ## Installation
 
-  To install this project on your local machine, clone the repository to your local machine via your terminal. Once the repo has been cloned, run 'npm i' to install all of the needed dependencies. Once that is finished, rename the '.env.EXAMPLE' file to simply '.env' and enter your user name and password within that file. After saving the file the user should be able to run 'npm start' in their terminal to get the server to launch. If the user would like to seed the database with the defaults, stop the server, run 'npm run seed' in their terminal and restart the server again to have the changes take effect.
+  To install this project on your local machine, clone the repository to your local machine via your terminal. Once the repo has been cloned, run 'npm i' to install all of the needed dependencies. Once that is finished, create a file called '.env' and enter the following code:
+  ```
+  DB_NAME='museum_db'
+  DB_USER=''
+  DB_PASSWORD=''
+  ```
+  Enter your user name and password within that file in the empty spaces. After saving the file run the following in your terminal to have the initail data be seeded into the database:
+  ```
+  npm run seed
+  ```
+  Once the data has been seeded the user can then start the server. Each time your wish to start the server, simply run the following code in your terminal:
+  ```
+  npm start
+  ```
+  With the server up an running on your local machine you can then navigate to http://localhost:3001/ to visit the website that is being run from your local server.
 
   ## Usage
 
