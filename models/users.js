@@ -1,17 +1,16 @@
 const { Model, DataTypes } = require('sequelize');
-
+const sequelize = require('../config/connection')
 const bcrypt = require('bcrypt');
 
-const sequelize = require('../config/connection')
+class User extends Model { 
 
-class Users extends Model { 
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
 
-checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-};
 }
 
-Users.init(
+User.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -39,8 +38,8 @@ Users.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Users',
+        modelName: 'user',
     }
 );
 
-module.exports = Users;
+module.exports = User;

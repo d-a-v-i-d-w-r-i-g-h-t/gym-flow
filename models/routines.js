@@ -1,12 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
-
 const sequelize = require('../config/connection')
 
-const Users = require('./users')
+const User = require('./users');
 
-class Routines extends Model { }
+class Routine extends Model { }
 
-Routines.init(
+Routine.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -30,7 +29,7 @@ Routines.init(
             type: DataTypes.INTEGER,
             notNull: true,
             references: {
-                model: Users,
+                model: User,
                 key: 'id'
             }
         },
@@ -41,8 +40,8 @@ Routines.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'Routines',
+        modelName: 'routine',
     }
 );
 
-module.exports = Routines;
+module.exports = Routine;

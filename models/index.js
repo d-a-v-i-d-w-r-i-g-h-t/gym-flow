@@ -1,24 +1,28 @@
-const Users = require('./users');
-const Routines = require('./routines');
-const Exercise = require('./exercise');
+const User = require('./users');
+const Routine = require('./routines');
+const Exercise = require('./Exercise');
 
-Routines.belongsTo(Users, {
-  foreignKey: 'user_id',
-});
+// associations
 
-Users.hasMany(Routines, {
+// user and routine: one to many
+User.hasMany(Routine, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE',
 });
 
-Routines.hasMany(Exercise, {
+Routine.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+
+// routine and exercise: one to many
+Routine.hasMany(Exercise, {
   foreignKey: 'routine_id',
   onDelete: 'CASCADE',
 });
 
-Exercise.belongsTo(Routines, {
+Exercise.belongsTo(Routine, {
   foreignKey: 'routine_id'
 })
 
 
-module.exports = { Users, Routines, Exercise };
+module.exports = { User, Routine, Exercise };
