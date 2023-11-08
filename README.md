@@ -24,7 +24,7 @@
   DB_USER=''
   DB_PASSWORD=''
   ```
-  Enter your user name and password within that file in the empty spaces. After saving the file run the following in your terminal to have the initail data be seeded into the database:
+  Enter your user name and password within that file in the empty spaces. After saving the file run the following in your terminal to have the initial data be seeded into the database:
   ```
   npm run seed
   ```
@@ -32,7 +32,7 @@
   ```
   npm start
   ```
-  With the server up an running on your local machine you can then navigate to http://localhost:3001/ to visit the website that is being run from your local server.
+  With the server up and running on your local machine you can then navigate to http://localhost:3001/ to visit the website that is being run from your local server.
 
   ## Usage
 
