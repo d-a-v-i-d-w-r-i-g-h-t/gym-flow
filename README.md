@@ -25,7 +25,7 @@
 
   ## Credits
 
-  This project was designed by DistantDig. Their Github profile can be found [here](https://github.com/DistantDig), and they can be reached via email at jameswaller711@gmail.com.
+  This project was designed by David Wright, Michael Reickerd and James Waller Jr. David's Github profile can be found [here](https://github.com/d-a-v-i-d-w-r-i-g-h-t), Michael's Github profile can be found [here](https://github.com/Migsrkrd), and James' Github profile can be found [here](https://github.com/DistantDig).
 
   ## License
 
