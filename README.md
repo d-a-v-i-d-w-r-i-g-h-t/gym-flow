@@ -1,4 +1,4 @@
-![Static Badge](https://img.shields.io/badge/License-MIT-yellow)
+[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 
   # Gym Flow
 
