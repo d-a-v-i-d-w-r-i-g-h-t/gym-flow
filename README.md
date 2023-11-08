@@ -4,7 +4,8 @@
 
   ## Description
 
-  Gym Flow is an application for keeping track, creating and sharing your workout routines with other users. A user can login or signup on the website to gain access to creating and editing their own workout routines. An user can also go to a viewing page to view and save other user's workouts for their own use. The workouts can be created from scratch or use another individual's workout as inspiration to design the perfect rutien for the user. Each workout can be shared by the author to allow others to view and potentially save it on their own account. 
+  Gym Flow is an application for keeping track, creating and sharing your workout routines with other users. A user can login or sign up on the website to gain access to creating and editing their own workout routines. An user can also go to a viewing page to view and save other user's workouts for their own use. The workouts can be created from scratch or use another individual's workout as inspiration to design the perfect routine for the user. Each workout can be shared by the author to allow others to view and potentially save it on their own account.
+
 
   ## Table of Contents
 
@@ -21,7 +22,7 @@
 
   ## Usage
 
-  To use this project, either navigate to (LINK TO BE INSTERTED) for the officially deployed link, or if you installed the application on your own then navigate to http://localhost:3001/. From the home page, the user can see a carasel of other user's workouts on display as well as a short descrition of the website. From there the user can either sign in, sign up, or go straight to the discovery page. Should the user have an account and be logged in, the user gains access to a few more options. A user once logged in can create their own workout routines or edit the ones they have already created. The user has the power to edit or delete any of their workouts at any time. Should a user navigate to the discovery page, they can then scroll through all the other routines created by other individuals using the site. Any one of these workouts can be saved to later be edited or used. Should a user finish any editing or saving they can then logout for the day, and all of their workout routines will persist and be saved for the next loggin.
+  To use this project, either navigate to (LINK TO BE INSERTED) for the officially deployed link, or if you installed the application on your own then navigate to http://localhost:3001/. From the home page, the user can see a carousel of other user's workouts on display as well as a short description of the website. From there the user can either sign in, sign up, or go straight to the discovery page. Should the user have an account and be logged in, the user gains access to a few more options. A user once logged in can create their own workout routines or edit the ones they have already created. The user has the power to edit or delete any of their workouts at any time. Should a user navigate to the discovery page, they can then scroll through all the other routines created by other individuals using the site. Any one of these workouts can be saved to later be edited or used. Should a user finish any editing or saving they can then logout for the day, and all of their workout routines will persist and be saved for the next loggin.
 
   ## Credits
 
@@ -38,4 +39,3 @@
   ## Tests
 
   No automatic methods of testing are included in this project, however feel free to fork the project and add some! Otherwise feel free to just experiment with the project and create issues for any odd behavior.
-
