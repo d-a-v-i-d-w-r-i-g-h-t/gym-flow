@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
-const User = require('./users');
+const User = require('./User');
 
 class Routine extends Model { }
 
