@@ -21,7 +21,7 @@
 
   ## Usage
 
-  To use this project, either navigate to (LINK TO BE INSTERTED) for the officially deployed link, or if you installed the application on your own then navigate to http://localhost:3001/.
+  To use this project, either navigate to (LINK TO BE INSTERTED) for the officially deployed link, or if you installed the application on your own then navigate to http://localhost:3001/. From the home page, the user can see a carasel of other user's workouts on display as well as a short descrition of the website. From there the user can either sign in, sign up, or go straight to the discovery page. Should the user have an account and be logged in, the user gains access to a few more options. A user once logged in can create their own workout routines or edit the ones they have already created. The user has the power to edit or delete any of their workouts at any time. Should a user navigate to the discovery page, they can then scroll through all the other routines created by other individuals using the site. Any one of these workouts can be saved to later be edited or used. Should a user finish any editing or saving they can then logout for the day, and all of their workout routines will persist and be saved for the next loggin.
 
   ## Credits
 
