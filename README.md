@@ -4,7 +4,7 @@
 
   ## Description
 
-  Gym Flow is an application for keeping track, creating and sharing your workout routines with other users.
+  Gym Flow is an application for keeping track, creating and sharing your workout routines with other users. A user can login or signup on the website to gain access to creating and editing their own workout routines. An user can also go to a viewing page to view and save other user's workouts for their own use. The workouts can be created from scratch or use another individual's workout as inspiration to design the perfect rutien for the user. Each workout can be shared by the author to allow others to view and potentially save it on their own account. 
 
   ## Table of Contents
 
