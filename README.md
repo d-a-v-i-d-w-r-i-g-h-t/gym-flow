@@ -18,7 +18,11 @@
 
   ## Installation
 
-  To install this project on your local machine, clone the repository to your local machine via your terminal. Once the repo has been cloned, run 'npm i' to install all of the needed dependencies. Once that is finished, create a file called '.env' and enter the following code:
+  To install this project on your local machine, clone the repository to your local machine via your terminal. Once the repo has been cloned, run the following command in your terminal to install all of the needed dependencies: 
+  ```
+  npm i
+  ```
+  Once that is finished, create a file called '.env' and enter the following code:
   ```
   DB_NAME='museum_db'
   DB_USER=''
