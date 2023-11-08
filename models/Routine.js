@@ -1,8 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection')
 
-const User = require('./User');
-
 class Routine extends Model { }
 
 Routine.init(
@@ -29,7 +27,7 @@ Routine.init(
             type: DataTypes.INTEGER,
             notNull: true,
             references: {
-                model: User,
+                model: 'user',
                 key: 'id'
             }
         },
