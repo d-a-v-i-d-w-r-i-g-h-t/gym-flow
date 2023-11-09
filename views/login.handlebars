@@ -1,17 +1,26 @@
-<h2>Login</h2>
+<div class="group">
+  <h2>Login</h2>
+  <form class="form login-form">
+    <div class="form-group">
+      <label for="username-login">Username:</label>
+      <input class="form-login" type="text" id="username-login" />
+    </div>
+    <div class="form-group">
+      <label for="password-login">Password:</label>
+      <input class="form-login" type="password" id="password-login" />
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+  </form>
+  <div class="signUpOption">
+    <p>Don't have an account with us? Sign up here!</p>
+    <a href="/signup">
+    <button class="btn btn-primary" type="submit">Sign Up</button>
+    </a>
+    </div>
+</div>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="username-login">Username:</label>
-    <input class="form-login" type="text" id="username-login" />
-  </div>
-  <div class="form-group">
-    <label for="password-login">Password:</label>
-    <input class="form-login" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">Login</button>
-  </div>
-</form>
+
 
 <script src="/js/login.js"></script>

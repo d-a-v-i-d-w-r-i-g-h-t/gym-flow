@@ -22,7 +22,7 @@ header a{
     font-weight: bold;
 }
 
-header button {
+header button, .btn-primary {
     width: 70px;
     padding-left: 10px;
     padding-right: 10px;
@@ -37,7 +37,7 @@ header button {
     border-radius: 10px;
 }
 
-header button:before {
+header button:before, .btn-primary:before {
     content: '';
     background: linear-gradient(45deg, #71b3df, #ecf0f1,#71b3df, #ecf0f1,#71b3df, #ecf0f1,#71b3df, #ecf0f1 );
     position: absolute;
@@ -54,19 +54,19 @@ header button:before {
     border-radius: 10px;
 }
 
-header button:active {
+header button:active, .btn-primary:active {
     color: var(--third)
 }
 
-header button:active:after {
+header button:active:after, .btn-primary:active::after {
     background: transparent;
 }
 
-header button:hover:before {
+header button:hover:before, .btn-primary:hover::before {
     opacity: 1;
 }
 
-header button:after {
+header button:after, .btn-primary::after {
     z-index: -1;
     content: '';
     position: absolute;
@@ -201,5 +201,54 @@ footer a{
     color: var(--primary);
 }
 
+.group{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.group h2{
+    font-size: 40px;
+    color: var(--third);
+}
 
+.login-form, .signup-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--third);
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+.form-group label, .form-group input{
+    margin-bottom: 20px;
+    color: var(--third);
+}
+
+.form-group input{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.btn-primary{
+    margin-bottom: none;
+    font-weight: bold;
+    color: var(--third);
+}
+
+.signUpOption{
+    border: 2px solid var(--third);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--third);
+}
 
