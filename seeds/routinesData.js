@@ -1,4 +1,4 @@
-const { Routines } = require('../models');
+const { Routine } = require('../models');
 
 const routineData = [
   {
@@ -16,6 +16,6 @@ const routineData = [
 
 ];
 
-const seedRoutines = () => Routines.bulkCreate(routineData);
+const seedRoutines = () => Routine.bulkCreate(routineData);
 
 module.exports = seedRoutines;
