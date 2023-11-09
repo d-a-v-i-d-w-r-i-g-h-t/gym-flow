@@ -1,6 +1,7 @@
 const User = require('./User');
 const Routine = require('./Routine');
 const Exercise = require('./Exercise');
+const Comment = require('./Comment');
 
 // associations
 
@@ -45,4 +46,4 @@ Comment.belongsTo(User, {
 })
 
 
-module.exports = { User, Routine, Exercise };
+module.exports = { User, Routine, Exercise, Comment };

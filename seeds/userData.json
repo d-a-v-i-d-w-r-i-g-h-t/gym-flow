@@ -1,82 +1,82 @@
 [
   {
-    "username": "SteveRay",
+    "user_name": "SteveRay",
     "password": "StrongPass1"
   },
   {
-    "username": "SarahParker",
+    "user_name": "SarahParker",
     "password": "Fitness123"
   },
   {
-    "username": "GymEnthusiast",
+    "user_name": "GymEnthusiast",
     "password": "Workout456"
   },
   {
-    "username": "CardioQueen",
+    "user_name": "CardioQueen",
     "password": "HeartHealth!"
   },
   {
-    "username": "MuscleMaster",
+    "user_name": "MuscleMaster",
     "password": "Powerlift789"
   },
   {
-    "username": "YogaWarrior",
+    "user_name": "YogaWarrior",
     "password": "ZenMode2022"
   },
   {
-    "username": "SpinCyclist",
+    "user_name": "SpinCyclist",
     "password": "SpinItUp!"
   },
   {
-    "username": "MarathonManiac",
+    "user_name": "MarathonManiac",
     "password": "Run4Life"
   },
   {
-    "username": "HealthyHiker",
+    "user_name": "HealthyHiker",
     "password": "TrailBlazer77"
   },
   {
-    "username": "FlexAndStretch",
+    "user_name": "FlexAndStretch",
     "password": "Stretching101"
   },
   {
-    "username": "NutritionNinja",
+    "user_name": "NutritionNinja",
     "password": "EatClean2023"
   },
   {
-    "username": "FitFusion",
+    "user_name": "FitFusion",
     "password": "FitLife!"
   },
   {
-    "username": "SweatEquity",
+    "user_name": "SweatEquity",
     "password": "SweatHarder"
   },
   {
-    "username": "WellnessWarrior",
+    "user_name": "WellnessWarrior",
     "password": "MindBodySoul"
   },
   {
-    "username": "IronPumper",
+    "user_name": "IronPumper",
     "password": "LiftHeavy#"
   },
   {
-    "username": "ZumbaDancer",
+    "user_name": "ZumbaDancer",
     "password": "DanceGroove!"
   },
   {
-    "username": "FitnessFanatic",
+    "user_name": "FitnessFanatic",
     "password": "Active365"
   },
   {
-    "username": "PilatesPro",
+    "user_name": "PilatesPro",
     "password": "CoreStrength!"
   },
   {
-    "username": "BodyweightBeast",
+    "user_name": "BodyweightBeast",
     "password": "Calisthenics123"
   },
   {
-    "username": "HealthHero",
+    "user_name": "HealthHero",
     "password": "LiveWell2023"
   }
 ]

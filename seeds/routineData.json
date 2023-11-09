@@ -1,7 +1,7 @@
 [
   {
     "name": "Full Body Workout",
-    "share": false,
+    "share": true,
     "description": "A comprehensive routine targeting all major muscle groups.",
     "user_id": 1
   },
@@ -13,7 +13,7 @@
   },
   {
     "name": "Core Crusher",
-    "share": false,
+    "share": true,
     "description": "An intense core workout for abdominal strength.",
     "user_id": 2
   },
@@ -25,7 +25,7 @@
   },
   {
     "name": "HIIT Cardio Circuit",
-    "share": false,
+    "share": true,
     "description": "High-intensity interval training for cardiovascular fitness.",
     "user_id": 3
   },
@@ -37,7 +37,7 @@
   },
   {
     "name": "Strength and Power",
-    "share": false,
+    "share": true,
     "description": "Emphasizing strength and power training techniques.",
     "user_id": 4
   },
@@ -49,7 +49,7 @@
   },
   {
     "name": "Endurance Challenge",
-    "share": false,
+    "share": true,
     "description": "Designed to improve overall endurance and stamina.",
     "user_id": 6
   },
