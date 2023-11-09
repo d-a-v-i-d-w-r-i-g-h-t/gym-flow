@@ -6,12 +6,18 @@ const signupFormHandler = async (event) => {
     const user_name = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-  
+    const confirmPassword = document.querySelector('#confirm-password-signup').value.trim();
+
     // Check if any of the required fields is missing
-    if (!user_name || !email || !password) {
+    if ( !user_name || !email || !password || !confirmPassword ) {
       // Display an alert to inform the user
       alert('Please provide all required information'); // Replace this with a modal ******
       return; // Stop signup execution
+    }
+
+    // Check if passwords match
+    if ( password !== confirmPassword ) {
+      alert('Passwords do not match. Please re-enter.'); // Replace this with a modal ******
     }
 
     // Api call to create a new user
