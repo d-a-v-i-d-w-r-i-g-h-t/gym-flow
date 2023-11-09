@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const { Routines, Exercise, Users } = require('../../models');
+const { Routine, Exercise, User } = require('../../models');
 const withAuth = require('../../utils/authorize');
 
 
 router.get('/', async (req, res) => {
     try {
-        const routinesdb = await Routines.findAll({
+        const routinesdb = await Routine.findAll({
             include: [
                 {
-                    model: Users,
+                    model: User,
                     attributes: ['user_name'],
                 },
                 {
@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
     try {
-        const postRoutine = await Routines.create({
+        const postRoutine = await Routine.create({
             name: req.body.name,
             share: req.body.share,
             description: req.body.description,
@@ -39,7 +39,7 @@ router.post('/', withAuth, async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const findRoutine = await Routines.findByPk(req.params.id
+        const findRoutine = await Routine.findByPk(req.params.id
         )
         res.status(200).json(findRoutine);
     } catch (err) {
@@ -49,7 +49,7 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', withAuth, async (req, res) => {
     try {
-        const findRoutine = await Routines.findByPk(req.params.id);
+        const findRoutine = await Routine.findByPk(req.params.id);
         const updateRoutine = await findRoutine.update({
             name: req.body.name,
             share: req.body.share,
@@ -64,7 +64,7 @@ router.put('/:id', withAuth, async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const findRoutine = await Routines.findByPk(req.params.id);
+        const findRoutine = await Routine.findByPk(req.params.id);
         await findRoutine.destroy();
         res.status(200).json({ message: "Routine Deleted!" })
     } catch (err) {
