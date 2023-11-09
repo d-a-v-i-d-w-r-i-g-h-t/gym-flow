@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Users, Routines, Exercise } = require('../models');
+const { User, Routine, Exercise } = require('../models');
 
 //getting the homepage
 router.get('/', async (req,res) => {
@@ -13,14 +13,26 @@ router.get('/', async (req,res) => {
     }
 });
 
-router.get('/discover', async (req,res) => {
-    try{
-        const discover = true;
-        res.render('discover',{
-            discover
+router.get('/discover', async (req, res) => {
+    try {
+        const routinesdb = await Routine.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ]
         });
-    } catch(err) {
-        res.render('Error')
+        console.log(routinesdb);
+        const routines = await routinesdb.map((routine) => routine.get({ plain: true }));
+        console.log(routines);
+        res.render('discover', { routines });
+    } catch (err) {
+        res.status(500).json(err);
     }
 });
 
