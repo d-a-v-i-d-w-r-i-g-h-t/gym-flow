@@ -1,0 +1,202 @@
+[
+  {
+    "text": "Great workout! Really felt the burn during bench press.",
+    "user_id": 1,
+    "routine_id": 1
+  },
+  {
+    "text": "Squats were challenging but worth it. Feeling stronger already!",
+    "user_id": 2,
+    "routine_id": 1
+  },
+  {
+    "text": "Lunges are killer, but I love the leg day challenge!",
+    "user_id": 3,
+    "routine_id": 2
+  },
+  {
+    "text": "Box jumps add a nice explosive element. Great routine!",
+    "user_id": 4,
+    "routine_id": 2
+  },
+  {
+    "text": "Plank variations are a killer core workout. Keep it up!",
+    "user_id": 5,
+    "routine_id": 3
+  },
+  {
+    "text": "Leg raises really target the lower abs. Feeling the burn!",
+    "user_id": 6,
+    "routine_id": 3
+  },
+  {
+    "text": "Pull-ups are tough but rewarding. Seeing progress!",
+    "user_id": 7,
+    "routine_id": 4
+  },
+  {
+    "text": "Shoulder press added a nice challenge. Loving this routine!",
+    "user_id": 8,
+    "routine_id": 4
+  },
+  {
+    "text": "HIIT cardio is my favorite! Sweating buckets, but it's worth it.",
+    "user_id": 9,
+    "routine_id": 5
+  },
+  {
+    "text": "Boxing punches are a fun way to mix things up. Great routine!",
+    "user_id": 10,
+    "routine_id": 5
+  },
+  {
+    "text": "Lateral raises really target those shoulder muscles. Feeling pumped!",
+    "user_id": 11,
+    "routine_id": 6
+  },
+  {
+    "text": "Medicine ball slams are my new stress reliever. Awesome routine!",
+    "user_id": 12,
+    "routine_id": 6
+  },
+  {
+    "text": "Kettlebell swings are a great full-body workout. Loving it!",
+    "user_id": 13,
+    "routine_id": 7
+  },
+  {
+    "text": "Battle rope waves really get the heart pumping. Solid routine!",
+    "user_id": 14,
+    "routine_id": 7
+  },
+  {
+    "text": "Incline bench press is a classic for a reason. Great chest day!",
+    "user_id": 15,
+    "routine_id": 8
+  },
+  {
+    "text": "Lat pulldowns added some variety. Feeling the gains!",
+    "user_id": 1,
+    "routine_id": 8
+  },
+  {
+    "text": "Treadmill sprints are intense but effective. Feeling the burn!",
+    "user_id": 2,
+    "routine_id": 9
+  },
+  {
+    "text": "Rowing machine is my go-to for cardio. Solid routine!",
+    "user_id": 3,
+    "routine_id": 9
+  },
+  {
+    "text": "Yoga-inspired routines are great for flexibility. Feeling zen!",
+    "user_id": 4,
+    "routine_id": 10
+  },
+  {
+    "text": "Warrior poses really challenge balance. Excellent routine!",
+    "user_id": 5,
+    "routine_id": 10
+  },
+  {
+    "text": "Fantastic workout! Bench press is a game-changer.",
+    "user_id": 6,
+    "routine_id": 1
+  },
+  {
+    "text": "Leg day is tough, but the results are worth it.",
+    "user_id": 7,
+    "routine_id": 1
+  },
+  {
+    "text": "Lunges are my nemesis, but I conquered them!",
+    "user_id": 8,
+    "routine_id": 2
+  },
+  {
+    "text": "Box jumps made me feel like an athlete. Love it!",
+    "user_id": 9,
+    "routine_id": 2
+  },
+  {
+    "text": "Plank variations are a core-strengthening must-do.",
+    "user_id": 10,
+    "routine_id": 3
+  },
+  {
+    "text": "Leg raises are the secret to killer abs. Feeling strong!",
+    "user_id": 11,
+    "routine_id": 3
+  },
+  {
+    "text": "Pull-ups are a challenge, but the progress is motivating!",
+    "user_id": 12,
+    "routine_id": 4
+  },
+  {
+    "text": "Shoulder press added a burn I didn't know I needed. Love it!",
+    "user_id": 13,
+    "routine_id": 4
+  },
+  {
+    "text": "HIIT cardio is my stress reliever. Sweating out the week!",
+    "user_id": 14,
+    "routine_id": 5
+  },
+  {
+    "text": "Boxing punches are a fun way to unleash energy. Great routine!",
+    "user_id": 15,
+    "routine_id": 5
+  },
+  {
+    "text": "Lateral raises are sculpting my shoulders. Feeling powerful!",
+    "user_id": 1,
+    "routine_id": 6
+  },
+  {
+    "text": "Medicine ball slams are the therapy I never knew I needed. Awesome!",
+    "user_id": 2,
+    "routine_id": 6
+  },
+  {
+    "text": "Kettlebell swings are a full-body burn. Loving the challenge!",
+    "user_id": 3,
+    "routine_id": 7
+  },
+  {
+    "text": "Battle rope waves are intense but exhilarating. Solid routine!",
+    "user_id": 4,
+    "routine_id": 7
+  },
+  {
+    "text": "Incline bench press never gets old. Great chest pump!",
+    "user_id": 5,
+    "routine_id": 8
+  },
+  {
+    "text": "Lat pulldowns are the key to a strong back. Feeling the gains!",
+    "user_id": 6,
+    "routine_id": 8
+  },
+  {
+    "text": "Treadmill sprints are my cardio of choice. Burn baby burn!",
+    "user_id": 7,
+    "routine_id": 9
+  },
+  {
+    "text": "Rowing machine is a low-impact favorite. Solid routine!",
+    "user_id": 8,
+    "routine_id": 9
+  },
+  {
+    "text": "Yoga-inspired routines are my zen time. Namaste!",
+    "user_id": 9,
+    "routine_id": 10
+  },
+  {
+    "text": "Warrior poses challenge my balance and strength. Excellent routine!",
+    "user_id": 10,
+    "routine_id": 10
+  }
+]
