@@ -12,19 +12,23 @@ const seedAll = async () => {
     await sequelize.sync({ force: true });
 
     await User.bulkCreate(userData, { individualHooks: true });
+    console.log('User data seeded successfully.');
 
     await Routine.bulkCreate(routineData);
+    console.log('Routine data seeded successfully.');
 
     await Exercise.bulkCreate(exerciseData);
+    console.log('Exercise data seeded successfully.');
 
     await Comment.bulkCreate(commentData);
+    console.log('Comment data seeded successfully.');
     
-  } catch (err) {
-    console.error('Error trying to Seed:', err)
-    return;
+  } catch (error) {
+    console.error('Error trying to Seed:', error.stack || error.message)
+  } finally {
+    console.log('Database seeding completed.');
+    process.exit(0);
   }
-
-  process.exit(0);
 };
 
 seedAll();
