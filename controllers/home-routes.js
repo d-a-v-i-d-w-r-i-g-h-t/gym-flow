@@ -13,6 +13,28 @@ router.get('/', async (req,res) => {
     }
 });
 
+router.get('/discover', async (req,res) => {
+    try{
+        const discover = true;
+        res.render('discover',{
+            discover
+        });
+    } catch(err) {
+        res.render('Error')
+    }
+});
+
+router.get('/profile', async (req,res) => {
+    try{
+        const profile = true;
+        res.render('profile',{
+            profile
+        });
+    } catch(err) {
+        res.render('Error')
+    }
+});
+
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
     if (req.session.logged_in) {
