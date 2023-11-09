@@ -7,6 +7,13 @@ const signupFormHandler = async (event) => {
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
+    // Check if any of the required fields is missing
+    if (!user_name || !email || !password) {
+      // Display an alert to inform the user
+      alert('Please provide all required information'); // Replace this with a modal ******
+      return; // Stop signup execution
+    }
+
     // Api call to create a new user
     if (user_name && email && password) {
       const response = await fetch('/api/users/signup', {
