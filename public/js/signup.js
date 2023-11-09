@@ -4,11 +4,11 @@ const signupFormHandler = async (event) => {
   
     // Stores the user's input from the signup form
     const user_name = document.querySelector('#username-signup').value.trim();
-    // const email = document.querySelector('#email-signup').value.trim();
+    const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
   
     // Api call to create a new user
-    if (user_name && password) {
+    if (user_name && email && password) {
       const response = await fetch('/api/users/signup', {
         method: 'POST',
         body: JSON.stringify({ user_name, email, password }),
