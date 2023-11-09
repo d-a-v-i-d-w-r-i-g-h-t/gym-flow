@@ -1,0 +1,302 @@
+[
+  {
+    "name": "Bench Press",
+    "weight": 185,
+    "reps": 10,
+    "routine_id": 1
+  },
+  {
+    "name": "Pec Flies",
+    "weight": 90,
+    "reps": 15,
+    "routine_id": 1
+  },
+  {
+    "name": "Squats",
+    "weight": 225,
+    "reps": 12,
+    "routine_id": 1
+  },
+  {
+    "name": "Deadlifts",
+    "weight": 250,
+    "reps": 8,
+    "routine_id": 1
+  },
+  {
+    "name": "Push-ups",
+    "weight": 0,
+    "reps": 20,
+    "routine_id": 1
+  },
+  {
+    "name": "Hamstring Curls",
+    "weight": 120,
+    "reps": 12,
+    "routine_id": 2
+  },
+  {
+    "name": "Quad Extensions",
+    "weight": 100,
+    "reps": 15,
+    "routine_id": 2
+  },
+  {
+    "name": "Calf Raises",
+    "weight": 80,
+    "reps": 20,
+    "routine_id": 2
+  },
+  {
+    "name": "Lunges",
+    "weight": 0,
+    "reps": 16,
+    "routine_id": 2
+  },
+  {
+    "name": "Box Jumps",
+    "weight": 0,
+    "reps": 10,
+    "routine_id": 2
+  },
+  {
+    "name": "Plank",
+    "weight": 0,
+    "reps": 1,
+    "routine_id": 3
+  },
+  {
+    "name": "Russian Twists",
+    "weight": 0,
+    "reps": 20,
+    "routine_id": 3
+  },
+  {
+    "name": "Leg Raises",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 3
+  },
+  {
+    "name": "Mountain Climbers",
+    "weight": 0,
+    "reps": 30,
+    "routine_id": 3
+  },
+  {
+    "name": "Side Plank",
+    "weight": 0,
+    "reps": 1,
+    "routine_id": 3
+  },
+  {
+    "name": "Pull-ups",
+    "weight": 0,
+    "reps": 10,
+    "routine_id": 4
+  },
+  {
+    "name": "Dumbbell Rows",
+    "weight": 40,
+    "reps": 12,
+    "routine_id": 4
+  },
+  {
+    "name": "Shoulder Press",
+    "weight": 30,
+    "reps": 12,
+    "routine_id": 4
+  },
+  {
+    "name": "Lat Pulldowns",
+    "weight": 80,
+    "reps": 10,
+    "routine_id": 4
+  },
+  {
+    "name": "Bicep Curls",
+    "weight": 40,
+    "reps": 10,
+    "routine_id": 4
+  },
+  {
+    "name": "Jumping Jacks",
+    "weight": 0,
+    "reps": 50,
+    "routine_id": 5
+  },
+  {
+    "name": "Burpees",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 5
+  },
+  {
+    "name": "High Knees",
+    "weight": 0,
+    "reps": 30,
+    "routine_id": 5
+  },
+  {
+    "name": "Boxing Punches",
+    "weight": 0,
+    "reps": 100,
+    "routine_id": 5
+  },
+  {
+    "name": "Plank Jacks",
+    "weight": 0,
+    "reps": 20,
+    "routine_id": 5
+  },
+  {
+    "name": "Lateral Raises",
+    "weight": 15,
+    "reps": 12,
+    "routine_id": 6
+  },
+  {
+    "name": "Tricep Dips",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 6
+  },
+  {
+    "name": "Leg Press",
+    "weight": 300,
+    "reps": 10,
+    "routine_id": 6
+  },
+  {
+    "name": "Boxing Footwork Drills",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 6
+  },
+  {
+    "name": "Medicine Ball Slams",
+    "weight": 20,
+    "reps": 20,
+    "routine_id": 6
+  },
+  {
+    "name": "Kettlebell Swings",
+    "weight": 25,
+    "reps": 15,
+    "routine_id": 7
+  },
+  {
+    "name": "Battle Rope Waves",
+    "weight": 0,
+    "reps": 30,
+    "routine_id": 7
+  },
+  {
+    "name": "Ab Rollouts",
+    "weight": 0,
+    "reps": 12,
+    "routine_id": 7
+  },
+  {
+    "name": "Jump Rope",
+    "weight": 0,
+    "reps": 100,
+    "routine_id": 7
+  },
+  {
+    "name": "Pull-ups",
+    "weight": 0,
+    "reps": 10,
+    "routine_id": 7
+  },
+  {
+    "name": "Incline Bench Press",
+    "weight": 160,
+    "reps": 10,
+    "routine_id": 8
+  },
+  {
+    "name": "Dumbbell Flyes",
+    "weight": 40,
+    "reps": 12,
+    "routine_id": 8
+  },
+  {
+    "name": "Lat Pulldowns",
+    "weight": 80,
+    "reps": 10,
+    "routine_id": 8
+  },
+  {
+    "name": "Face Pulls",
+    "weight": 20,
+    "reps": 15,
+    "routine_id": 8
+  },
+  {
+    "name": "Tricep Kickbacks",
+    "weight": 25,
+    "reps": 12,
+    "routine_id": 8
+  },
+  {
+    "name": "Treadmill Sprint",
+    "weight": 0,
+    "reps": 8,
+    "routine_id": 9
+  },
+  {
+    "name": "Elliptical Interval",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 9
+  },
+  {
+    "name": "Stationary Bike",
+    "weight": 0,
+    "reps": 20,
+    "routine_id": 9
+  },
+  {
+    "name": "Rowing Machine",
+    "weight": 0,
+    "reps": 10,
+    "routine_id": 9
+  },
+  {
+    "name": "Stair Climber",
+    "weight": 0,
+    "reps": 5,
+    "routine_id": 9
+  },
+  {
+    "name": "Sun Salutations",
+    "weight": 0,
+    "reps": 12,
+    "routine_id": 10
+  },
+  {
+    "name": "Warrior Poses",
+    "weight": 0,
+    "reps": 10,
+    "routine_id": 10
+  },
+  {
+    "name": "Downward Dog Holds",
+    "weight": 0,
+    "reps": 8,
+    "routine_id": 10
+  },
+  {
+    "name": "Pilates Roll-Ups",
+    "weight": 0,
+    "reps": 15,
+    "routine_id": 10
+  },
+  {
+    "name": "Mountain Climbers",
+    "weight": 0,
+    "reps": 20,
+    "routine_id": 10
+  }
+]

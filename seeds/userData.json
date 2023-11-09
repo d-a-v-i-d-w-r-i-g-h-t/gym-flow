@@ -1,0 +1,82 @@
+[
+  {
+    "username": "FitUser1",
+    "password": "StrongPass1"
+  },
+  {
+    "username": "ActiveLifestyle",
+    "password": "Fitness123"
+  },
+  {
+    "username": "GymEnthusiast",
+    "password": "Workout456"
+  },
+  {
+    "username": "CardioQueen",
+    "password": "HeartHealth!"
+  },
+  {
+    "username": "MuscleMaster",
+    "password": "Powerlift789"
+  },
+  {
+    "username": "YogaWarrior",
+    "password": "ZenMode2022"
+  },
+  {
+    "username": "SpinCyclist",
+    "password": "SpinItUp!"
+  },
+  {
+    "username": "MarathonManiac",
+    "password": "Run4Life"
+  },
+  {
+    "username": "HealthyHiker",
+    "password": "TrailBlazer77"
+  },
+  {
+    "username": "FlexAndStretch",
+    "password": "Stretching101"
+  },
+  {
+    "username": "NutritionNinja",
+    "password": "EatClean2023"
+  },
+  {
+    "username": "FitFusion",
+    "password": "FitLife!"
+  },
+  {
+    "username": "SweatEquity",
+    "password": "SweatHarder"
+  },
+  {
+    "username": "WellnessWarrior",
+    "password": "MindBodySoul"
+  },
+  {
+    "username": "IronPumper",
+    "password": "LiftHeavy#"
+  },
+  {
+    "username": "ZumbaDancer",
+    "password": "DanceGroove!"
+  },
+  {
+    "username": "FitnessFanatic",
+    "password": "Active365"
+  },
+  {
+    "username": "PilatesPro",
+    "password": "CoreStrength!"
+  },
+  {
+    "username": "BodyweightBeast",
+    "password": "Calisthenics123"
+  },
+  {
+    "username": "HealthHero",
+    "password": "LiveWell2023"
+  }
+]

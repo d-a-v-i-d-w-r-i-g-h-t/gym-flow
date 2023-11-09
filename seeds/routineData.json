@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Full Body Workout",
+    "share": false,
+    "description": "A comprehensive routine targeting all major muscle groups.",
+    "user_id": 1
+  },
+  {
+    "name": "Leg Day Blast",
+    "share": true,
+    "description": "Powerful leg exercises for strength and endurance.",
+    "user_id": 2
+  },
+  {
+    "name": "Core Crusher",
+    "share": false,
+    "description": "An intense core workout for abdominal strength.",
+    "user_id": 2
+  },
+  {
+    "name": "Upper Body Sculpt",
+    "share": true,
+    "description": "Focus on building a well-defined upper body.",
+    "user_id": 3
+  },
+  {
+    "name": "HIIT Cardio Circuit",
+    "share": false,
+    "description": "High-intensity interval training for cardiovascular fitness.",
+    "user_id": 3
+  },
+  {
+    "name": "Flexibility Flow",
+    "share": true,
+    "description": "Yoga-inspired routine for flexibility and balance.",
+    "user_id": 3
+  },
+  {
+    "name": "Strength and Power",
+    "share": false,
+    "description": "Emphasizing strength and power training techniques.",
+    "user_id": 4
+  },
+  {
+    "name": "Back Attack",
+    "share": true,
+    "description": "Targeting the muscles of the back for a strong and toned back.",
+    "user_id": 5
+  },
+  {
+    "name": "Endurance Challenge",
+    "share": false,
+    "description": "Designed to improve overall endurance and stamina.",
+    "user_id": 6
+  },
+  {
+    "name": "Mindful Movement",
+    "share": true,
+    "description": "A routine focusing on mindful movement and flexibility.",
+    "user_id": 7
+  }
+]
