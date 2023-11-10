@@ -15,6 +15,14 @@ const signupFormHandler = async (event) => {
       return; // Stop signup execution
     }
 
+    // Check if the username is unique
+    const isUnique = await isUsernameUnique(user_name);
+
+    if (!isUnique) {
+      alert('Username is already taken. Please choose a different one.'); // Replace this with a modal ******
+      return; // Stop signup execution
+    }
+
     // Check if passwords match
     if ( password !== confirmPassword ) {
       alert('Passwords do not match. Please re-enter.'); // Replace this with a modal ******
@@ -42,3 +50,25 @@ const signupFormHandler = async (event) => {
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
   
+
+  async function isUsernameUnique(username) {
+    try {
+      const response = await fetch(`/api/users/check-username/${user_name}`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (response.ok) {
+        // server responded with success status
+        const data = await response.json();
+        return data.isUnique;
+      } else {
+        // server responded with error status
+        console.error('Failed to check for unique username');
+        return false;
+      }
+    } catch (error) {
+      console.error('Error checking for unique username', error);
+      return false;
+    }
+  };
