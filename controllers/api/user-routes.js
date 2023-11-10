@@ -10,7 +10,7 @@ router.post('/signup', async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      res.status(200).json({ success: true, data: userData });
+      res.status(200).json({ success: true, data: userData});
     });
   } catch (err) {
     res.status(400).json({ success: false, error: err.message });
@@ -19,7 +19,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { user_name: req.body.user_name } });
 
     if (!userData) {
       res
@@ -58,5 +58,10 @@ router.post('/logout', withAuth, (req, res) => {
     res.status(500).json({ success: false, error: 'Error logging out' });
   }
 });
+
+router.get('/', async (req,res) => {
+  const usersdb = await User.findAll();
+  res.status(200).json(usersdb)
+})
 
 module.exports = router;
