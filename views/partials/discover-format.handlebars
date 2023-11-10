@@ -22,11 +22,11 @@
         <div class="cardy">
             <div class="discover-post">
                 <div>
-                    <button>@{{routine.user.user_name}}</button>
+                    <button id="{{routine.id}}">@{{routine.user.user_name}}</button>
                     <p>{{routine.description}}</p>
                     <p>Date Created: {{formatDate routine.date_created}}</p>
                 </div>
-                <div class="dataTable" id="{{routine.id}}">
+                <div class="dataTable">
                     <table>
                         <h2>{{routine.name}}</h2>
                         <thead class="tableHeaders">

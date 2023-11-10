@@ -5,8 +5,10 @@ const { User, Routine, Exercise } = require('../models');
 router.get('/', async (req,res) => {
     try{
         const homePage = true;
+        const loggedIn = req.session.logged_in;
         res.render('homepage',{
-            homePage
+            homePage,
+            loggedIn
         });
     } catch(err) {
         res.status(500).json(err);
@@ -30,7 +32,8 @@ router.get('/discover', async (req, res) => {
         console.log(routinesdb);
         const routines = await routinesdb.map((routine) => routine.get({ plain: true }));
         console.log(routines);
-        res.render('discover', { routines });
+        const loggedIn = req.session.logged_in;
+        res.render('discover', { routines, loggedIn });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -53,8 +56,8 @@ router.get('/discover/newest', async (req, res) => {
         });
 
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
-
-        res.render('discover-newest', { routines });
+        const loggedIn = req.session.logged_in;
+        res.render('discover-newest', { routines, loggedIn });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -77,8 +80,8 @@ router.get('/discover/oldest', async (req, res) => {
         });
 
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
-
-        res.render('discover-oldest', { routines });
+        const loggedIn = req.session.logged_in;
+        res.render('discover-oldest', { routines, loggedIn });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -87,8 +90,10 @@ router.get('/discover/oldest', async (req, res) => {
 router.get('/profile', async (req,res) => {
     try{
         const profile = true;
+        const loggedIn = req.session.logged_in;
         res.render('profile',{
-            profile
+            profile,
+            loggedIn
         });
     } catch(err) {
         res.status(500).json(err);
@@ -97,19 +102,11 @@ router.get('/profile', async (req,res) => {
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/');
-        return;
-    }
     res.render('login');
 });
 
 // GET request for rendering the signup page
 router.get('/signup', (req, res) => {
-    if (req.session.logged_in) {
-        res.redirect('/');
-        return;
-    }
     res.render('signup');
 });
 
