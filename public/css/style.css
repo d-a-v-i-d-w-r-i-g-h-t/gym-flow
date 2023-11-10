@@ -1,7 +1,8 @@
 :root{
-    --primary: #71b3df;
+    --primary: rgb(85, 220, 253);
     --secondary: #ecf0f1;
     --third: #34495e;
+    --fourth: rgb(222, 39, 17);
 }
 
 body{
@@ -16,20 +17,25 @@ header{
     justify-content: space-between;
     padding: 0px 50px 0px 50px;
     align-items: center;
+    border: 3px solid var(--fourth);
+    position: fixed;
+    z-index: 2;
+    width: 100%;
 }
 header a{
     margin-right: 10px;
-    font-weight: bold;
+    text-decoration: none;
 }
 
 header button, .btn-primary {
     width: 70px;
+    font-size: 13px;
     padding-left: 10px;
     padding-right: 10px;
-    height: 50px;
+    height: 30px;
     border: none;
     outline: none;
-    color: var(--third);
+    color: var(--secondary);
     background: var(--secondary);
     cursor: pointer;
     position: relative;
@@ -39,7 +45,7 @@ header button, .btn-primary {
 
 header button:before, .btn-primary:before {
     content: '';
-    background: linear-gradient(45deg, #71b3df, #ecf0f1,#71b3df, #ecf0f1,#71b3df, #ecf0f1,#71b3df, #ecf0f1 );
+    background: linear-gradient(45deg, rgb(85, 220, 253), #ecf0f1,rgb(222, 39, 17), rgb(85, 220, 253), #ecf0f1,rgb(222, 39, 17), rgb(85, 220, 253), #ecf0f1,rgb(222, 39, 17), rgb(85, 220, 253), #ecf0f1,rgb(222, 39, 17) );
     position: absolute;
     top: -2px;
     left:-2px;
@@ -51,11 +57,7 @@ header button:before, .btn-primary:before {
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    border-radius: 10px;
-}
-
-header button:active, .btn-primary:active {
-    color: var(--third)
+    border-radius: 0px;
 }
 
 header button:active:after, .btn-primary:active::after {
@@ -72,7 +74,7 @@ header button:after, .btn-primary::after {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--primary);
+    background: var(--fourth);
     left: 0;
     top: 0;
     border-radius: 10px;
@@ -86,11 +88,10 @@ header button:after, .btn-primary::after {
 
 .carousel{
     display: flex;
-    margin: 20px;
     justify-content: center;
     border-top: 3px solid var(--third);
     border-bottom: 3px solid var(--third);
-    padding: 20px 0px 20px 0px;
+    padding: 200px 0px 20px 0px;
 }
 
 
@@ -202,7 +203,8 @@ footer a{
 }
 
 .group{
-    margin-top: 100px;
+    padding-top: 400px;
+    padding-bottom: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -237,7 +239,8 @@ footer a{
 .btn-primary{
     margin-bottom: none;
     font-weight: bold;
-    color: var(--third);
+    color: var(--secondary);
+    width: 80px;
 }
 
 .signUpOption{
@@ -251,4 +254,162 @@ footer a{
     align-items: center;
     color: var(--third);
 }
+
+.cardy{
+    border: 3px solid var(--fourth);
+    padding: 20px;
+    background: var(--third);
+    color: var(--secondary);
+    margin-top: 20px;
+    width: 600px;
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.discoverAll{
+    padding-top: 300px;
+    display: flex;
+    margin: 0px 20px 0px 0px;
+}
+.discover{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown h2{
+    margin-top: 10px;
+}
+
+.discover{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-end;
+    padding-right: 200px;
+}
+
+.discover-post{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.dataTable{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid var(--fourth);
+    text-align: center;
+    padding: 0px 20px 20px 20px;
+    border-radius: 15px;
+}
+
+.dataTable h2{
+    color: var(--primary);
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.tableHeaders th{
+    font-weight: bold;
+    color: var(--secondary);
+    padding-bottom: 5px;
+}
+
+.trow{
+    font-weight: bold;
+    background: var(--secondary);
+    color: var(--third);
+    border: 2px solid var(--fourth);
+}
+
+.dataName{
+    text-align: left;
+    color: var(--third);
+    padding: 5px 0px 5px 5px;
+}
+
+.discover-post button{
+    background: var(--fourth);
+    color: var(--secondary);
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: -20px;
+}
+
+.action button{
+    width: 100%;
+    background: none;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.bottom-right-btn{
+    border-bottom-right-radius: 15px;
+}
+
+.bottom-left-btn{
+    border-bottom-left-radius: 15px;
+}
+
+.action button:hover{
+    cursor: pointer;
+}
+
+.routine-btn{
+    background-color: var(--third);
+    border-bottom: 1px solid var(--primary);
+    color: var(--secondary);
+    padding: 3px;
+    width: 250px;
+}
+
+.routine-btn:hover{
+    background: var(--primary);
+    color: var(--third);
+    border: 1px solid var(--third);
+    transition: 0.3s;
+}
+
+.sortbtn{
+    background: var(--fourth);
+}
+
+.sortbtn:hover{
+    background: var(--third);
+}
+
+.routine-nav{
+    border-right: 1px solid var(--primary);
+    border-top: 1px solid var(--primary);
+    border-left: 1px solid var(--primary);
+}
+
+.dropdown h2{
+    color: var(--third);
+    text-align: center;
+    padding-top: 10px;
+}
+
+
 
