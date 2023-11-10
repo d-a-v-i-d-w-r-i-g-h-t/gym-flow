@@ -22,7 +22,7 @@ async function isUsernameUnique(username) {
 
 const usernameInput = document.querySelector('#username-signup');
 
-// Event listener for username input check on blur
+// Event listener for username input check on blur (when you remove focus from the input field)
 usernameInput.addEventListener('blur', async () => {
   const username = usernameInput.value.trim();
   if (username !== '') {
@@ -40,12 +40,6 @@ Please choose a different username.`
   }
  });
 
-
-// Event listener for the signup form submit
-document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
-  
 
 const signupFormHandler = async (event) => {
   // Prevent the reload of the page upon form submit
@@ -96,3 +90,8 @@ const signupFormHandler = async (event) => {
 };
 
 
+// Event listener for the signup form submit
+document
+  .querySelector('.signup-form')
+  .addEventListener('submit', signupFormHandler);
+  
