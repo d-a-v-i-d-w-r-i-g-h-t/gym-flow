@@ -2,6 +2,24 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/authorize');
 
+router.get('/check-username/:username', async (req, res) => {
+  try {
+    const { username } = req.params;
+
+    // check if the username already exists in the database
+    const existingUser = await User.findOne({
+      where: {
+        user_name: username,
+      },
+    });
+
+    // provide response if username is unique or not
+    res.json({ isUnique: !existingUser });
+  } catch (err) {
+    res.status(400).json({ success: false, error: err.message });
+  }
+});
+
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
