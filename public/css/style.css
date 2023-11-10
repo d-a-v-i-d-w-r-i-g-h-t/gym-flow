@@ -267,7 +267,6 @@ footer a{
 }
 
 .discoverAll{
-    padding-top: 300px;
     display: flex;
     margin: 0px 20px 0px 0px;
 }
@@ -404,6 +403,13 @@ footer a{
     color: var(--third);
     text-align: center;
     padding-top: 10px;
+}
+
+.sort-title{
+    padding-top: 250px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--third);
 }
 
 
