@@ -1,5 +1,6 @@
 async function isUsernameUnique(username) {
   try {
+    // fetch request to check if a username is unique, returns true/false
     const response = await fetch(`/api/users/check-username/${username}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -22,16 +23,19 @@ async function isUsernameUnique(username) {
 
 const usernameInput = document.querySelector('#username-signup');
 
-// Event listener for username input check on blur (when you remove focus from the input field)
+// Event listener for username input check on blur (when the input field loses focus)
 usernameInput.addEventListener('blur', async () => {
   const username = usernameInput.value.trim();
   if (username !== '') {
     const isUnique = await isUsernameUnique(username);
     if (!isUnique) {
+
+      // ****** >>> REPLACE THIS ALERT WITH A MODAL <<< ******
       alert(
 `Username '${username}' is already taken.
 Please choose a different username.`
-      ); // Replace this with a modal ******
+      );
+
       // Clear the username input field
       usernameInput.value = '';
       // Set the focus back on the username input field
@@ -39,7 +43,6 @@ Please choose a different username.`
     }
   }
  });
-
 
 const signupFormHandler = async (event) => {
   // Prevent the reload of the page upon form submit
@@ -57,13 +60,19 @@ const signupFormHandler = async (event) => {
   // Check if any of the required fields is missing
   if ( !user_name || !email || !password || !confirmPassword ) {
     // Display an alert to inform the user
-    alert('Please provide all required information'); // Replace this with a modal ******
+
+    // ****** >>> REPLACE THIS ALERT WITH A MODAL <<< ******
+    alert('Please provide all required information');
+
     return; // Stop signup execution
   }
 
   // Check if passwords match
   if ( password !== confirmPassword ) {
-    alert('Passwords do not match. Please re-enter.'); // Replace this with a modal ******
+    
+    // ****** >>> REPLACE THIS ALERT WITH A MODAL <<< ******
+    alert('Passwords do not match. Please re-enter.');
+
     // Clear the password input fields
     passwordInput.value = '';
     confirmPasswordInput.value = '';
@@ -88,7 +97,6 @@ const signupFormHandler = async (event) => {
     }
   }
 };
-
 
 // Event listener for the signup form submit
 document
