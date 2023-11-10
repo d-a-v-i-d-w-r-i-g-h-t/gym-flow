@@ -36,6 +36,54 @@ router.get('/discover', async (req, res) => {
     }
 });
 
+router.get('/discover/newest', async (req, res) => {
+    try {
+        const routinesdb = await Routine.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ],
+            order: [['date_created', 'DESC']]
+        });
+
+        const routines = routinesdb.map((routine) => routine.get({ plain: true }));
+
+        res.render('discover-newest', { routines });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/discover/oldest', async (req, res) => {
+    try {
+        const routinesdb = await Routine.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ],
+            order: [['date_created', 'ASC']]
+        });
+
+        const routines = routinesdb.map((routine) => routine.get({ plain: true }));
+
+        res.render('discover-oldest', { routines });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.get('/profile', async (req,res) => {
     try{
         const profile = true;

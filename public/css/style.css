@@ -130,12 +130,12 @@ header button:after, .btn-primary::after {
 
 .aboutUs p{
     font-weight: bold;
-    border: 3px solid var(--third);
+    border: 3px solid var(--fourth);
     border-radius: 15px;
     padding: 50px;
-    background: var(--primary);
+    background: var(--third);
     font-size: 20px;
-    color: var(--third);
+    color: var(--secondary);
 }
 
 .options{
@@ -151,7 +151,7 @@ header button:after, .btn-primary::after {
 
 .details img{
     border-radius: 15px;
-    border:3px solid var(--primary);
+    border:3px solid var(--fourth);
 }
 
 .details{
@@ -161,12 +161,13 @@ header button:after, .btn-primary::after {
     padding: 30px;
     margin: 20px;
     width: 1000px;
-    border: 3px solid var(--primary);
+    border: 3px solid var(--fourth);
 }
 
 .details h3{
     font-size: 40px;
     text-decoration: underline;
+    color: var(--primary);
 }
 
 .details p{
@@ -267,7 +268,6 @@ footer a{
 }
 
 .discoverAll{
-    padding-top: 300px;
     display: flex;
     margin: 0px 20px 0px 0px;
 }
@@ -276,6 +276,7 @@ footer a{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-left: 200px;
 }
 
 .dropdown{
@@ -288,12 +289,6 @@ footer a{
     margin-top: 10px;
 }
 
-.discover{
-    display: flex;
-    flex-direction: column;
-    align-items:flex-end;
-    padding-right: 200px;
-}
 
 .discover-post{
     display: flex;
@@ -411,5 +406,57 @@ footer a{
     padding-top: 10px;
 }
 
+.sort-title{
+    padding-top: 250px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--third);
+}
 
 
+@media screen and (max-width: 1150px){
+    .dropdown{
+        position: relative;
+        align-items: center;
+    }
+    .discoverAll{
+        padding-top: 300px;
+        flex-direction: column;
+    }
+    
+    .discover{
+        padding-left: 0px;
+    }
+    }
+    
+    @media screen and (max-width: 670px){
+        .cardy{
+            width: 400px;
+        }
+        
+        .discover-post{
+            flex-direction: column;
+            padding: 5px;
+        }
+        
+        footer{
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        .footerSplit{
+            border-top: 2px solid var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            border-left: none;
+            border-right: none;
+            padding: 10px 0px 10px 0px;
+            text-align: center;
+        }
+        header a, header button{
+            margin-top: 5px;
+        }
+        header{
+            flex-direction: column;
+            padding: 20px;
+        }
+    }
