@@ -1,34 +1,62 @@
-<div class="discover">
-    {{#each routines as |routine| }}
-    <div class="card">
-        <div class="discover-post">
-            <div>
-                <button>@{{routine.user.user_name}}</button>
-                <p>{{routine.description}}</p>
-                <p>Date Created: {{formatDate routine.date_created}}</p>
-            </div>
-            <div class="dataTable">
-                <table>
-                    <h2>{{routine.name}}</h2>
-                    <thead class="tableHeaders">
-                        <tr>
-                            <th width="200">Name</th>
-                            <th>Weight</th>
-                            <th width="150">Reps</th>
-                        </tr>
-                    </thead>
-                    {{#each routine.exercises as |exercise|}}
-                    <tbody>
-                        <tr class="trow">
-                            <td class="dataName">{{exercise.name}}</td>
-                            <td>{{exercise.weight}}</td>
-                            <td>{{exercise.reps}}</td>
-                        </tr>
-                    </tbody>
-                    {{/each}}
-                </table>
-            </div>
+<div class="discoverAll">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle sortbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+        <h2>Routines  <i class="fa-solid fa-down-long fa-bounce" style="color: #34495e;"></i></h2>
+        {{#each routines as |routine|}}
+        <div class="routine-nav">
+            <a href="#{{routine.id}}">
+        <button class="routine-btn">{{routine.name}}</button>
+        </a>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
+    <div class="discover">
+        {{#each routines as |routine| }}
+        <div class="cardy">
+            <div class="discover-post">
+                <div>
+                    <button>@{{routine.user.user_name}}</button>
+                    <p>{{routine.description}}</p>
+                    <p>Date Created: {{formatDate routine.date_created}}</p>
+                </div>
+                <div class="dataTable" id="{{routine.id}}">
+                    <table>
+                        <h2>{{routine.name}}</h2>
+                        <thead class="tableHeaders">
+                            <tr>
+                                <th width="200">Name</th>
+                                <th>Weight</th>
+                                <th width="150">Reps</th>
+                            </tr>
+                        </thead>
+                        {{#each routine.exercises as |exercise|}}
+                        <tbody>
+                            <tr class="trow">
+                                <td class="dataName">{{exercise.name}}</td>
+                                <td>{{exercise.weight}}</td>
+                                <td>{{exercise.reps}}</td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+            <Div class="action">
+                <button class="bottom-left-btn"><i class="fa-regular fa-thumbs-up"
+                        style="color: rgb(85, 220, 253);"></i></button>
+                <button><i class="fa-regular fa-comment" style="color: rgb(85, 220, 253);"></i></button>
+                <button><i class="fa-solid fa-up-right-from-square" style="color: rgb(85, 220, 253);"></i></button>
+                <button class="bottom-right-btn"><i class="fa-regular fa-floppy-disk"
+                        style="color: rgb(85, 220, 253);"></i></button>
+            </Div>
+        </div>
+        {{/each}}
+    </div>
 </div>
