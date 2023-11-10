@@ -1,82 +1,102 @@
 [
   {
     "user_name": "SteveRay",
+    "email": "steveray@example.com",
     "password": "StrongPass1"
   },
   {
     "user_name": "SarahParker",
+    "email": "sarahparker@example.com",
     "password": "Fitness123"
   },
   {
     "user_name": "GymEnthusiast",
+    "email": "gymenthusiast@example.com",
     "password": "Workout456"
   },
   {
     "user_name": "CardioQueen",
+    "email": "cardioqueen@example.com",
     "password": "HeartHealth!"
   },
   {
     "user_name": "MuscleMaster",
+    "email": "musclemaster@example.com",
     "password": "Powerlift789"
   },
   {
     "user_name": "YogaWarrior",
+    "email": "yogawarrior@example.com",
     "password": "ZenMode2022"
   },
   {
     "user_name": "SpinCyclist",
+    "email": "spincyclist@example.com",
     "password": "SpinItUp!"
   },
   {
     "user_name": "MarathonManiac",
+    "email": "marathonmaniac@example.com",
     "password": "Run4Life"
   },
   {
     "user_name": "HealthyHiker",
+    "email": "healthyhiker@example.com",
     "password": "TrailBlazer77"
   },
   {
     "user_name": "FlexAndStretch",
+    "email": "flexandstretch@example.com",
     "password": "Stretching101"
   },
   {
     "user_name": "NutritionNinja",
+    "email": "nutritionninja@example.com",
     "password": "EatClean2023"
   },
   {
     "user_name": "FitFusion",
+    "email": "fitfusion@example.com",
     "password": "FitLife!"
   },
   {
     "user_name": "SweatEquity",
+    "email": "sweatequity@example.com",
     "password": "SweatHarder"
   },
   {
     "user_name": "WellnessWarrior",
+    "email": "wellnesswarrior@example.com",
     "password": "MindBodySoul"
   },
   {
     "user_name": "IronPumper",
+    "email": "ironpumper@example.com",
     "password": "LiftHeavy#"
   },
   {
     "user_name": "ZumbaDancer",
+    "email": "zumbadancer@example.com",
     "password": "DanceGroove!"
   },
   {
     "user_name": "FitnessFanatic",
+    "email": "fitnessfanatic@example.com",
     "password": "Active365"
   },
   {
     "user_name": "PilatesPro",
+    "email": "pilatespro@example.com",
     "password": "CoreStrength!"
   },
   {
     "user_name": "BodyweightBeast",
+    "email": "bodyweightbeast@example.com",
     "password": "Calisthenics123"
   },
   {
     "user_name": "HealthHero",
+    "email": "healthhero@example.com",
     "password": "LiveWell2023"
   }
 ]

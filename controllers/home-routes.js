@@ -9,7 +9,7 @@ router.get('/', async (req,res) => {
             homePage
         });
     } catch(err) {
-        res.render('Error')
+        res.status(500).json(err);
     }
 });
 
@@ -43,7 +43,7 @@ router.get('/profile', async (req,res) => {
             profile
         });
     } catch(err) {
-        res.render('Error')
+        res.status(500).json(err);
     }
 });
 
