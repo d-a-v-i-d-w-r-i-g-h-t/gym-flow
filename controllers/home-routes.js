@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Routine, Exercise } = require('../models');
+const withAuth = require('../utils/authorize');
 
 //getting the homepage
 router.get('/', async (req,res) => {
@@ -89,7 +90,7 @@ router.get('/discover/oldest', async (req, res) => {
     }
 });
 
-router.get('/profile/:id', async (req,res) => {
+router.get('/profile/:id', withAuth, async (req, res) => {
     try{
         const profile = true;
         const loggedIn = req.session.logged_in;
@@ -98,15 +99,15 @@ router.get('/profile/:id', async (req,res) => {
                 user_id: req.session.user_id
             },
             include: [
-            {
-                model: User,
-                attributes: ['user_name']
-            },
-            {
-                model: Exercise,
-                attributes: ['id', 'name', 'weight', 'reps']
-            }
-        ]
+                {
+                    model: User,
+                    attributes: ['user_name']
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ]
         });
         res.render('profile',{
             profile,
@@ -116,12 +117,12 @@ router.get('/profile/:id', async (req,res) => {
     } catch(err) {
         res.status(500).json(err);
     }
-  });
+});
 
-  router.get('/create', (req,res) =>{
+router.get('/create', withAuth, (req, res) =>{
     const createPage = true;
-  res.render('create', {createPage});
-  });
+    res.render('create', {createPage});
+});
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
