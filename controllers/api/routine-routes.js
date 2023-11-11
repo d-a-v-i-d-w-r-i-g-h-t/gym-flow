@@ -23,13 +23,26 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:routine_name', async (req,res)=>{
+    try{
+        const findRoutine = await Routine.findOne({
+            where:{
+                routine_name: req.params.routine_name
+            }
+        });
+        res.status(200).json(findRoutine);
+    }catch(err){
+        res.status(500).json(err)
+    }
+})
+
 router.post('/', withAuth, async (req, res) => {
     try {
         const postRoutine = await Routine.create({
-            name: req.body.name,
+            routine_name: req.body.routine_name,
             share: req.body.share,
             description: req.body.description,
-            user_id: req.body.user_id
+            user_id: req.session.user_id,
         });
         res.status(200).json(postRoutine);
     } catch (err) {
@@ -51,7 +64,7 @@ router.put('/:id', withAuth, async (req, res) => {
     try {
         const findRoutine = await Routine.findByPk(req.params.id);
         const updateRoutine = await findRoutine.update({
-            name: req.body.name,
+            routine_name: req.body.routine_name,
             share: req.body.share,
             description: req.body.description,
             user_id: req.body.user_id

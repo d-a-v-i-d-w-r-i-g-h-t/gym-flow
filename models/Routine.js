@@ -11,7 +11,7 @@ Routine.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        routine_name: {
             type: DataTypes.STRING,
             notNull: true,
         },

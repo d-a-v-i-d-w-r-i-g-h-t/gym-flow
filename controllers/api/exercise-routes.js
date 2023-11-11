@@ -6,7 +6,10 @@ const withAuth = require('../../utils/authorize');
 router.post('/', withAuth, async (req, res) => {
   try {
     const newExercise = await Exercise.create({
-      ...req.body,
+      name: req.body.name,
+      weight: req.body.weight,
+      reps: req.body.reps,
+      routine_id: req.body.routine_id
     });
 
     res.status(201).json({ success: true, data: newExercise });
