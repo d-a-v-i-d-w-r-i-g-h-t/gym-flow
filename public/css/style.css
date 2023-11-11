@@ -553,6 +553,10 @@ footer a {
     color: var(--primary);
 }
 
+#hidden-id{
+    display: none;
+}
+
 
 
 @media screen and (max-width: 1150px) {
