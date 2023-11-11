@@ -32,25 +32,60 @@ deleteButtons.forEach((button) => {
 
 shareButtons.forEach((button) => {
     button.addEventListener('click', async function () {
-
         const routineId = button.parentElement.parentElement.querySelector('#hidden-id').textContent;
 
+        const checkif = await fetch(`/api/routines/search/${routineId}`);
+        const shared = await checkif.json();
+        let isShared = shared.share;
+
+        console.log(isShared);
+
+        if (isShared) {
+            let share = false;
+
+            const response = await fetch(`/api/routines/${routineId}`, {
+                method: 'PUT',
+                body: JSON.stringify({ share }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (response.ok) {
+                alert('Routine is now unshared!');
+            } else {
+                alert('Unable to unshare routine');
+            }
+        } else {
             let share = true;
 
             const response = await fetch(`/api/routines/${routineId}`, {
                 method: 'PUT',
-                body: JSON.stringify({share}),
+                body: JSON.stringify({ share }),
                 headers: { 'Content-Type': 'application/json' },
             });
-    
+
             if (response.ok) {
                 alert('Routine is now shared on the Discover page!');
             } else {
-                alert('unable to share Routine')
+                alert('Unable to share routine');
             }
-        
-        const getProfile = fetch('/api/sessions');
-        document.location.replace(`/discover`);
+        }
 
+        button.innerText = isShared ? 'Share' : 'Unshare';
+
+        localStorage.setItem(`routine_${routineId}_share`, isShared);
+
+        document.location.replace(`/discover`);
     });
+});
+
+
+shareButtons.forEach((button) => {
+    const routineId = button.parentElement.parentElement.querySelector('#hidden-id').textContent;
+    const isShared = localStorage.getItem(`routine_${routineId}_share`);
+
+    if (isShared === 'false') {
+        button.innerText = 'Unshare';
+    } else {
+        button.innerText = 'Share';
+    }
 });
