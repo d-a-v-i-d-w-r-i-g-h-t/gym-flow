@@ -20,6 +20,9 @@ router.get('/', async (req,res) => {
 router.get('/discover', async (req, res) => {
     try {
         const routinesdb = await Routine.findAll({
+            where:{
+                share: true,
+            },
             include: [
                 {
                     model: User,
@@ -93,14 +96,14 @@ router.get('/profile/:id', async (req,res) => {
     try{
         const profile = true;
         const loggedIn = req.session.logged_in;
-        const routines = await Routine.findOne({
+        const routinesdb = await Routine.findAll({
             where: {
                 user_id: req.session.user_id
             },
             include: [
             {
                 model: User,
-                attributes: ['user_name']
+                attributes: ['id','user_name']
             },
             {
                 model: Exercise,
@@ -108,11 +111,13 @@ router.get('/profile/:id', async (req,res) => {
             }
         ]
         });
+        const routines = routinesdb.map((routine) => routine.get({ plain: true }));
         res.render('profile',{
             profile,
             loggedIn,
             routines,
         });
+        console.log(routines)
     } catch(err) {
         res.status(500).json(err);
     }
@@ -132,6 +137,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
+
 
 
 module.exports = router;

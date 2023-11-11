@@ -34,6 +34,28 @@ router.get('/:routine_name', async (req,res)=>{
     }catch(err){
         res.status(500).json(err)
     }
+});
+
+router.get('/user-routines/:id', async (req,res) =>{
+    try{
+        const findMyRoutines = await Routine.findAll({
+            where: {
+                user_id: req.params.id
+            },
+            include: [{
+                model: User,
+                attributes: ['id', 'user_name']
+            },
+            {
+                model: Exercise,
+                attributes: ['name', 'weight', 'reps']
+            }
+        ]
+        });
+        res.status(200).json(findMyRoutines)
+    }catch(err){
+        res.status(500).json(err)
+    }
 })
 
 router.post('/', withAuth, async (req, res) => {
