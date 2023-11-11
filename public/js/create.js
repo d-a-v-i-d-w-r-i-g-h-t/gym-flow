@@ -84,8 +84,10 @@ savebtn.addEventListener('click', async function (event) {
           });
 
           if(response.ok){
-            alert(`New Exercises added to${routine_name}}`);
-            document.location.replace(`/discover`);
+            const userid = await fetch('/api/sessions');
+            const getuserId = await userid.json();
+            const profile_id = getuserId.user_id;
+            document.location.replace(`/profile/${profile_id}`);
           }else{
             alert('Failed to add exercises to your routine')
           }
