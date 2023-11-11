@@ -25,7 +25,7 @@
         <a href="/discover">
           <button>Discover</button>
 
-          <a href="/profile">
+          <a href="/profile/{{profileId}}">
             <button>My Flow</button>
           </a>
           {{#if loggedIn}}
@@ -55,6 +55,9 @@
   {{/if}}
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
+  {{/if}}
+  {{#if createPage}}
+  <script src="/js/create.js"></script>
   {{/if}}
   <footer>
     <p>&copy; 2023 Your Fitness Website. All rights reserved. | Address: 123 Fitness Street, Workout City, Fitlandia |
