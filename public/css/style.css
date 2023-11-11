@@ -514,6 +514,20 @@ th .sort-title {
     margin-left: 4.5px;
 }
 
+.descriptionInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.descriptionInput textarea{
+    width: 400px;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
 
 
 @media screen and (max-width: 1150px) {

@@ -12,7 +12,7 @@
         {{#each routines as |routine|}}
         <div class="routine-nav">
             <a href="#{{routine.id}}">
-        <button class="routine-btn">{{routine.name}}</button>
+        <button class="routine-btn">{{routine.routine_name}}</button>
         </a>
         </div>
         {{/each}}
@@ -28,7 +28,7 @@
                 </div>
                 <div class="dataTable">
                     <table>
-                        <h2>{{routine.name}}</h2>
+                        <h2>{{routine.routine_name}}</h2>
                         <thead class="tableHeaders">
                             <tr>
                                 <th width="200">Name</th>
