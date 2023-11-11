@@ -25,7 +25,13 @@
         <a href="/discover">
           <button>Discover</button>
 
-          <a href="/profile/{{profileId}}">
+          <a href="
+          {{#if loggedIn}}
+          /profile/{{username}}
+          {{else}}
+          /login/
+          {{/if}}
+          ">
             <button>My Flow</button>
           </a>
           {{#if loggedIn}}
