@@ -1,11 +1,11 @@
 const editButtons = document.querySelector('#edit-button');
 const deleteButtons = document.querySelectorAll('#delete-button');
-const shareButtons = document.querySelector('#share-button');
+const shareButtons = document.querySelectorAll('#share-button');
 const routineId = document.querySelector('#hidden-id').textContent;
 
 
 deleteButtons.forEach((button) => {
-    button.addEventListener('click', async function (event) {
+    button.addEventListener('click', async function () {
 
         const routineId = button.parentElement.parentElement.querySelector('#hidden-id').textContent;
 
@@ -26,6 +26,31 @@ deleteButtons.forEach((button) => {
 
         const getProfile = fetch('/api/sessions');
         document.location.replace(`/profile/${getProfile.user_id}`);
+
+    });
+});
+
+shareButtons.forEach((button) => {
+    button.addEventListener('click', async function () {
+
+        const routineId = button.parentElement.parentElement.querySelector('#hidden-id').textContent;
+
+            let share = true;
+
+            const response = await fetch(`/api/routines/${routineId}`, {
+                method: 'PUT',
+                body: JSON.stringify({share}),
+                headers: { 'Content-Type': 'application/json' },
+            });
+    
+            if (response.ok) {
+                alert('Routine is now shared on the Discover page!');
+            } else {
+                alert('unable to share Routine')
+            }
+        
+        const getProfile = fetch('/api/sessions');
+        document.location.replace(`/discover`);
 
     });
 });
