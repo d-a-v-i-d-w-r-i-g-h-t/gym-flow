@@ -2,6 +2,7 @@ const User = require('./User');
 const Routine = require('./Routine');
 const Exercise = require('./Exercise');
 const Comment = require('./Comment');
+const Like = require('./Like');
 
 // associations
 
@@ -45,5 +46,9 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
+// user and routine: many to many, through Like
+User.belongsToMany(Routine, { through: Like });
+Routine.belongsToMany(User, { through: Like });
 
-module.exports = { User, Routine, Exercise, Comment };
+
+module.exports = { User, Routine, Exercise, Comment, Like };

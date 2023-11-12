@@ -49,12 +49,30 @@
                 </div>
             </div>
             <Div class="action">
-                <button class="bottom-left-btn"><i class="fa-regular fa-thumbs-up"
-                        style="color: rgb(85, 220, 253);"></i></button>
-                <button><i class="fa-regular fa-comment" style="color: rgb(85, 220, 253);"></i></button>
-                <button><i class="fa-solid fa-up-right-from-square" style="color: rgb(85, 220, 253);"></i></button>
-                <button class="bottom-right-btn"><i class="fa-regular fa-floppy-disk"
-                        style="color: rgb(85, 220, 253);"></i></button>
+                <button
+                    class="like-button bottom-left-btn"
+                    data-routine-id="{{routine.id}}"
+                    data-liked="{{#if userLiked}}true{{else}}false{{/if}}">
+                <span class="like-count">{{likeCount}}</span>
+                    <i
+                        class="
+                            {{#if userLiked}}
+                            fa-solid
+                            {{else}}
+                            fa-regular
+                            {{/if}} fa-thumbs-up"
+                    >
+                    </i>
+                </button>
+                <button>
+                    <i class="fa-regular fa-comment"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                </button>
+                <button class="bottom-right-btn">
+                    <i class="fa-regular fa-floppy-disk"></i>
+                </button>
             </Div>
         </div>
         {{/each}}
