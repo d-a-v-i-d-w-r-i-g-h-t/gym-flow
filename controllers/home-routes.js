@@ -28,6 +28,9 @@ router.get('/discover', async (req, res) => {
 
         // get all routines
         const routinesData = await Routine.findAll({
+            where:{
+                share: true,
+            },
             include: [
                 {
                     model: User,
@@ -126,27 +129,33 @@ router.get('/discover/oldest', async (req, res) => {
 router.get('/profile/:id', withAuth, async (req, res) => {
     try{
         const profile = true;
-        // const loggedIn = req.session.logged_in;
-        const routines = await Routine.findOne({
+
+        const loggedIn = req.session.logged_in;
+        const routinesdb = await Routine.findAll({
+
             where: {
                 user_id: req.session.user_id
             },
             include: [
-                {
-                    model: User,
-                    attributes: ['user_name']
-                },
-                {
-                    model: Exercise,
-                    attributes: ['id', 'name', 'weight', 'reps']
-                }
-            ]
+
+            {
+                model: User,
+                attributes: ['id','user_name']
+            },
+            {
+                model: Exercise,
+                attributes: ['id', 'name', 'weight', 'reps']
+            }
+        ]
+
         });
+        const routines = routinesdb.map((routine) => routine.get({ plain: true }));
         res.render('profile',{
             profile,
             // loggedIn,
             routines,
         });
+        console.log(routines)
     } catch(err) {
         res.status(500).json(err);
     }
@@ -167,6 +176,7 @@ router.get('/login', (req, res) => {
 router.get('/signup', (req, res) => {
     res.render('signup');
 });
+
 
 
 module.exports = router;

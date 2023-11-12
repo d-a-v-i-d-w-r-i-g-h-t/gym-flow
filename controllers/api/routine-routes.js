@@ -34,7 +34,7 @@ router.get('/:routine_name', async (req,res)=>{
     }catch(err){
         res.status(500).json(err)
     }
-})
+});
 
 router.post('/', withAuth, async (req, res) => {
     try {
@@ -50,10 +50,13 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/search/:id', async (req, res) => {
     try {
-        const findRoutine = await Routine.findByPk(req.params.id
-        )
+        const findRoutine = await Routine.findOne({
+            where: {
+                id: req.params.id
+            }
+    })
         res.status(200).json(findRoutine);
     } catch (err) {
         res.status(500).json({ message: "no routine at this id" })
