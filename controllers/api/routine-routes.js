@@ -102,5 +102,23 @@ router.post('/like/:routineId', withAuth, async (req, res) => {
     }
   });
 
+// DELETE route to delete a like
+router.delete('/unlike/:likeId', withAuth, async (req, res) => {
+    try {
+
+        const likeID = req.params.likeId;
+
+        const existingLike = await Like.findByPk(likeID);
+
+        if (!existingLike) {
+            res.status(404).json({ success: false, message: 'Like not found with this id!' });
+            return;
+        }
+  
+        res.status(200).json({ success: true, message: 'Like removed successfully!' });
+    } catch (err) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+  });
 
 module.exports = router;
