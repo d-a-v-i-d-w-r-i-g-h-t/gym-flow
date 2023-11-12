@@ -1,4 +1,4 @@
-const { Model, Datatypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Like extends Model {}
@@ -6,13 +6,13 @@ class Like extends Model {}
 Like.init(
   {
     id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
       allowNull: false,
     },
     user_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'user',
@@ -20,17 +20,17 @@ Like.init(
       },
     },
     routine_id: {
-      type: Datatypes.INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'user',
         key: 'id',
       },
     },
-    createdAt: {
-      type: Datatypes.DATE,
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
-        defaultValue: Datatypes.NOW,
+        defaultValue: DataTypes.NOW,
     },
   },
   {

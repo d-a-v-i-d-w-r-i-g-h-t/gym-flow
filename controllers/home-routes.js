@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
 
 router.get('/discover', async (req, res) => {
     try {
+        const discoverPage = true;
         const routinesdb = await Routine.findAll({
             include: [
                 {
@@ -42,6 +43,7 @@ router.get('/discover', async (req, res) => {
         // const loggedIn = req.session.logged_in;
         res.render('discover', {
             routines,
+            discoverPage,
             // loggedIn,
             // profileId
         });
