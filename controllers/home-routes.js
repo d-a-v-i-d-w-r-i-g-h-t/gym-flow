@@ -1,16 +1,21 @@
 const router = require('express').Router();
 const { User, Routine, Exercise } = require('../models');
+const withAuth = require('../utils/authorize');
+const commonDataMiddleware = require('../utils/commonDataMiddleware');
 
-//getting the homepage
-router.get('/', async (req,res) => {
+// use middleware to add common data to the response locals
+router.use(commonDataMiddleware);
+
+// getting the homepage
+router.get('/', async (req, res) => {
     try{
         const homePage = true;
-        const loggedIn = req.session.logged_in;
-        const profileId = req.session.user_id;
+        // const loggedIn = req.session.logged_in;
+        // const profileId = req.session.user_id;
         res.render('homepage',{
             homePage,
-            loggedIn,
-            profileId
+            // loggedIn,
+            // profileId
         });
     } catch(err) {
         res.status(500).json(err);
@@ -36,9 +41,13 @@ router.get('/discover', async (req, res) => {
         });
         console.log(routinesdb);
         const routines = await routinesdb.map((routine) => routine.get({ plain: true }));
-        const profileId = req.session.user_id;
-        const loggedIn = req.session.logged_in;
-        res.render('discover', { routines, loggedIn, profileId });
+        // const profileId = req.session.user_id;
+        // const loggedIn = req.session.logged_in;
+        res.render('discover', {
+            routines,
+            // loggedIn,
+            // profileId
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -61,8 +70,11 @@ router.get('/discover/newest', async (req, res) => {
         });
 
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
-        const loggedIn = req.session.logged_in;
-        res.render('discover-newest', { routines, loggedIn });
+        // const loggedIn = req.session.logged_in;
+        res.render('discover-newest', {
+            routines,
+            // loggedIn
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -85,22 +97,28 @@ router.get('/discover/oldest', async (req, res) => {
         });
 
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
-        const loggedIn = req.session.logged_in;
-        res.render('discover-oldest', { routines, loggedIn });
+        // const loggedIn = req.session.logged_in;
+        res.render('discover-oldest', {
+            routines,
+            // loggedIn
+        });
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/profile/:id', async (req,res) => {
+router.get('/profile/:id', withAuth, async (req, res) => {
     try{
         const profile = true;
+
         const loggedIn = req.session.logged_in;
         const routinesdb = await Routine.findAll({
+
             where: {
                 user_id: req.session.user_id
             },
             include: [
+
             {
                 model: User,
                 attributes: ['id','user_name']
@@ -110,23 +128,25 @@ router.get('/profile/:id', async (req,res) => {
                 attributes: ['id', 'name', 'weight', 'reps']
             }
         ]
+
         });
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
         res.render('profile',{
             profile,
-            loggedIn,
+            // loggedIn,
             routines,
         });
         console.log(routines)
     } catch(err) {
         res.status(500).json(err);
     }
-  });
+});
 
-  router.get('/create', (req,res) =>{
+// GET request for rendering the create page
+router.get('/create', withAuth, (req, res) =>{
     const createPage = true;
-  res.render('create', {createPage});
-  });
+    res.render('create', {createPage});
+});
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
