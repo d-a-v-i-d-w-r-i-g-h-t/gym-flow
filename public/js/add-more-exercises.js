@@ -45,17 +45,14 @@ removebtn.addEventListener('click', function(event){
 
 savebtn.addEventListener('click', async function (event) {
     event.preventDefault();
-    
+
     let rows = document.querySelectorAll('#nameInput'); // Using class instead of ID
     rows.forEach( async function (row) {
         let name = row.value;
         let weight = row.parentElement.querySelector('#weightInput').value;
         let reps = row.parentElement.querySelector('#repsInput').value;
 
-
-        const getRoutineIdResponse = await fetch(`/api/routines/${routine_name}`);
-        const getRoutineIdData = await getRoutineIdResponse.json();
-        const routine_id = getRoutineIdData.id;
+        const routine_id = document.querySelector('#hidden').textContent;
 
         if(name && weight && reps){
           const response = await fetch('/api/exercises', {
@@ -65,10 +62,7 @@ savebtn.addEventListener('click', async function (event) {
           });
 
           if(response.ok){
-            const userid = await fetch('/api/sessions');
-            const getuserId = await userid.json();
-            const profile_id = getuserId.user_id;
-            document.location.replace(`/profile/${profile_id}`);
+            document.location.replace(`/routine-edit/${routine_id}`);
           }else{
             alert('Failed to add exercises to your routine')
           }

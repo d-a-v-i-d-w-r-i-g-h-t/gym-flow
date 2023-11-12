@@ -5,39 +5,6 @@ const updatebtn = document.querySelector('#updatebtn')
 const routineId = document.querySelector('.hidden-id').textContent;
 const editButton = document.querySelectorAll('.editEButton');
 
-
-
-addbtn.addEventListener('click', function (event) {
-    event.preventDefault();
-
-    let newDiv = document.createElement('div')
-    let newName = document.createElement('input');
-    let newWeight = document.createElement('input');
-    let newReps = document.createElement('input');
-
-    newName.setAttribute('type', 'text');
-    newName.setAttribute('placeholder', 'text');
-    newName.setAttribute('id', 'nameInput');
-    newName.setAttribute('class', 'first-input');
-
-
-    newWeight.setAttribute('type', 'number');
-    newWeight.setAttribute('placeholder', '0');
-    newWeight.setAttribute('id', 'weightInput');
-
-
-    newReps.setAttribute('type', 'number');
-    newReps.setAttribute('placeholder', '0');
-    newReps.setAttribute('id', 'repsInput');
-    newReps.setAttribute('class', 'last-input');
-
-
-    newDiv.appendChild(newName);
-    newDiv.appendChild(newWeight);
-    newDiv.appendChild(newReps);
-    parent.appendChild(newDiv);
-});
-
 trashButton.forEach((button) => {
     button.addEventListener('click', async function () {
         try {
@@ -79,6 +46,10 @@ updatebtn.addEventListener('click', async function (event) {
 
         if (response.ok) {
             alert("Routine Updated!")
+            const userid = await fetch('/api/sessions');
+            const getUserName = await userid.json();
+            const profile_name = getUserName.user_name;
+            document.location.replace(`/profile/${profile_name}`);
         } else {
             alert('Failed to update Routine.');
         }

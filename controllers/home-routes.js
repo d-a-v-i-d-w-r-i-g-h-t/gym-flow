@@ -212,7 +212,22 @@ router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     }catch(err){
         res.status(500).json(err);
     }
-})
+});
+
+router.get('/add-exercises/:id', async (req,res) => {
+    try{
+        const routinedb = await Routine.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        const addMoreExercises = true;
+        const routines = routinedb.get({ plain: true });
+        res.render('add-exercises', {routines, addMoreExercises});
+    }catch(err){
+        res.status(500).json(err);
+    }
+  });
 
 
 // GET request for rendering the login page
