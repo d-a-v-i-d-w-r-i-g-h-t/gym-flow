@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Routine, Exercise, User } = require('../../models');
+const { Routine, Exercise, User, Like } = require('../../models');
 const withAuth = require('../../utils/authorize');
 
 
 router.get('/', async (req, res) => {
     try {
-        const routinesdb = await Routine.findAll({
+        const routinesData = await Routine.findAll({
             include: [
                 {
                     model: User,
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
                 }
             ]
         });
-        res.status(200).json(routinesdb)
+        res.status(200).json(routinesData)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -88,5 +88,59 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+// POST route to add a like
+router.post('/like/:routineId', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+        const routineId = req.params.routineId;
+    
+        const existingLike = await Like.findOne({
+            where: {
+                user_id: userId,
+                routine_id: routineId,
+            },
+        });
+
+        if (existingLike) {
+            // user already liked this routine
+            return res.status(200).json({ success: false, message: 'User already liked this routine!' });
+        }
+
+        const newLike = await Like.create({
+            user_id: userId,
+            routine_id: routineId,
+        });
+
+        res.status(201).json({ success: true, data: newLike });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// DELETE route to delete a like
+router.delete('/unlike/:routineId', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+        const routineId = req.params.routineId;
+
+        const existingLike = await Like.findOne({
+            where: {
+                user_id: userId,
+                routine_id: routineId,
+            },
+        });
+
+        if (!existingLike) {
+            return res.status(404).json({ success: false, message: 'Like not found!' });
+        }
+
+        await existingLike.destroy();
+        res.status(200).json({ success: true, message: 'Routine unliked successfully!' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
 
 module.exports = router;
