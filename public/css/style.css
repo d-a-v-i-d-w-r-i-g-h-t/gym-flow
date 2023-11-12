@@ -425,7 +425,7 @@ footer a {
     padding-top: 10px;
 }
 
-th .sort-title {
+.sort-title {
     padding-top: 250px;
     text-align: center;
     font-weight: bold;
@@ -526,6 +526,35 @@ th .sort-title {
     height: 200px;
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.profileData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.headerDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.profileHeader{
+    text-align: center;
+    background: var(--primary);
+    border: 2px solid var(--third);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 50px 0px 50px 0px;
+}
+
+.profilebtns{
+    color: var(--primary);
+}
+
+#hidden-id{
+    display: none;
 }
 
 
