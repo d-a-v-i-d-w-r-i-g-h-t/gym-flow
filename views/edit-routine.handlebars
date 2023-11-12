@@ -1,0 +1,54 @@
+<div class="createRoutine">
+    <div>
+        <form>
+            <div class="createCardy">
+                <div>
+                    <div class="createDataTable">
+                        <table id="createTable">
+                            <label>Routine Name: <textarea class="rNameUpdate" type="text"
+                                    id="newRoutineName">{{routines.routine_name}}</textarea></label>
+                            <p class="hidden-id">{{routines.id}}</p>
+                            <label class="descriptionInput">Routine Description: <textarea class="txtarea"
+                                    placeholder="A Short description of your routine!">{{routines.description}}</textarea></label>
+                            <p class="hidden-description">{{routines.description}}</p>
+                            <table>
+                                <thead class="tableHeaders">
+                                    <tr>
+                                        <th width="200">Name</th>
+                                        <th>Weight</th>
+                                        <th width="150">Reps</th>
+                                    </tr>
+                                </thead>
+                                {{#each routines.exercises as |exercise|}}
+                                <tbody>
+                                    <tr class="trow">
+                                        <td class="dataName">{{exercise.name}}</td>
+                                        <td>{{exercise.weight}}</td>
+                                        <td>{{exercise.reps}}</td>
+                                        <td class="hiddenExerciseId">{{exercise.id}}</td>
+                                        <td>
+                                        <td>
+                                            <a href="edit-exercise/{{exercise.id}}" class="editEButton">
+                                                <i class="fa-solid fa-pen-to-square" style="color: #55dcfd;"></i>
+                                            </a>
+                                        </td>
+                                        </td>
+                                        <td>
+                                            <button class="trashButton"><i class="fa-solid fa-trash"
+                                                    style="color: #55dcfd;"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {{/each}}
+                            </table>
+                        </table>
+                        <Div class="createButtons">
+                            <button id="updatebtn">Update</button>
+                            <button id="addbtn">Add Exercises</button>
+                        </Div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

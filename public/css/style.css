@@ -553,8 +553,64 @@ footer a {
     color: var(--primary);
 }
 
-#hidden-id{
+#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id{
     display: none;
+}
+
+.editTag{
+    text-decoration: none;
+    width: 100%;
+}
+
+.rNameUpdate{
+    height: 30px;
+}
+
+.trashButton{
+    align-items: center;
+    background: var(--third);
+    margin-left: 5px;
+}
+
+.edit-exercise-header{
+    padding-top: 250px;
+    text-align: center;
+    color: var(--third);
+}
+
+.edit-table{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.edit-table-names{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.exercise-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid var(--fourth);
+    margin: 20px 250px 20px 250px;
+    border-radius: 15px;
+}
+
+.exercise-container button{
+    background: var(--third);
+    color: var(--primary);
+    font-weight: bold;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.editEButton{
+    background: var(--third);
+    padding: 3px 5px 3px 5px;
+    border: 2px solid black;
 }
 
 

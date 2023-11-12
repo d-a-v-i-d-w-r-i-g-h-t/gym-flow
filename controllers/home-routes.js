@@ -2,17 +2,17 @@ const router = require('express').Router();
 const { User, Routine, Exercise } = require('../models');
 
 //getting the homepage
-router.get('/', async (req,res) => {
-    try{
+router.get('/', async (req, res) => {
+    try {
         const homePage = true;
         const loggedIn = req.session.logged_in;
         const profileId = req.session.user_id;
-        res.render('homepage',{
+        res.render('homepage', {
             homePage,
             loggedIn,
             profileId
         });
-    } catch(err) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
@@ -20,7 +20,7 @@ router.get('/', async (req,res) => {
 router.get('/discover', async (req, res) => {
     try {
         const routinesdb = await Routine.findAll({
-            where:{
+            where: {
                 share: true,
             },
             include: [
@@ -92,8 +92,8 @@ router.get('/discover/oldest', async (req, res) => {
     }
 });
 
-router.get('/profile/:id', async (req,res) => {
-    try{
+router.get('/profile/:id', async (req, res) => {
+    try {
         const profile = true;
         const loggedIn = req.session.logged_in;
         const routinesdb = await Routine.findAll({
@@ -101,32 +101,78 @@ router.get('/profile/:id', async (req,res) => {
                 user_id: req.session.user_id
             },
             include: [
-            {
-                model: User,
-                attributes: ['id','user_name']
-            },
-            {
-                model: Exercise,
-                attributes: ['id', 'name', 'weight', 'reps']
-            }
-        ]
+                {
+                    model: User,
+                    attributes: ['id', 'user_name']
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ]
         });
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
-        res.render('profile',{
+        res.render('profile', {
             profile,
             loggedIn,
             routines,
         });
         console.log(routines)
-    } catch(err) {
+    } catch (err) {
         res.status(500).json(err);
     }
-  });
+});
 
-  router.get('/create', (req,res) =>{
+router.get('/create', (req, res) => {
     const createPage = true;
-  res.render('create', {createPage});
-  });
+    res.render('create', { createPage });
+});
+
+router.get('/routine-edit/:id', async (req, res) => {
+    try {
+        const routinesdb = await Routine.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ]
+        });
+        const routines = routinesdb.get({ plain: true });
+        const editPage = true;
+        res.render('edit-routine', { routines, editPage });
+        console.log(routinesdb)
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
+    try{
+        const exercisedb = await Exercise.findOne({
+            where:{
+                id: req.params.id,
+            },
+            include:{
+                model: Routine,
+                attributes: ['id']
+            }
+        });
+        const editExercise = true;
+        const exercise = exercisedb.get({ plain: true });
+        console.log(exercise);
+        res.render('update-Exercise',{
+            exercise,
+            editExercise
+        })
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
