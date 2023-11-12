@@ -26,7 +26,7 @@ Like.init(
         model: 'user',
         key: 'id',
       },
-    }
+    },
     createdAt: {
       type: Datatypes.DATE,
       allowNull: false,
