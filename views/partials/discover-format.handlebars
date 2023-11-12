@@ -50,7 +50,12 @@
             </div>
             <Div class="action">
                 <button class="like-button bottom-left-btn">
-                    <i class="fa-regular fa-thumbs-up"
+                    <i class="
+                    {{#if userLiked}}
+                    fa-solid
+                    {{else}}
+                    fa-regular
+                    {{/if}} fa-thumbs-up"
                         style="color: rgb(85, 220, 253);"></i>
                 </button>
                 <button><i class="fa-regular fa-comment" style="color: rgb(85, 220, 253);"></i></button>

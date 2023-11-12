@@ -25,7 +25,9 @@ router.get('/', async (req, res) => {
 router.get('/discover', async (req, res) => {
     try {
         const discoverPage = true;
-        const routinesdb = await Routine.findAll({
+
+        // get all routines
+        const routinesData = await Routine.findAll({
             include: [
                 {
                     model: User,
@@ -37,8 +39,23 @@ router.get('/discover', async (req, res) => {
                 }
             ]
         });
-        console.log(routinesdb);
-        const routines = await routinesdb.map((routine) => routine.get({ plain: true }));
+
+        const routines = await Promise.all(routinesData.map( async (routine) => {
+            const plainRoutine = routine.get({ plain: true });
+            
+            // get like count for each routine
+            const likeCount = await routine.countUsers();
+
+            // check if current user has liked this routine
+            const userLiked = req.session.logged_in ? await routine.hasUser(req.session.user_id) : false;
+        
+            return {
+                ...plainRoutine,
+                likeCount,
+                userLiked,
+            };
+        }));
+        console.log(routines);
         // const profileId = req.session.user_id;
         // const loggedIn = req.session.logged_in;
         res.render('discover', {
@@ -48,7 +65,7 @@ router.get('/discover', async (req, res) => {
             // profileId
         });
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json({ success: false, error: err.message });
     }
 });
 
