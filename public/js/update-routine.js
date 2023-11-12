@@ -86,33 +86,3 @@ updatebtn.addEventListener('click', async function (event) {
         alert('unable to update your routine at this time')
     }
 });
-
-// editButton.addEventListener('click', function (event) {
-//     event.preventDefault();
-//     document.location.replace(`/edit-exercise/${exerciseId}`);
-// })
-
-// Wrap your code in a window load event listener to ensure it runs after the HTML has been rendered.
-// window.addEventListener('load', () => {
-
-//     // Iterate over each button and attach the event listener.
-//     editButton.forEach((button) => {
-//         button.addEventListener('click', async function () {
-//             try {
-//                 const hiddenIdElement = button.closest('tr').querySelector('.hiddenExerciseId');
-//                 if (!hiddenIdElement) {
-//                     console.error('Hidden ID not found.');
-//                     return;
-//                 }
-
-//                 const hiddenId = hiddenIdElement.textContent;
-
-//                 // Use window.location.href instead of document.location.replace.
-//                 window.location.href = `/edit-exercise/${hiddenId}`;
-
-//             } catch (err) {
-//                 alert('Unable to edit exercise.');
-//             }
-//         });
-//     });
-// });
