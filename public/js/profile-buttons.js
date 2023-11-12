@@ -1,4 +1,3 @@
-const editButtons = document.querySelector('#edit-button');
 const deleteButtons = document.querySelectorAll('#delete-button');
 const shareButtons = document.querySelectorAll('#share-button');
 const routineId = document.querySelector('#hidden-id').textContent;
