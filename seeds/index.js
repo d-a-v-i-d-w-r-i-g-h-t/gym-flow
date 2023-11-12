@@ -1,10 +1,11 @@
 const sequelize = require('../config/connection');
-const { User, Routine, Exercise, Comment } = require('../models');
+const { User, Routine, Exercise, Comment, Like } = require('../models');
 
 const userData = require('./userData.json');
 const routineData = require('./routineData.json');
 const exerciseData = require('./exerciseData.json');
 const commentData = require('./commentData.json');
+const likeData = require('./likeData.json');
 
 const seedAll = async () => {
   try{
@@ -22,6 +23,9 @@ const seedAll = async () => {
 
     await Comment.bulkCreate(commentData);
     console.log('Comment data seeded successfully.');
+    
+    await Like.bulkCreate(likeData);
+    console.log('Like data seeded successfully.');
     
   } catch (error) {
     console.error('Error trying to Seed:', error.stack || error.message)
