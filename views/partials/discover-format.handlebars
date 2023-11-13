@@ -23,12 +23,12 @@
             <div class="discover-post">
                 <div>
                     <button id="{{routine.id}}">@{{routine.user.user_name}}</button>
-                    <p>{{routine.description}}</p>
+                    <p><span class="routine-description">{{routine.description}}</span></p>
                     <p>Date Created: {{formatDate routine.date_created}}</p>
                 </div>
                 <div class="dataTable">
                     <table>
-                        <h2>{{routine.routine_name}}</h2>
+                        <h2><span class="routine-name">{{routine.routine_name}}</span></h2>
                         <thead class="tableHeaders">
                             <tr>
                                 <th width="200">Name</th>
@@ -53,7 +53,7 @@
                     class="like-button bottom-left-btn"
                     data-routine-id="{{routine.id}}"
                     data-liked="{{#if userLiked}}true{{else}}false{{/if}}">
-                <span class="like-count">{{likeCount}}</span>
+                    <span class="like-count">{{likeCount}}</span>
                     <i
                         class="
                             {{#if userLiked}}
@@ -64,13 +64,13 @@
                     >
                     </i>
                 </button>
-                <button>
+                <button class="comment-button">
                     <i class="fa-regular fa-comment"></i>
                 </button>
-                <button>
+                <button class="share-button">
                     <i class="fa-solid fa-up-right-from-square"></i>
                 </button>
-                <button class="bottom-right-btn">
+                <button class="save-button bottom-right-btn">
                     <i class="fa-regular fa-floppy-disk"></i>
                 </button>
             </Div>

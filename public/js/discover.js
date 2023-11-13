@@ -5,7 +5,7 @@
     // Check if the clicked element is a like button
     if (event.target.classList.contains('like-button')) {
         event.preventDefault();
-
+        console.log('like button clicked');
         const routineId = event.target.dataset.routineId;
         const isLiked = event.target.dataset.liked === 'true'; // converting string to boolean
         const likeCountSpan = event.target.querySelector('.like-count');
@@ -47,5 +47,48 @@
         } catch (error) {
             console.error('Error during fetch:', error);
         }
+    } else if (event.target.classList.contains('comment-button')) {
+        event.preventDefault();
+
+        // show comments, new comment form
+
+    } else if (event.target.classList.contains('share-button')) {
+        event.preventDefault();
+
+        // share how?
+
+    } else if (event.target.classList.contains('save-button')) {
+        event.preventDefault();
+        console.log('save button clicked');
+        const routineNameSpan = event.target.querySelector('.routine-name');
+        const routineName = routineNameSpan.textContent;
+
+        const routineDescriptionSpan = event.target.querySelector('.routine-description');
+        const routineDescription = routineDescriptionSpan.textContent;
+
+        const postData = {
+            routine_name: routineName,
+            share: false, // default
+            description: routineDescription,
+            user_id: req.session.user_id,
+        }
+
+        console.log(postData);
+        // save routine to user flow
+        // try {
+        //     const response = await fetch('/api/routines/', {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json', },
+        //         body: JSON.stringify({ postData }),
+        //     });
+        // } catch (err) {
+
+        // }
+        
+
+    } else {
+
     }
 });
+
+
