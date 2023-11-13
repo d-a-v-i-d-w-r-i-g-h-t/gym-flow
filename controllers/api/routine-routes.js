@@ -29,7 +29,7 @@ router.get('/check-routine-name/', async (req, res) => {
 
     try {
         const routineName = req.query.routineName;
-        const userName = req.query.userId;
+        const userId = req.query.userId;
   
       // find one routine by routine name and user id
       const existingRoutine = await Routine.findOne({
