@@ -23,6 +23,7 @@ header {
     width: 100%;
 }
 
+
 header button, header a {
     margin-right: 10px;
     text-decoration: none;
@@ -499,6 +500,7 @@ footer a {
     display: flex;
     flex-direction: row;
     width: 100%;
+    text-decoration: none;
 }
 
 .createButtons button{
@@ -554,7 +556,7 @@ footer a {
     color: var(--primary);
 }
 
-#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id{
+#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden{
     display: none;
 }
 
@@ -612,6 +614,33 @@ footer a {
     background: var(--third);
     padding: 3px 5px 3px 5px;
     border: 2px solid black;
+}
+
+.header-container{
+    display: flex;
+}
+
+.otherProfileUsername{
+    margin-top: 250px;
+    padding: 10px;
+    background: var(--third);
+    border: 3px solid var(--fourth);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: var(--primary);
+    position: sticky;
+}
+
+.at{
+    color: var(--fourth);
+}
+
+.welcome{
+    margin-top: 250px;
+}
+
+.userProfile{
+    margin-top: 250px;
 }
 
 
