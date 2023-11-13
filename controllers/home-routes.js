@@ -212,7 +212,59 @@ router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     }catch(err){
         res.status(500).json(err);
     }
-})
+});
+
+router.get('/profiles/:id', async (req, res) => {
+    try {
+
+        const discoverPage = true;
+
+        // get all routines
+        const routinesData = await Routine.findAll({
+            where:{
+
+                user_id: req.params.id,
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                }
+            ]
+        });
+
+        const routines = await Promise.all(routinesData.map( async (routine) => {
+            const plainRoutine = routine.get({ plain: true });
+            
+            // get like count for each routine
+            const likeCount = await routine.countUsers();
+
+            // check if current user has liked this routine
+            const userLiked = req.session.logged_in ? await routine.hasUser(req.session.user_id) : false;
+        
+            return {
+                ...plainRoutine,
+                likeCount,
+                userLiked,
+            };
+        }));
+        console.log(routines);
+        // const profileId = req.session.user_id;
+        // const loggedIn = req.session.logged_in;
+        res.render('other-profiles', {
+            routines,
+            discoverPage,
+            // loggedIn,
+            // profileId
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
 
 
 // GET request for rendering the login page
