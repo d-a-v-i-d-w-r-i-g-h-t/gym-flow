@@ -1,5 +1,8 @@
-async function isRoutineNameUnique(routineName, userId) {
+async function isRoutineNameUnique(routineName) {
   try {
+    const sessiondb = await fetch('api/sessions');
+    const currentUser = await sessiondb.json();
+    const userId = currentUser.user_id;
     // fetch request to check if a username is unique, returns true/false
     const fetchURL = 
     `/api/routines/check-routine-name/?routineName=${routineName}&userId=${userId}`;
