@@ -20,7 +20,9 @@
         {{!-- use helper function to pass loggedIn variable to each routine for use inside the each block --}}
         {{#eachWithLoggedIn routines loggedIn }}
         <div class="cardy">
-            <div class="discover-post">
+            <div 
+                class="discover-post"
+                data-user-id="{{user_id}}">
                 <div>
 
                     <a href="/profiles/{{user_id}}">
@@ -106,8 +108,18 @@
                 <a href="/login">
                 {{/unless}}
                 {{!-- if user is logged in, button gets class 'like-button' and event listener will hear it --}}
-                <button class="{{#if loggedIn}}save-button {{/if}}bottom-right-btn">
-                    <i class="fa-regular fa-floppy-disk"></i>
+                <button
+                    class="{{#if loggedIn}}save-button {{/if}}bottom-right-btn"
+                    data-routine-id="{{id}}"
+                    data-saved="{{#if userSaved}}true{{else}}false{{/if}}">
+                    <i
+                        class="
+                            {{#if userSaved}}
+                            fa-solid
+                            {{else}}
+                            fa-regular
+                            {{/if}} fa-floppy-disk"
+                    ></i>
                 </button>
                 {{!-- if user is not logged in, close anchor tag --}}
                 {{#unless loggedIn}}
