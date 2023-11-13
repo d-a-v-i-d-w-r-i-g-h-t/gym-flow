@@ -23,7 +23,7 @@ header {
     width: 100%;
 }
 
-header button {
+header button, header a {
     margin-right: 10px;
     text-decoration: none;
 }
