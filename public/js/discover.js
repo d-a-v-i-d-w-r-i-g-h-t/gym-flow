@@ -2,13 +2,17 @@
   // Adding a click event listener to the container, using event delegation
   document.querySelector('.discover').addEventListener('click', async function (event) {
       
+    const likeButton = event.target.closest('.like-button');
+    const commentButton = event.target.closest('.comment-button');
+    const saveButton = event.target.closest('.save-button');
+    
     // Check if the clicked element is a like button
-    if (event.target.classList.contains('like-button') || event.target.closest('.like-button')) {
+    if (likeButton) {
         event.preventDefault();
 
-        const routineId = event.target.dataset.routineId;
-        const isLiked = event.target.dataset.liked === 'true'; // converting string to boolean
-        const likeCountSpan = event.target.querySelector('.like-count');
+        const routineId = likeButton.dataset.routineId;
+        const isLiked = likeButton.dataset.liked === 'true'; // converting string to boolean
+        const likeCountSpan = likeButton.querySelector('.like-count');
         let likeCount = parseInt(likeCountSpan.textContent);
 
 
@@ -35,35 +39,32 @@
             if (response.ok) {
                 // Update the UI, toggle the like button appearance
                 const updatedIconClass = isLiked ? 'fa-regular' : 'fa-solid';
-                event.target.innerHTML = `
+                likeButton.innerHTML = `
                     <span class="like-count">${likeCount}</span>
                     <i class="${updatedIconClass} fa-thumbs-up"></i>
                     `;
                 // Update the data-liked attribute for future clicks
-                event.target.dataset.liked = (!isLiked).toString();
+                likeButton.dataset.liked = (!isLiked).toString();
             } else {
                 console.error('Failed to perform like/unlike action');
             }
         } catch (error) {
             console.error('Error during fetch:', error);
         }
-    } else if (event.target.classList.contains('comment-button')) {
+    } else if (commentButton) {
         event.preventDefault();
 
         // show comments, new comment form
 
-    } else if (event.target.classList.contains('share-button')) {
+    } else if (saveButton) {
         event.preventDefault();
 
-        // share how?
-
-    } else if (event.target.classList.contains('save-button')) {
-        event.preventDefault();
         console.log('save button clicked');
-        const routineNameSpan = event.target.querySelector('.routine-name');
+
+        const routineNameSpan = saveButton.querySelector('.routine-name');
         const routineName = routineNameSpan.textContent;
 
-        const routineDescriptionSpan = event.target.querySelector('.routine-description');
+        const routineDescriptionSpan = saveButton.querySelector('.routine-description');
         const routineDescription = routineDescriptionSpan.textContent;
 
         const postData = {
@@ -73,7 +74,7 @@
             user_id: req.session.user_id,
         }
 
-        // console.log(postData);
+        console.log(postData);
         // save routine to user flow
         // try {
         //     const response = await fetch('/api/routines/', {
