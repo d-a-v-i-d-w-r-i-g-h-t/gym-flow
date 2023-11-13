@@ -61,18 +61,32 @@
 
         console.log('save button clicked');
 
-        const routineNameSpan = saveButton.querySelector('.routine-name');
-        const routineName = routineNameSpan.textContent;
+        const cardyElement = event.target.closest('.cardy');
 
-        const routineDescriptionSpan = saveButton.querySelector('.routine-description');
-        const routineDescription = routineDescriptionSpan.textContent;
+        const routineName = cardyElement.querySelector('.routine-name').textContent;
+        const routineDescription = cardyElement.querySelector('.routine-description').textContent;
+        const userId = cardyElement.querySelector('.discover-post').dataset.userId;
+
+        
+        // const routineNameSpan = event.target.querySelector('.routine-name');
+        // const routineName = routineNameSpan.textContent;
+        // console.log('routineNameSpan');
+        // console.log(routineNameSpan);
+        // console.log('routineName');
+        // console.log(routineName);
+
+        // const routineDescriptionSpan = event.target.querySelector('.routine-description');
+        // console.log('routineDescriptionSpan');
+        // console.log(routineDescriptionSpan);
+        // console.log('routineDescription');
+        // console.log(routineDescription);
 
         const postData = {
             routine_name: routineName,
             share: false, // default
             description: routineDescription,
-            user_id: req.session.user_id,
-        }
+            user_id: userId,
+        };
 
         console.log(postData);
         // save routine to user flow

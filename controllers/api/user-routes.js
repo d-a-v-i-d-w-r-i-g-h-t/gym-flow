@@ -2,11 +2,12 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/authorize');
 
+// GET route to check if username is not already in database
 router.get('/check-username/:username', async (req, res) => {
   try {
     const { username } = req.params;
 
-    // check if the username already exists in the database
+    // find one user by username
     const existingUser = await User.findOne({
       where: {
         user_name: username,

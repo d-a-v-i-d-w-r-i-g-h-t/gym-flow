@@ -23,6 +23,31 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET route to check if a routine name already exists in the database for specified user
+router.get('/check-routine-name/', async (req, res) => {
+// get URL format: /check-routine-name?routineName=yourRoutineName&userId=yourUserId
+
+    try {
+        const routineName = req.query.routineName;
+        const userName = req.query.userId;
+  
+      // find one routine by routine name and user id
+      const existingRoutine = await Routine.findOne({
+        where: {
+            routine_name: routineName,
+            user_id: userId,
+        },
+      });
+  
+      // provide response if username is unique or not
+      res.json({ isUnique: !existingRoutine });
+    } catch (err) {
+      res.status(400).json({ success: false, error: err.message });
+    }
+});
+  
+  
+
 router.get('/:routine_name', async (req,res)=>{
     try{
         const findRoutine = await Routine.findOne({
