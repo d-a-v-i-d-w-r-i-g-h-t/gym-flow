@@ -214,6 +214,7 @@ router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     }
 });
 
+// GET route for rendering a user profile page designated by user id
 router.get('/profiles/:id', async (req, res) => {
     try {
 
@@ -266,6 +267,21 @@ router.get('/profiles/:id', async (req, res) => {
     }
 });
 
+// GET request to render add-exercises page for a routine designated by routine id
+router.get('/add-exercises/:id', async (req, res) => {
+    try{
+        const routinedb = await Routine.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
+        const addMoreExercises = true;
+        const routines = routinedb.get({ plain: true });
+        res.render('add-exercises', {routines, addMoreExercises});
+    }catch(err){
+        res.status(500).json(err);
+    }
+  });
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {

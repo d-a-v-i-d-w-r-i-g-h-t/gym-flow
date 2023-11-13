@@ -503,6 +503,7 @@ footer a {
     display: flex;
     flex-direction: row;
     width: 100%;
+    text-decoration: none;
 }
 
 .createButtons button{
@@ -558,7 +559,7 @@ footer a {
     color: var(--primary);
 }
 
-#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id{
+#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden{
     display: none;
 }
 
