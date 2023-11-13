@@ -1,9 +1,9 @@
 <div class="createRoutine">
     <div>
-        <form>
-            <div class="createCardy">
-                <div>
-                    <div class="createDataTable">
+        <div class="createCardy">
+            <div>
+                <div class="createDataTable">
+                    <form>
                         <table id="createTable">
                             <label>Routine Name: <textarea class="rNameUpdate" type="text"
                                     id="newRoutineName">{{routines.routine_name}}</textarea></label>
@@ -27,11 +27,9 @@
                                         <td>{{exercise.reps}}</td>
                                         <td class="hiddenExerciseId">{{exercise.id}}</td>
                                         <td>
-                                        <td>
                                             <a href="edit-exercise/{{exercise.id}}" class="editEButton">
                                                 <i class="fa-solid fa-pen-to-square" style="color: #55dcfd;"></i>
                                             </a>
-                                        </td>
                                         </td>
                                         <td>
                                             <button class="trashButton"><i class="fa-solid fa-trash"
@@ -44,11 +42,11 @@
                         </table>
                         <Div class="createButtons">
                             <button id="updatebtn">Update</button>
-                            <button id="addbtn">Add Exercises</button>
                         </Div>
-                    </div>
+                    </form>
+                    <a href="/add-exercises/{{routines.id}}" class="createButtons" id="addbtn"><button>Add more Exercises</button></a>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 </div>
