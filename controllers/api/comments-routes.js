@@ -31,3 +31,25 @@ router.post('/', withAuth, async (req, res) => {
       res.status(400).json({ success: false, error: err.message });
     }
 });
+
+// DELETE route to delete a comment
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const commentData = await Comment.destroy({
+        where: {
+          id: req.params.id,
+        },
+      });
+  
+      if (!commentData) {
+        res.status(404).json({ success: false, message: 'No comment found with this id!' });
+        return;
+      }
+  
+      res.status(200).json({ success: true, message: 'Comment deleted successfully!' });
+    } catch (err) {
+      res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+module.exports = router;
