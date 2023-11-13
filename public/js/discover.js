@@ -1,3 +1,4 @@
+const isRoutineNameUnique = require('../../utils/routine-check');
 
   // Adding a click event listener to the container, using event delegation
   document.querySelector('.discover').addEventListener('click', async function (event) {
