@@ -1,0 +1,16 @@
+<h2 class="edit-exercise-header"> Editting "{{exercise.name}}"</h2>
+<p class="hidden-id">{{exercise.routine.id}}</p>
+<p id="hidden-e-id">{{exercise.id}}</p>
+<div class="exercise-container">
+    <div class="edit-table-names">
+        <h3>Name</h3>
+        <h3>Weight</h3>
+        <h3>Reps</h3>
+    </div>
+    <div class="edit-table">
+        <textarea id="editName" cols="30" rows="1">{{exercise.name}}</textarea>
+        <textarea id="editWeight" cols="30" rows="1">{{exercise.weight}}</textarea>
+        <textarea id="editReps" cols="30" rows="1">{{exercise.reps}}</textarea>
+    </div>
+    <button id="submit-update-E">Submit</button>
+</div>

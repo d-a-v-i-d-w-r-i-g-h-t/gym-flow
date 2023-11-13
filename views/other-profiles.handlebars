@@ -1,13 +1,9 @@
 
+
+
 <div class="discoverAll">
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle sortbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sort By
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/discover/oldest">Date (Oldest)</a></li>
-            <li><a class="dropdown-item" href="/discover/newest">Date (Newest)</a></li>
-        </ul>
+        <h3 class="otherProfileUsername"><span class="at">@</span>{{routines.[0].user.user_name}}</h3>
         <h2>Routines  <i class="fa-solid fa-down-long fa-bounce" style="color: #34495e;"></i></h2>
         {{#each routines as |routine|}}
         <div class="routine-nav">
@@ -17,7 +13,7 @@
         </div>
         {{/each}}
     </div>
-    <div class="discover">
+    <div class="discover userProfile">
         {{#each routines as |routine| }}
         <div class="cardy">
             <div class="discover-post">
@@ -25,12 +21,12 @@
                     <a href="/profiles/{{routine.user_id}}">
                     <button id="{{routine.id}}">@{{routine.user.user_name}}</button>
                     </a>
-                    <p><span class="routine-description">{{routine.description}}</span></p>
+                    <p>{{routine.description}}</p>
                     <p>Date Created: {{formatDate routine.date_created}}</p>
                 </div>
                 <div class="dataTable">
                     <table>
-                        <h2><span class="routine-name">{{routine.routine_name}}</span></h2>
+                        <h2>{{routine.routine_name}}</h2>
                         <thead class="tableHeaders">
                             <tr>
                                 <th width="200">Name</th>
@@ -55,7 +51,7 @@
                     class="like-button bottom-left-btn"
                     data-routine-id="{{routine.id}}"
                     data-liked="{{#if userLiked}}true{{else}}false{{/if}}">
-                    <span class="like-count">{{likeCount}}</span>
+                <span class="like-count">{{likeCount}}</span>
                     <i
                         class="
                             {{#if userLiked}}
@@ -66,10 +62,10 @@
                     >
                     </i>
                 </button>
-                <button class="comment-button">
+                <button>
                     <i class="fa-regular fa-comment"></i>
                 </button>
-                <button class="save-button bottom-right-btn">
+                <button class="bottom-right-btn">
                     <i class="fa-regular fa-floppy-disk"></i>
                 </button>
             </Div>
