@@ -1,11 +1,15 @@
-const withAuth = (req, res, next) => {
+const withAuth = async (req, res, next) => {
+  try {
 
-  if (!req.session.logged_in) {
-    res.redirect('/login');
-
-  } else {
-    next();
-    
+    if (!req.session.logged_in) {
+      return res.redirect('/login');
+      
+    } else {
+      next();
+      
+    }
+  } catch (err) {
+    next(err);
   }
 
 };

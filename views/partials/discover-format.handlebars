@@ -1,4 +1,3 @@
-
 <div class="discoverAll">
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle sortbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -12,25 +11,27 @@
         {{#each routines as |routine|}}
         <div class="routine-nav">
             <a href="#{{routine.id}}">
-        <button class="routine-btn">{{routine.routine_name}}</button>
+        <button class="routine-btn">{{routine_name}}</button>
         </a>
         </div>
         {{/each}}
     </div>
     <div class="discover">
-        {{#each routines as |routine| }}
+        {{!-- use helper function to pass loggedIn variable to each routine for use inside the each block --}}
+        {{#eachWithLoggedIn routines loggedIn }}
         <div class="cardy">
             <div class="discover-post">
                 <div>
-                    <a href="/profiles/{{routine.user_id}}">
-                    <button id="{{routine.id}}">@{{routine.user.user_name}}</button>
+
+                    <a href="/profiles/{{user_id}}">
+                    <button id="{{id}}">@{{user.user_name}}</button>
                     </a>
-                    <p>{{routine.description}}</p>
-                    <p>Date Created: {{formatDate routine.date_created}}</p>
+                    <p><span class="routine-description">{{description}}</span></p>
+                    <p>Date Created: {{formatDate date_created}}</p>
                 </div>
                 <div class="dataTable">
                     <table>
-                        <h2>{{routine.routine_name}}</h2>
+                        <h2><span class="routine-name">{{routine_name}}</span></h2>
                         <thead class="tableHeaders">
                             <tr>
                                 <th width="200">Name</th>
@@ -38,7 +39,7 @@
                                 <th width="150">Reps</th>
                             </tr>
                         </thead>
-                        {{#each routine.exercises as |exercise|}}
+                        {{#each exercises as |exercise|}}
                         <tbody>
                             <tr class="trow">
                                 <td class="dataName">{{exercise.name}}</td>
@@ -50,12 +51,24 @@
                     </table>
                 </div>
             </div>
+
+            {{!-- Routine action buttons at bottom of card --}}
             <Div class="action">
+
+
+                {{!-- Like button, for user to like/unlike a routine --}}
+
+                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
+                {{#unless loggedIn}}
+                <a href="/login">
+                {{/unless}}
+                {{!-- if user is logged in, button gets class 'like-button' and event listener will hear it --}}
                 <button
-                    class="like-button bottom-left-btn"
-                    data-routine-id="{{routine.id}}"
+                    class="{{#if loggedIn}}like-button {{/if}}bottom-left-btn"
+                    data-routine-id="{{id}}"
                     data-liked="{{#if userLiked}}true{{else}}false{{/if}}">
-                <span class="like-count">{{likeCount}}</span>
+                    <span class="like-count">{{likeCount}}</span>
+                    {{!-- Thumbs-up icon solid if liked, outline if not liked (by current user) --}}
                     <i
                         class="
                             {{#if userLiked}}
@@ -66,14 +79,43 @@
                     >
                     </i>
                 </button>
-                <button>
+                {{!-- if user is not logged in, close anchor tag --}}
+                {{#unless loggedIn}}
+                </a>
+                {{/unless}}
+
+
+                {{!-- Comment button, to view existing comments and allow adding comments to routines --}}
+                
+                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
+                {{#unless loggedIn}}
+                <a href="/login">
+                {{/unless}}
+                <button class="comment-button">
                     <i class="fa-regular fa-comment"></i>
                 </button>
-                <button class="bottom-right-btn">
+                {{!-- if user is not logged in, close anchor tag --}}
+                {{#unless loggedIn}}
+                </a>
+                {{/unless}}
+
+
+                {{!-- Save button, to save a routine to user's My Flow page of personal routines --}}
+                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
+                {{#unless loggedIn}}
+                <a href="/login">
+                {{/unless}}
+                {{!-- if user is logged in, button gets class 'like-button' and event listener will hear it --}}
+                <button class="{{#if loggedIn}}save-button {{/if}}bottom-right-btn">
                     <i class="fa-regular fa-floppy-disk"></i>
                 </button>
+                {{!-- if user is not logged in, close anchor tag --}}
+                {{#unless loggedIn}}
+                </a>
+                {{/unless}}
+                
             </Div>
         </div>
-        {{/each}}
+        {{/eachWithLoggedIn}}
     </div>
 </div>

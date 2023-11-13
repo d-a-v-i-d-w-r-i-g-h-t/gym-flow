@@ -371,6 +371,10 @@ footer a {
     margin-bottom: -20px;
 }
 
+.action a {
+    flex-grow: 1;
+}
+
 .action button {
     width: 100%;
     background: none;
