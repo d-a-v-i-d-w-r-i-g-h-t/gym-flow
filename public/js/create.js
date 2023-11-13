@@ -45,6 +45,24 @@ removebtn.addEventListener('click', function(event){
 
 savebtn.addEventListener('click', async function (event) {
     event.preventDefault();
+
+    const routine_name = document.querySelector('#newRoutineName').value;
+    const description = document.querySelector('.txtarea').value;
+    const share = false;
+
+    if(routine_name && description){
+      const response = await fetch('/api/routines',{
+        method: 'POST',
+        body: JSON.stringify({routine_name, share, description }),
+        headers: {'Content-Type': 'application/json'},
+      });
+
+      if (response.ok){
+        alert('Routine Created!')
+      }
+    } else {
+      alert('Failed to create Routine')
+    }
     
     let rows = document.querySelectorAll('#nameInput'); // Using class instead of ID
     rows.forEach( async function (row) {
