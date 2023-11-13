@@ -60,7 +60,7 @@ router.get('/discover', async (req, res) => {
                 userLiked,
             };
         }));
-        console.log(routines);
+        // console.log(routines);
         // const profileId = req.session.user_id;
         // const loggedIn = req.session.logged_in;
         res.render('discover', {

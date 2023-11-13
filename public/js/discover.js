@@ -3,9 +3,9 @@
   document.querySelector('.discover').addEventListener('click', async function (event) {
       
     // Check if the clicked element is a like button
-    if (event.target.classList.contains('like-button')) {
+    if (event.target.classList.contains('like-button') || event.target.closest('.like-button')) {
         event.preventDefault();
-        console.log('like button clicked');
+
         const routineId = event.target.dataset.routineId;
         const isLiked = event.target.dataset.liked === 'true'; // converting string to boolean
         const likeCountSpan = event.target.querySelector('.like-count');
@@ -31,7 +31,7 @@
                     'Content-Type': 'application/json',
                 },
             });
-
+            
             if (response.ok) {
                 // Update the UI, toggle the like button appearance
                 const updatedIconClass = isLiked ? 'fa-regular' : 'fa-solid';
@@ -73,7 +73,7 @@
             user_id: req.session.user_id,
         }
 
-        console.log(postData);
+        // console.log(postData);
         // save routine to user flow
         // try {
         //     const response = await fetch('/api/routines/', {
