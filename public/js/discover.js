@@ -1,3 +1,4 @@
+const isRoutineNameUnique = require('../../utils/routine-check');
 
   // Adding a click event listener to the container, using event delegation
   document.querySelector('.discover').addEventListener('click', async function (event) {
@@ -66,20 +67,6 @@
         const routineName = cardyElement.querySelector('.routine-name').textContent;
         const routineDescription = cardyElement.querySelector('.routine-description').textContent;
         const userId = cardyElement.querySelector('.discover-post').dataset.userId;
-
-        
-        // const routineNameSpan = event.target.querySelector('.routine-name');
-        // const routineName = routineNameSpan.textContent;
-        // console.log('routineNameSpan');
-        // console.log(routineNameSpan);
-        // console.log('routineName');
-        // console.log(routineName);
-
-        // const routineDescriptionSpan = event.target.querySelector('.routine-description');
-        // console.log('routineDescriptionSpan');
-        // console.log(routineDescriptionSpan);
-        // console.log('routineDescription');
-        // console.log(routineDescription);
 
         const postData = {
             routine_name: routineName,
