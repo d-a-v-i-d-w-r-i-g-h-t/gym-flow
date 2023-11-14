@@ -25,7 +25,7 @@ router.get('/discover', async (req, res) => {
         const discoverPage = true;
 
         // Check if user is logged in
-        const userIdFilter = req.session.user_id ? { user_id: req.session.user_id } : {};
+        // const userIdFilter = req.session.user_id ? { user_id: req.session.user_id } : {};
 
         // get all routines
         const routinesData = await Routine.findAll({
@@ -73,14 +73,18 @@ router.get('/discover', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
             
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: userIdFilter,
-                    },
-            });
-    
-            const userSaved = existingRoutine ? true : false;
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        // user_id: userIdFilter,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
             
             return {
                 ...plainRoutine,
@@ -333,7 +337,9 @@ router.get('/private/:id', withAuth, async (req, res) => {
     }
 });
 
-
+// GET route to get all routines by the specified user_id
+// req.params.username is not used, doesn't matter what param is passed
+/// because it's grabbing the user_id from req.session.user_id
 router.get('/profile/:username', withAuth, async (req, res) => {
     try{
         const profile = true;
@@ -359,7 +365,6 @@ router.get('/profile/:username', withAuth, async (req, res) => {
             routines,
             profile,
         });
-        // console.log(routines)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -371,11 +376,13 @@ router.get('/create', withAuth, (req, res) =>{
     res.render('create', { createPage });
 });
 
-router.get('/routine-edit/:id', async (req, res) => {
+// GET routine to get a single routine by routine ID and user ID, with associated exercises
+router.get('/routine-edit/:id', withAuth, async (req, res) => {
     try {
         const routinesdb = await Routine.findOne({
             where: {
-                id: req.params.id
+                id: req.params.id,
+                user_id: req.session.user_id,
             },
             include: [
                 {
@@ -387,12 +394,13 @@ router.get('/routine-edit/:id', async (req, res) => {
         const routines = routinesdb.get({ plain: true });
         const editPage = true;
         res.render('edit-routine', { routines, editPage });
-        console.log(routinesdb)
+
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+// GET route to get a single exercise by Excercise id (primary key)
 router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     try{
         const exercisedb = await Exercise.findOne({
@@ -406,7 +414,7 @@ router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
         });
         const editExercise = true;
         const exercise = exercisedb.get({ plain: true });
-        console.log(exercise);
+
         res.render('update-Exercise',{
             exercise,
             editExercise
@@ -455,7 +463,7 @@ router.get('/profiles/:id', async (req, res) => {
                 userLiked,
             };
         }));
-        console.log(routines);
+
         // const profileId = req.session.user_id;
         // const loggedIn = req.session.logged_in;
         res.render('other-profiles', {
