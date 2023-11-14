@@ -84,4 +84,13 @@ router.get('/', async (req,res) => {
   res.status(200).json(usersdb)
 })
 
+router.get('/:id', async (req,res)=>{
+  const userdb = await User.findOne({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.status(200).json(userdb);
+})
+
 module.exports = router;

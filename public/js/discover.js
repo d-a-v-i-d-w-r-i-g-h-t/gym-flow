@@ -1,5 +1,5 @@
-const isRoutineNameUnique = require('../../utils/routine-check');
 
+  
   // Adding a click event listener to the container, using event delegation
   document.querySelector('.discover').addEventListener('click', async function (event) {
       
@@ -94,3 +94,64 @@ const isRoutineNameUnique = require('../../utils/routine-check');
 });
 
 
+document.querySelectorAll('.comment-button').forEach(button => {
+    button.dataset.originalContent = button.innerHTML;
+
+    button.addEventListener('click', async function(event) {
+        event.preventDefault();
+        const routineElement = this.closest('.cardy');
+        
+        const commentsLoaded = routineElement.classList.contains('comments-loaded');
+
+        if (commentsLoaded) {
+            const existingComments = routineElement.querySelectorAll('.oldComment');
+            existingComments.forEach(comment => {
+                comment.remove();
+            });
+
+            routineElement.classList.remove('comments-loaded');
+
+            this.innerHTML = this.dataset.originalContent;
+        } else {
+            const routineId = routineElement.querySelector('#hiddenRid').textContent;
+            const commentsdb = await fetch(`api/comments/${routineId}`);
+            const comments = await commentsdb.json();
+            
+            for (let i = 0; i < comments.length; i++) {
+                const getUsernames = await fetch(`/api/users/${comments[i].user_id}`)
+                const userName = await getUsernames.json();
+                console.log(userName);
+
+                let newDiv = document.createElement('div');
+                newDiv.setAttribute('class', 'oldComment')
+                let newComment = document.createElement('p');
+                newComment.setAttribute('class', 'storedComment')
+                let newHeader = document.createElement('h4');
+                let date = document.createElement('p');
+
+                newComment.textContent = comments[i].text;
+                newHeader.textContent = '@'+userName.user_name;
+                date.textContent = 'Date:' + comments[i].date_created;
+
+                newDiv.appendChild(newHeader);
+                newDiv.appendChild(newComment);
+                newDiv.appendChild(date);
+                routineElement.appendChild(newDiv);
+            }
+
+            routineElement.classList.add('comments-loaded');
+
+            this.innerHTML = '<i class="fa-solid fa-comment" style="color: #55dcfd;"></i>';
+        }
+        const anotherDiv = document.createElement('div')
+        anotherDiv.setAttribute('class', 'send-comment');
+        const addComment = document.createElement('textarea');
+        const sendCommentBtn = document.createElement('button');
+        sendCommentBtn.setAttribute('id', 'send-comment-button')
+        sendCommentBtn.innerHTML = '<i class="fa-solid fa-arrow-right" style="color: #de2711;"></i>';
+        anotherDiv.appendChild(addComment);
+        anotherDiv.appendChild(sendCommentBtn)
+        routineElement.appendChild(anotherDiv)
+
+    });
+});
