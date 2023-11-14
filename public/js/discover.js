@@ -64,19 +64,19 @@ document.querySelector('.discover').addEventListener('click', async function (ev
     } else if (saveButton) {
         event.preventDefault();
 
-        console.log('save button clicked');
         const isSaved = saveButton.dataset.saved === 'true'; // converting string to boolean
-
+     
+        // traverse the DOM to top of cardy element
         const cardyElement = event.target.closest('.cardy');
+        // traverse the DOM down to routine-name element
         const routineName = cardyElement.querySelector('.routine-name').textContent;
 
         if (!isSaved) {
-            // traverse the DOM to top of cardy element
-
-            // traverse the DOM down to elements we want data from
+            
+            // traverse the DOM down to other elements we want data from
             const routineDescription = cardyElement.querySelector('.routine-description').textContent;
             const userId = cardyElement.querySelector('.discover-post').dataset.userId;
-
+            
             const postData = {
                 routine_name: routineName,
                 share: false, // default
@@ -86,28 +86,81 @@ document.querySelector('.discover').addEventListener('click', async function (ev
 
             // save routine to user's My Flow
             try {
-
+                
                 const response = await fetch('/api/routines/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', },
                     body: JSON.stringify(postData),
                 });
-                console.log(response);
+                
                 if (response.ok) {
-
+                    
                     // Update the UI, toggle the save button appearance
-
+                    
                     const updatedIconClass = 'fa-solid';
-
+                    
                     saveButton.innerHTML = `
-                        <i class="${updatedIconClass} fa-floppy-disk"></i>
-                        `;
+                    <i class="${updatedIconClass} fa-floppy-disk"></i>
+                    `;
                     // Update the data-liked attribute for future clicks
                     saveButton.dataset.saved = 'true';
                 }
             } catch (err) {
             }
+            
+            
+            // get routine id for the user's new routine
+            let routineId;
+            try {
+                const encodedName = encodeURIComponent(routineName);
+                const response = await fetch(`/api/routines/routine-id/${encodedName}`);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (data.id) {
+                    // Routine ID found
+                    routineId = data.id;
+                } else {
+                    // Routine ID not found
+                }
+            } catch (err) {
+                console.error('Error fetching routine ID: ', error)
+            }
+            
+            // traverse the DOM to gather exercise data
+            const exercisesToAdd = [];
+            cardyElement.querySelectorAll('.trow').forEach((exerciseElement) => {
+                const exerciseData = {
+                    name: exerciseElement.querySelector('.dataName').textContent,
+                    weight: exerciseElement.querySelector('.dataWeight').textContent,
+                    reps: exerciseElement.querySelector('.dataReps').textContent,
+                    routine_id: routineId,
+                };
+                exercisesToAdd.push(exerciseData);
+            });
 
+            // Save exercise data to user's new routine
+            try {
+                const response = await fetch('/api/exercises/bulk-create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(exercisesToAdd),
+                });
+
+                if (response.ok) {
+                    const responseData = await response.json();
+                } else {
+                    console.error('Failed to perform bulkCreate action');
+                }
+            } catch (err) {
+                console.error('Error during fetch:', err);
+            }
+            
+                
         } else {
             // ****** >>> REPLACE THIS ALERT WITH A MODAL <<< ******
             alert(
