@@ -79,15 +79,13 @@ async function handleLikeButtonClick(event, likeButton) {
 function handleCommentButtonClick(event, commentButton) {
     event.preventDefault();
     
-    const isCommented = commentButton.dataset.commented === 'true'; // converting string to boolean
-
     // traverse the DOM to top of cardy element
     const cardyElement = event.target.closest('.cardy');
     const commentsElement = cardyElement.querySelector('.comments');
     const commentsVisible = commentsElement.dataset.commentsVisible === 'true'; // converting string to boolean
 
-    const leftButton = document.querySelector('.bottom-left-btn');
-    const rightButton = document.querySelector('.bottom-right-btn');
+    const leftButton = cardyElement.querySelector('.bottom-left-btn');
+    const rightButton = cardyElement.querySelector('.bottom-right-btn');
 
     if (commentsVisible) {
         // Toggle comments section hidden
@@ -95,6 +93,7 @@ function handleCommentButtonClick(event, commentButton) {
         // add class 'display-none' to comments div
         // corresponds to css style .display-none { display: none; }
         commentsElement.classList.add('display-none');
+        commentsElement.dataset.commentsVisible = 'false';
 
         // replace rounded outside bottom corners on Like and Save buttons
         leftButton.classList.remove('no-rounded-corners');
@@ -105,7 +104,9 @@ function handleCommentButtonClick(event, commentButton) {
 
         // remove class 'display-none' to comments section
         commentsElement.classList.remove('display-none');
-        
+        commentsElement.dataset.commentsVisible = 'true';
+
+
         // remove rounded outside bottom corners on Like and Save buttons
         leftButton.classList.add('no-rounded-corners');
         rightButton.classList.add('no-rounded-corners');
