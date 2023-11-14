@@ -50,24 +50,31 @@ router.get('/discover', async (req, res) => {
             
             // get like count for each routine
             const likeCount = await routine.countUsers();
-
+            
             // check if current user has liked this routine
             const userLiked = req.session.logged_in ? await routine.hasUser(req.session.user_id) : false;
-        
+            
+            // check if current user has saved this same routine name
+            const existingRoutine = await Routine.findOne({
+                where: {
+                    routine_name: plainRoutine.routine_name,
+                    user_id: req.session.user_id,
+                    },
+            });
+
+            const userSaved = existingRoutine ? true : false;
+            
             return {
                 ...plainRoutine,
                 likeCount,
                 userLiked,
+                userSaved,
             };
         }));
-        // console.log(routines);
-        // const profileId = req.session.user_id;
-        // const loggedIn = req.session.logged_in;
+
         res.render('discover', {
             routines,
             discoverPage,
-            // loggedIn,
-            // profileId
         });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
