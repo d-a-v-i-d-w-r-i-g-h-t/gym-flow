@@ -4,7 +4,7 @@ const removebtn = document.querySelector('#removebtn')
 const parent = document.getElementById('createTable');
 // const isRoutineNameUnique = require('../../utils/routine-check');
 const routineName = document.querySelector('#newRoutineName');
-const description = document.querySelector('.txtarea').value;
+const newDescription = document.querySelector('.txtarea');
 const share = false;
 
 
@@ -45,34 +45,6 @@ removebtn.addEventListener('click', function (event) {
   }
 });
 
-async function isRoutineNameUnique(routineName) {
-  try {
-    const sessiondb = await fetch('api/sessions');
-    const currentUser = await sessiondb.json();
-    const userId = currentUser.user_id;
-    // fetch request to check if a username is unique, returns true/false
-    const fetchURL = 
-    `/api/routines/check-routine-name/?routineName=${routineName}&userId=${userId}`;
-    const response = await fetch(fetchURL, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      // server responded with success status
-      const data = await response.json();
-      return data.isUnique;
-    } else {
-      // server responded with error status
-      console.error('Failed to check for unique routine name with given user id');
-      return false;
-    }
-  } catch (error) {
-    console.error('Error checking for unique routine name with given user id', error);
-    return false;
-  }
-};
-
 
 routineName.addEventListener('blur', async () => {
   const routine_name = document.querySelector('#newRoutineName').value.trim();
@@ -98,7 +70,9 @@ Please choose a different Routine Name.`
 savebtn.addEventListener('click', async function (event) {
   event.preventDefault();
 
- 
+  const routine_name = document.querySelector('#newRoutineName').value.trim();
+  const description = newDescription.value.trim();
+  console.log(description);
 
   if (routine_name && description) {
     const response = await fetch('/api/routines', {
@@ -124,7 +98,7 @@ savebtn.addEventListener('click', async function (event) {
     const getRoutineIdResponse = await fetch(`/api/routines/${routine_name}`);
     const getRoutineIdData = await getRoutineIdResponse.json();
     const routine_id = getRoutineIdData.id;
-
+    console.log(getRoutineIdResponse);
     if (name && weight && reps) {
       const response = await fetch('/api/exercises', {
         method: 'POST',
