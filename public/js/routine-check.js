@@ -1,11 +1,11 @@
 async function isRoutineNameUnique(routineName) {
   try {
-    const sessiondb = await fetch('api/sessions');
-    const currentUser = await sessiondb.json();
-    const userId = currentUser.user_id;
+
+    const encodedName = encodeURIComponent(routineName);
+
     // fetch request to check if a username is unique, returns true/false
     const fetchURL = 
-    `/api/routines/check-routine-name/?routineName=${routineName}&userId=${userId}`;
+    `/api/routines/check-routine-name/${encodedName}`;
     const response = await fetch(fetchURL, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
@@ -26,4 +26,4 @@ async function isRoutineNameUnique(routineName) {
   }
 };
 
-module.exports = isRoutineNameUnique;
+// module.exports = isRoutineNameUnique;
