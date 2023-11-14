@@ -289,6 +289,10 @@ footer a {
     margin: 20px;
 }
 
+.display-none {
+    display: none;
+}
+
 .discoverAll {
     display: flex;
     margin: 0px 20px 0px 0px;
@@ -393,6 +397,10 @@ footer a {
 
 .bottom-left-btn {
     border-bottom-left-radius: 15px;
+}
+
+.no-rounded-corners {
+    border-radius: 0;
 }
 
 .action button:hover {

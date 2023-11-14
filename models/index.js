@@ -46,9 +46,25 @@ Comment.belongsTo(User, {
   foreignKey: 'user_id'
 })
 
+// user and routine: many to many, through Comment
+User.belongsToMany(Routine, {
+  through: Comment,
+  onDelete: 'CASCADE',
+});
+Routine.belongsToMany(User, {
+  through: Comment,
+  onDelete: 'CASCADE',
+});
+
 // user and routine: many to many, through Like
-User.belongsToMany(Routine, { through: Like });
-Routine.belongsToMany(User, { through: Like });
+User.belongsToMany(Routine, {
+  through: Like,
+  onDelete: 'CASCADE',
+});
+Routine.belongsToMany(User, {
+  through: Like,
+  onDelete: 'CASCADE',
+});
 
 
 module.exports = { User, Routine, Exercise, Comment, Like };

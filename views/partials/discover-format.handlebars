@@ -1,4 +1,4 @@
-<div class="discoverAll">
+<div class="discoverAll" data-username="{{username}}">
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle sortbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sort By
@@ -56,7 +56,7 @@
             </div>
 
             {{!-- Routine action buttons at bottom of card --}}
-            <Div class="action">
+            <div class="action">
 
 
                 {{!-- Like button, for user to like/unlike a routine --}}
@@ -94,8 +94,21 @@
                 {{#unless loggedIn}}
                 <a href="/login">
                 {{/unless}}
-                <button class="comment-button">
-                    <i class="fa-regular fa-comment"></i>
+                <button
+                    {{#if loggedIn}}class="comment-button"{{/if}}
+                    data-routine-id="{{id}}"
+                    data-commented="{{#if userCommented}}true{{else}}false{{/if}}">
+                    <span class="comment-count">{{commentCount}}</span>
+                    {{!-- Speech bubble icon solid if current user has commented, outline if not --}}
+                    <i
+                        class="
+                        {{#if userCommented}}
+                        fa-solid
+                        {{else}}
+                        fa-regular
+                        {{/if}} fa-comment"
+                    >
+                    </i>
                 </button>
                 {{!-- if user is not logged in, close anchor tag --}}
                 {{#unless loggedIn}}
@@ -127,7 +140,30 @@
                 </a>
                 {{/unless}}
                 
-            </Div>
+            </div>
+            <div 
+                class="comments display-none"
+                data-routine-id="{{id}}"
+                data-username="{{username}}"
+                data-comments-visible="false"
+            >
+                {{#each comments as |comment|}}
+                <div class="oldComment">
+                    <h4>@{{user.user_name}}</h4>
+                    <p class="storedComment">{{text}}</p>
+                    <p>Posted: {{formatDate date_created}}</p>
+                </div>
+                {{/each}}
+                <div class="send-comment">
+                    <textarea class="new-comment-textarea"></textarea>
+                    <button class="send-comment-button">
+                        <i
+                            class="fa-solid fa-arrow-right"
+                            style="color: #de2711"
+                        ></i>
+                    </button>
+                </div>
+            </div>
         </div>
         {{/eachWithLoggedIn}}
     </div>
