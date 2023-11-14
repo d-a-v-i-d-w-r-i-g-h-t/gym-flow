@@ -18,10 +18,14 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET route for all routines on the discover page
 router.get('/discover', async (req, res) => {
     try {
 
         const discoverPage = true;
+
+        // Check if user is logged in
+        const userIdFilter = req.session.user_id ? { user_id: req.session.user_id } : {};
 
         // get all routines
         const routinesData = await Routine.findAll({
@@ -72,7 +76,7 @@ router.get('/discover', async (req, res) => {
             const existingRoutine = await Routine.findOne({
                 where: {
                     routine_name: plainRoutine.routine_name,
-                    user_id: req.session.user_id,
+                    user_id: userIdFilter,
                     },
             });
     
