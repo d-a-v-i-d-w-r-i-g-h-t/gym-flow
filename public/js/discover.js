@@ -83,9 +83,6 @@ document.querySelector('.discover').addEventListener('click', async function (ev
             const routineDescription = cardyElement.querySelector('.routine-description').textContent;
             const userId = cardyElement.querySelector('.discover-post').dataset.userId;
     
-            // // check if this routine has already been saved by current user
-            // const isUnique = await isRoutineNameUnique(routineName, userId);
-    
             const postData = {
                 routine_name: routineName,
                 share: false, // default
@@ -93,8 +90,6 @@ document.querySelector('.discover').addEventListener('click', async function (ev
                 user_id: userId,
             };
             
-            // console.log(postData);
-
             // save routine to user's My Flow
             try {
 
