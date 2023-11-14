@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Routine, Exercise } = require('../models');
+const { User, Routine, Exercise, Comment } = require('../models');
 const withAuth = require('../utils/authorize');
 const commonDataMiddleware = require('../utils/commonDataMiddleware');
 
@@ -10,12 +10,8 @@ router.use(commonDataMiddleware);
 router.get('/', async (req, res) => {
     try {
         const homePage = true;
-        const loggedIn = req.session.logged_in;
-        const profileId = req.session.user_id;
         res.render('homepage', {
             homePage,
-            // loggedIn,
-            // profileId
         });
     } catch (err) {
         res.status(500).json(err);
@@ -41,8 +37,18 @@ router.get('/discover', async (req, res) => {
                 {
                     model: Exercise,
                     attributes: ['id', 'name', 'weight', 'reps']
-                }
-            ]
+                },
+                {
+                    model: Comment,
+                    attributes: ['id', 'text', 'date_created'],
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['user_name'],
+                        },
+                    ],
+                },
+            ],
         });
 
         const routines = await Promise.all(routinesData.map( async (routine) => {
@@ -52,7 +58,15 @@ router.get('/discover', async (req, res) => {
             const likeCount = await routine.countUsers();
             
             // check if current user has liked this routine
-            const userLiked = req.session.logged_in ? await routine.hasUser(req.session.user_id) : false;
+            const userLiked = req.session.logged_in ?
+                await routine.hasUser(req.session.user_id, { through: 'Like' }) : false;
+            
+            // get comment count for each routine
+            const commentCount = await routine.countComments();
+            
+            // check if current user has commented on this routine
+            const userCommented = req.session.logged_in ?
+                await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
             
             // check if current user has saved this same routine name
             const existingRoutine = await Routine.findOne({
@@ -61,13 +75,15 @@ router.get('/discover', async (req, res) => {
                     user_id: req.session.user_id,
                     },
             });
-
+    
             const userSaved = existingRoutine ? true : false;
             
             return {
                 ...plainRoutine,
                 likeCount,
                 userLiked,
+                commentCount,
+                userCommented,
                 userSaved,
             };
         }));

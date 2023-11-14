@@ -23,7 +23,7 @@ Like.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
+        model: 'routine',
         key: 'id',
       },
     },
