@@ -69,7 +69,9 @@ shareButtons.forEach((button) => {
             }
         }
 
-        button.innerText = isShared ? 'Share' : 'Unshare';
+        button.innerHTML = isShared ? 
+        'Share <i class="fa-regular fa-share-from-square"></i>' : 
+        'Unshare <i class="fa-solid fa-share-from-square"></i>';
 
         localStorage.setItem(`routine_${routineId}_share`, isShared);
 
@@ -83,8 +85,8 @@ shareButtons.forEach((button) => {
     const isShared = localStorage.getItem(`routine_${routineId}_share`);
 
     if (isShared === 'false') {
-        button.innerText = 'Unshare';
+        button.innerHTML = 'Unshare <i class="fa-solid fa-share-from-square"></i>';
     } else {
-        button.innerText = 'Share';
+        button.innerHTML = 'Share <i class="fa-regular fa-share-from-square"></i>';
     }
 });
