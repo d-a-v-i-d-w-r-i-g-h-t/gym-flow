@@ -563,7 +563,7 @@ footer a {
     color: var(--primary);
 }
 
-#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden{
+#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden, #hiddenRid{
     display: none;
 }
 
@@ -650,6 +650,39 @@ footer a {
     margin-top: 250px;
 }
 
+.oldComment{
+    padding-top: 30px;
+    border-bottom: 2px solid var(--fourth);
+}
+
+.oldComment h4{
+    color: var(--primary);
+}
+
+.storedComment{
+    font-weight: bold;
+}
+
+.send-comment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.send-comment textarea{
+    width: 90%;
+    margin: 10px;
+}
+.send-comment button{
+    margin: 10px;
+    background: var(--third);
+    border: 2px solid var(--fourth);
+}
+
+.send-comment button:hover{
+    background: var(--secondary);
+}
 
 
 @media screen and (max-width: 1150px) {

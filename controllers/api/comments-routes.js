@@ -20,9 +20,8 @@ router.get('/:routine_id', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
     try {
       const newComment = await Comment.create({
-        name: req.body.text,
-        weight: req.body.date_created,
-        reps: req.body.user_id,
+        text: req.body.text,
+        user_id: req.session.user_id,
         routine_id: req.body.routine_id
       });
   
