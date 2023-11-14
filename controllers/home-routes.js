@@ -257,11 +257,83 @@ router.get('/discover/oldest', async (req, res) => {
     }
 });
 
+// GET route to get all shared routines for a specific user id
+router.get('/shared/:id', withAuth, async (req, res) => {
+    try {
+        const profile = true;
+
+        // get all routines
+        const routinesData = await Routine.findAll({
+            where:{
+                share: true,
+                user_id: req.session.user_id,
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                },
+            ],
+        });
+
+        const routines = 
+            await Promise.all(routinesData.map((routine) => 
+                routine.get({ plain: true })));
+
+        res.render('profile', {
+            routines,
+            profile,
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// GET route to get all private routines for a specific user id
+router.get('/private/:id', withAuth, async (req, res) => {
+    try {
+        const profile = true;
+
+        // get all routines
+        const routinesData = await Routine.findAll({
+            where:{
+                share: false,
+                user_id: req.session.user_id,
+            },
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'user_name'],
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                },
+            ],
+        });
+
+        const routines = 
+            await Promise.all(routinesData.map((routine) => 
+                routine.get({ plain: true })));
+
+        res.render('profile', {
+            routines,
+            profile,
+        });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+
 router.get('/profile/:id', withAuth, async (req, res) => {
     try{
         const profile = true;
 
-        const loggedIn = req.session.logged_in;
         const routinesdb = await Routine.findAll({
 
             where: {
@@ -269,24 +341,24 @@ router.get('/profile/:id', withAuth, async (req, res) => {
             },
             include: [
 
-            {
-                model: User,
-                attributes: ['id','user_name']
-            },
-            {
-                model: Exercise,
-                attributes: ['id', 'name', 'weight', 'reps']
-            }
-        ]
+                {
+                    model: User,
+                    attributes: ['id','user_name']
+                },
+                {
+                    model: Exercise,
+                    attributes: ['id', 'name', 'weight', 'reps']
+                },
+            ],
 
         });
+
         const routines = routinesdb.map((routine) => routine.get({ plain: true }));
         res.render('profile', {
             profile,
-            // loggedIn,
             routines,
         });
-        console.log(routines)
+        // console.log(routines)
     } catch (err) {
         res.status(500).json(err);
     }
