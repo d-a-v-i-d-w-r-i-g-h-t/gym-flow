@@ -379,7 +379,6 @@ router.get('/routine-edit/:id', withAuth, async (req, res) => {
         const routinesdb = await Routine.findOne({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
             },
             include: [
                 {
@@ -397,7 +396,7 @@ router.get('/routine-edit/:id', withAuth, async (req, res) => {
     }
 });
 
-// GET route to get a single exercise by Excercise id (primary key)
+// GET route to get a single exercise by Eercise id (primary key)
 router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     try{
         const exercisedb = await Exercise.findOne({
