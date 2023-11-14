@@ -24,9 +24,6 @@ router.get('/discover', async (req, res) => {
 
         const discoverPage = true;
 
-        // Check if user is logged in
-        // const userIdFilter = req.session.user_id ? { user_id: req.session.user_id } : {};
-
         // get all routines
         const routinesData = await Routine.findAll({
             where:{
