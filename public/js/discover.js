@@ -70,15 +70,16 @@ document.querySelector('.discover').addEventListener('click', async function (ev
     } else if (saveButton) {
         event.preventDefault();
 
-        // console.log('save button clicked');
+        console.log('save button clicked');
         const isSaved = saveButton.dataset.saved === 'true'; // converting string to boolean
-
+        
+        const cardyElement = event.target.closest('.cardy');
+        const routineName = cardyElement.querySelector('.routine-name').textContent;
+        
         if (!isSaved) {
             // traverse the DOM to top of cardy element
-            const cardyElement = event.target.closest('.cardy');
-    
+            
             // traverse the DOM down to elements we want data from
-            const routineName = cardyElement.querySelector('.routine-name').textContent;
             const routineDescription = cardyElement.querySelector('.routine-description').textContent;
             const userId = cardyElement.querySelector('.discover-post').dataset.userId;
     
@@ -125,10 +126,6 @@ document.querySelector('.discover').addEventListener('click', async function (ev
             );
             
         }
-            
-            
-        } else {
-            // nothing we care about was clicked
     }
 });
 
