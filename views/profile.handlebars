@@ -2,8 +2,11 @@
     <a href="/create">
         <button class="btn-primary newbtn">New</button>
     </a>
-    <a href="/shared">
+    <a href="/shared/{{profileID}}">
         <button class="btn-primary newbtn">View Shared Routines</button>
+    </a>
+    <a href="/private/{{profileID}}">
+        <button class="btn-primary newbtn">View Private Routines</button>
     </a>
 </div>
 <div class="headerDiv">
@@ -23,7 +26,7 @@
             </div>
             <div class="dataTable">
                 <table>
-                    <h2>{{routine.routine_name}}</h2>
+                    <h2>{{routine_name}}</h2>
                     <thead class="tableHeaders">
                         <tr>
                             <th width="200">Name</th>
@@ -44,17 +47,37 @@
             </div>
         </div>
         <Div class="action">
+
+            {{!-- Edit button --}}
             <a class="editTag" href="/routine-edit/{{routine.id}}"/>
             <button class="bottom-left-btn profilebtns" id="edit-button">
                 Edit <i class="fa-regular fa-pen-to-square"></i>
             </button>
             </a>
-            <button class="profilebtns" id="delete-button">
+
+            {{!-- Delete button --}}
+            <button 
+                class="delete-button profilebtns"
+                data-routine-id="{{routine.id}}"
+                id="delete-button"
+            >
                 Delete <i class="fa-solid fa-trash"></i>
             </button>
-            <button class="bottom-right-btn profilebtns" id="share-button">
-                Share <i class="fa-regular fa-share-from-square"></i>
+
+            {{!-- Share button --}}
+            <button
+                class="share-button bottom-right-btn profilebtns"
+                data-routine-id="{{routine.id}}"
+                data-shared="{{#if routine.share}}true{{else}}false{{/if}}"
+                id="share-button"
+            >
+                {{#if routine.share}}
+                Unshare <i class="fa-solid
+                {{else}}
+                Share <i class="fa-regular
+                {{/if}} fa-share-from-square"></i>
             </button>
+
         </Div>
     </div>
     {{/each}}

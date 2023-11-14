@@ -330,17 +330,15 @@ router.get('/private/:id', withAuth, async (req, res) => {
 });
 
 
-router.get('/profile/:id', withAuth, async (req, res) => {
+router.get('/profile/:username', withAuth, async (req, res) => {
     try{
         const profile = true;
 
-        const routinesdb = await Routine.findAll({
-
+        const routinesData = await Routine.findAll({
             where: {
                 user_id: req.session.user_id
             },
             include: [
-
                 {
                     model: User,
                     attributes: ['id','user_name']
@@ -350,13 +348,12 @@ router.get('/profile/:id', withAuth, async (req, res) => {
                     attributes: ['id', 'name', 'weight', 'reps']
                 },
             ],
-
         });
-
-        const routines = routinesdb.map((routine) => routine.get({ plain: true }));
+        
+        const routines = routinesData.map((routine) => routine.get({ plain: true }));
         res.render('profile', {
-            profile,
             routines,
+            profile,
         });
         // console.log(routines)
     } catch (err) {
