@@ -139,6 +139,63 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 });
 
+// PUT route to share a routine
+router.put('/share/:routineId', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+        const routineId = req.params.routineId;
+
+        const routine = await Routine.findOne({
+            where: {
+                id: routineId,
+                user_id: userId,
+            },
+        });
+
+        if (!routine) {
+            // routine not found or doesn't belong to current user
+            return res.status(404).json({ success: false, message: 'Routine not found or unauthorized.'})
+        }
+
+        // update share to true
+        await routine.update({ share: true });
+
+        return res.status(200).json({ success: true, message: 'Routine shared successfully.'});
+    } catch (err) {
+        console.error('Error sharing routine:', err);
+        return res.status(500).json({ message: 'Internal server error.' });
+    }
+});
+
+// PUT route to unshare a routine
+router.put('/unshare/:routineId', withAuth, async (req, res) => {
+    try {
+        const userId = req.session.user_id;
+        const routineId = req.params.routineId;
+
+        const routine = await Routine.findOne({
+            where: {
+                id: routineId,
+                user_id: userId,
+            },
+        });
+
+        if (!routine) {
+            // routine not found or doesn't belong to current user
+            return res.status(404).json({ success: false, message: 'Routine not found or unauthorized.'})
+        }
+
+        // update share to false
+        await routine.update({ share: false });
+
+        return res.status(200).json({ success: true, message: 'Routine unshared successfully.'});
+    } catch (err) {
+        console.error('Error unsharing routine:', err);
+        return res.status(500).json({ message: 'Internal server error.' });
+    }
+});
+
+
 // POST route to add a like
 router.post('/like/:routineId', withAuth, async (req, res) => {
     try {
