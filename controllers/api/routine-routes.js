@@ -25,7 +25,6 @@ router.get('/', async (req, res) => {
 
 // GET route to check if a routine name already exists in the database for specified user
 router.get('/check-routine-name/:encodedRoutineName', async (req, res) => {
-// get URL format: /check-routine-name?routineName=yourRoutineName&userId=yourUserId
 
     try {
         const encodedRoutineName = req.params.encodedRoutineName;
@@ -48,17 +47,43 @@ router.get('/check-routine-name/:encodedRoutineName', async (req, res) => {
 });
   
   
-
+// GET route for single routine by routine name
 router.get('/:routine_name', async (req,res)=>{
     try{
         const findRoutine = await Routine.findOne({
             where:{
-                routine_name: req.params.routine_name
+                routine_name: req.params.routine_name,
+                user_id: req.session.user_id,
             }
         });
         res.status(200).json(findRoutine);
     }catch(err){
         res.status(500).json(err)
+    }
+});
+
+// GET route for routine ID by routine name
+router.get('/routine-id/:encodedRoutineName', async (req,res)=>{
+    try{
+        const encodedRoutineName = req.params.encodedRoutineName;
+        const routineName = decodeURIComponent(encodedRoutineName);
+
+        const findRoutine = await Routine.findOne({
+            attributes: ['id'],
+            where:{
+                routine_name: routineName,
+                user_id: req.session.user_id,
+            }
+        });
+        if (findRoutine) {
+            const routineId = findRoutine.id;
+            res.status(200).json({ id: routineId });
+        } else {
+            // routine not found
+            res.status(404).json({ message: 'Routine not found' });
+        }
+    }catch(err){
+        res.status(500).json(err);
     }
 });
 
