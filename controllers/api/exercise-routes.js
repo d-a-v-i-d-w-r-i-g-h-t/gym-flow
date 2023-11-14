@@ -27,6 +27,19 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// POST route to bulkCreate multiple exercises at once
+router.post('/bulk-create', withAuth, async (req, res) => {
+  const exercisesToAdd = req.body;
+  
+  try {
+
+    const createdExercises = await Exercise.bulkCreate(exercisesToAdd);
+    res.status(201).json({ success: true, createdExercises });
+  } catch (err) {
+    res.status(400).json({ success: false, error: err.message })
+  }
+});
+
 // PUT route to update an exercise
 router.put('/:id', withAuth, async (req, res) => {
   try {
