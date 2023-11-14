@@ -153,5 +153,23 @@ document.querySelectorAll('.comment-button').forEach(button => {
         anotherDiv.appendChild(sendCommentBtn)
         routineElement.appendChild(anotherDiv)
 
+        sendCommentBtn.addEventListener('click', async function(){
+            const routine_id = document.querySelector('#hiddenRid').textContent;
+            const text = addComment.value.trim();
+            if(text){
+                const response = await fetch('/api/comments', {
+                    method: 'POST',
+                    body: JSON.stringify({text, routine_id}),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                });
+                const responseData = await response.json();
+                console.log(responseData);
+            }
+        })
     });
 });
+
+
+
