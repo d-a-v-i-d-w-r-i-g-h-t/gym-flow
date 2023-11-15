@@ -1,3 +1,4 @@
+//function to check if an entered routine name is infact unique or repeated
 async function isRoutineNameUnique(routineName) {
   try {
 

@@ -5,6 +5,7 @@ const updatebtn = document.querySelector('#updatebtn')
 const routineId = document.querySelector('.hidden-id').textContent;
 const editButton = document.querySelectorAll('.editEButton');
 
+//delete button for individual rows of table data on an edit routine page
 trashButton.forEach((button) => {
     button.addEventListener('click', async function () {
         try {
@@ -31,6 +32,7 @@ trashButton.forEach((button) => {
     });
 });
 
+//update button for each individual row of table data on an edit routine page
 updatebtn.addEventListener('click', async function (event) {
     event.preventDefault();
 

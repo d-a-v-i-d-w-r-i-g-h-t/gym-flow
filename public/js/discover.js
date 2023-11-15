@@ -22,7 +22,6 @@ document.querySelector('.discover').addEventListener('click', async function (ev
 });
 
 
-
 async function handleLikeButtonClick(event, likeButton) {
     event.preventDefault();
 

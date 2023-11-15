@@ -101,6 +101,7 @@ router.get('/discover', async (req, res) => {
     }
 });
 
+//get discover data sorted from newest to oldest by date_created
 router.get('/discover/newest', async (req, res) => {
     try {
 
@@ -181,6 +182,7 @@ router.get('/discover/newest', async (req, res) => {
     }
 });
 
+//get discover data sorted by created_date from oldest to newest
 router.get('/discover/oldest', async (req, res) => {
     try {
 
@@ -333,6 +335,7 @@ router.get('/private/:id', withAuth, async (req, res) => {
     }
 });
 
+//get discover data and sort by most commented to least
 router.get('/discover/most-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -408,6 +411,7 @@ router.get('/discover/most-comments', async (req, res) => {
     }
 });
 
+//get discover data and sort from least commented to most
 router.get('/discover/least-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -483,7 +487,7 @@ router.get('/discover/least-comments', async (req, res) => {
     }
 });
 
-
+//get all routines given a users user_name
 router.get('/profile/:username', withAuth, async (req, res) => {
     try {
         const profile = true;
@@ -517,10 +521,15 @@ router.get('/profile/:username', withAuth, async (req, res) => {
 
 // GET request for rendering the create page
 router.get('/create', withAuth, (req, res) => {
+    try{
     const createPage = true;
     res.render('create', { createPage });
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
 
+//get a routine given a routine id
 router.get('/routine-edit/:id', async (req, res) => {
     try {
         const routinesdb = await Routine.findOne({
@@ -543,6 +552,7 @@ router.get('/routine-edit/:id', async (req, res) => {
     }
 });
 
+//get an exercise given its id
 router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     try {
         const exercisedb = await Exercise.findOne({
@@ -605,14 +615,9 @@ router.get('/profiles/:id', async (req, res) => {
                 userLiked,
             };
         }));
-        console.log(routines);
-        // const profileId = req.session.user_id;
-        // const loggedIn = req.session.logged_in;
         res.render('other-profiles', {
             routines,
             discoverPage,
-            // loggedIn,
-            // profileId
         });
     } catch (err) {
         res.status(500).json({ success: false, error: err.message });
@@ -637,12 +642,20 @@ router.get('/add-exercises/:id', async (req, res) => {
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
+    try{
     res.render('login');
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
 
 // GET request for rendering the signup page
 router.get('/signup', (req, res) => {
+    try{
     res.render('signup');
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
 
 
