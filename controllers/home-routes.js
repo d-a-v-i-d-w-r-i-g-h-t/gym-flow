@@ -24,9 +24,6 @@ router.get('/discover', async (req, res) => {
 
         const discoverPage = true;
 
-        // Check if user is logged in
-        const userIdFilter = req.session.user_id ? { user_id: req.session.user_id } : {};
-
         // get all routines
         const routinesData = await Routine.findAll({
             where: {
@@ -73,15 +70,18 @@ router.get('/discover', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
 
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: userIdFilter,
-                },
-            });
-
-            const userSaved = existingRoutine ? true : false;
-
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
+            
             return {
                 ...plainRoutine,
                 likeCount,
@@ -101,7 +101,9 @@ router.get('/discover', async (req, res) => {
     }
 });
 
-//get discover data sorted from newest to oldest by date_created
+
+// GET route for all routines on the discover page, sorted by newest
+
 router.get('/discover/newest', async (req, res) => {
     try {
 
@@ -154,15 +156,18 @@ router.get('/discover/newest', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
 
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: req.session.user_id,
-                },
-            });
-
-            const userSaved = existingRoutine ? true : false;
-
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
+            
             return {
                 ...plainRoutine,
                 likeCount,
@@ -182,7 +187,9 @@ router.get('/discover/newest', async (req, res) => {
     }
 });
 
-//get discover data sorted by created_date from oldest to newest
+
+// GET route for all routines on the discover page, sorted by oldest
+
 router.get('/discover/oldest', async (req, res) => {
     try {
 
@@ -235,15 +242,18 @@ router.get('/discover/oldest', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
 
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: req.session.user_id,
-                },
-            });
-
-            const userSaved = existingRoutine ? true : false;
-
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
+            
             return {
                 ...plainRoutine,
                 likeCount,
@@ -335,7 +345,9 @@ router.get('/private/:id', withAuth, async (req, res) => {
     }
 });
 
-//get discover data and sort by most commented to least
+
+// GET route for discover page sorted by most comments
+
 router.get('/discover/most-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -383,15 +395,18 @@ router.get('/discover/most-comments', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
 
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: req.session.user_id,
-                },
-            });
-
-            const userSaved = existingRoutine ? true : false;
-
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
+            
             return {
                 ...plainRoutine,
                 likeCount,
@@ -411,7 +426,9 @@ router.get('/discover/most-comments', async (req, res) => {
     }
 });
 
-//get discover data and sort from least commented to most
+
+// GET route for discover page sorted by least comments
+
 router.get('/discover/least-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -459,15 +476,18 @@ router.get('/discover/least-comments', async (req, res) => {
                 await routine.hasUser(req.session.user_id, { through: 'Comment' }) : false;
 
             // check if current user has saved this same routine name
-            const existingRoutine = await Routine.findOne({
-                where: {
-                    routine_name: plainRoutine.routine_name,
-                    user_id: req.session.user_id,
-                },
-            });
-
-            const userSaved = existingRoutine ? true : false;
-
+            let userSaved = false;
+            if (req.session.user_id) {
+                const existingRoutine = await Routine.findOne({
+                    where: {
+                        routine_name: plainRoutine.routine_name,
+                        user_id: req.session.user_id,
+                        },
+                });
+                
+                userSaved = existingRoutine ? true : false;
+            }
+            
             return {
                 ...plainRoutine,
                 likeCount,
@@ -487,7 +507,12 @@ router.get('/discover/least-comments', async (req, res) => {
     }
 });
 
-//get all routines given a users user_name
+
+
+// GET route to get all routines by the specified user_id
+// req.params.username is not used, doesn't matter what param is passed
+/// because it's grabbing the user_id from req.session.user_id
+
 router.get('/profile/:username', withAuth, async (req, res) => {
     try {
         const profile = true;
@@ -513,7 +538,6 @@ router.get('/profile/:username', withAuth, async (req, res) => {
             routines,
             profile,
         });
-        // console.log(routines)
     } catch (err) {
         res.status(500).json(err);
     }
@@ -529,12 +553,14 @@ router.get('/create', withAuth, (req, res) => {
       }
 });
 
-//get a routine given a routine id
-router.get('/routine-edit/:id', async (req, res) => {
+
+// GET routine to get a single routine by routine ID, with associated exercises
+router.get('/routine-edit/:id', withAuth, async (req, res) => {
+
     try {
         const routinesdb = await Routine.findOne({
             where: {
-                id: req.params.id
+                id: req.params.id,
             },
             include: [
                 {
@@ -546,13 +572,15 @@ router.get('/routine-edit/:id', async (req, res) => {
         const routines = routinesdb.get({ plain: true });
         const editPage = true;
         res.render('edit-routine', { routines, editPage });
-        console.log(routinesdb)
+
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-//get an exercise given its id
+
+// GET route to get a single exercise by Eercise id (primary key)
+
 router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     try {
         const exercisedb = await Exercise.findOne({
@@ -566,11 +594,11 @@ router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
         });
         const editExercise = true;
         const exercise = exercisedb.get({ plain: true });
-        console.log(exercise);
-        res.render('update-Exercise', {
+
+        res.render('update-Exercise',{
             exercise,
             editExercise
-        })
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -615,6 +643,9 @@ router.get('/profiles/:id', async (req, res) => {
                 userLiked,
             };
         }));
+
+
+
         res.render('other-profiles', {
             routines,
             discoverPage,
