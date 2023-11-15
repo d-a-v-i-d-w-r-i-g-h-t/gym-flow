@@ -101,7 +101,9 @@ router.get('/discover', async (req, res) => {
     }
 });
 
+
 // GET route for all routines on the discover page, sorted by newest
+
 router.get('/discover/newest', async (req, res) => {
     try {
 
@@ -185,7 +187,9 @@ router.get('/discover/newest', async (req, res) => {
     }
 });
 
+
 // GET route for all routines on the discover page, sorted by oldest
+
 router.get('/discover/oldest', async (req, res) => {
     try {
 
@@ -341,7 +345,9 @@ router.get('/private/:id', withAuth, async (req, res) => {
     }
 });
 
+
 // GET route for discover page sorted by most comments
+
 router.get('/discover/most-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -420,7 +426,9 @@ router.get('/discover/most-comments', async (req, res) => {
     }
 });
 
+
 // GET route for discover page sorted by least comments
+
 router.get('/discover/least-comments', async (req, res) => {
     try {
         const discoverPage = true;
@@ -500,9 +508,11 @@ router.get('/discover/least-comments', async (req, res) => {
 });
 
 
+
 // GET route to get all routines by the specified user_id
 // req.params.username is not used, doesn't matter what param is passed
 /// because it's grabbing the user_id from req.session.user_id
+
 router.get('/profile/:username', withAuth, async (req, res) => {
     try {
         const profile = true;
@@ -535,12 +545,18 @@ router.get('/profile/:username', withAuth, async (req, res) => {
 
 // GET request for rendering the create page
 router.get('/create', withAuth, (req, res) => {
+    try{
     const createPage = true;
     res.render('create', { createPage });
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
+
 
 // GET routine to get a single routine by routine ID, with associated exercises
 router.get('/routine-edit/:id', withAuth, async (req, res) => {
+
     try {
         const routinesdb = await Routine.findOne({
             where: {
@@ -562,7 +578,9 @@ router.get('/routine-edit/:id', withAuth, async (req, res) => {
     }
 });
 
+
 // GET route to get a single exercise by Eercise id (primary key)
+
 router.get('/routine-edit/edit-exercise/:id', async (req, res) => {
     try {
         const exercisedb = await Exercise.findOne({
@@ -626,6 +644,8 @@ router.get('/profiles/:id', async (req, res) => {
             };
         }));
 
+
+
         res.render('other-profiles', {
             routines,
             discoverPage,
@@ -653,12 +673,20 @@ router.get('/add-exercises/:id', async (req, res) => {
 
 // GET request for rendering the login page
 router.get('/login', (req, res) => {
+    try{
     res.render('login');
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
 
 // GET request for rendering the signup page
 router.get('/signup', (req, res) => {
+    try{
     res.render('signup');
+    }catch(err){
+        res.status(500).json(err)
+      }
 });
 
 

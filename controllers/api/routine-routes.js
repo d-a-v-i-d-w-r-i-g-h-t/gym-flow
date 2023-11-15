@@ -87,6 +87,7 @@ router.get('/routine-id/:encodedRoutineName', async (req,res)=>{
     }
 });
 
+//create a routine
 router.post('/', withAuth, async (req, res) => {
     try {
         const postRoutine = await Routine.create({
@@ -101,6 +102,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
+//get a routine given its id
 router.get('/search/:id', async (req, res) => {
     try {
         const findRoutine = await Routine.findOne({
@@ -114,6 +116,7 @@ router.get('/search/:id', async (req, res) => {
     }
 });
 
+//update a routine given its id
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const findRoutine = await Routine.findByPk(req.params.id);
@@ -129,6 +132,7 @@ router.put('/:id', withAuth, async (req, res) => {
     }
 });
 
+//delete a routine given its id
 router.delete('/:id', withAuth, async (req, res) => {
     try {
         const findRoutine = await Routine.findByPk(req.params.id);

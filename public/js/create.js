@@ -2,13 +2,11 @@ const savebtn = document.querySelector('#savebtn');
 const addbtn = document.querySelector('#addbtn');
 const removebtn = document.querySelector('#removebtn')
 const parent = document.getElementById('createTable');
-// const isRoutineNameUnique = require('../../utils/routine-check');
 const routineName = document.querySelector('#newRoutineName');
 const newDescription = document.querySelector('.txtarea');
 const share = false;
 
-
-
+//every time this button is clicked, a new row of inputs are placed underneat the current table of inputs
 addbtn.addEventListener('click', function (event) {
   event.preventDefault();
 
@@ -37,6 +35,7 @@ addbtn.addEventListener('click', function (event) {
   parent.appendChild(newDiv)
 });
 
+//removes the last newly generated row of inputs
 removebtn.addEventListener('click', function (event) {
   event.preventDefault();
   let children = parent.children;
@@ -45,11 +44,11 @@ removebtn.addEventListener('click', function (event) {
   }
 });
 
-
+//checks to see if this routine name already exists for this user, if so, it will alert and empty the input box
 routineName.addEventListener('blur', async () => {
   const routine_name = document.querySelector('#newRoutineName').value.trim();
   if (routine_name !== '') {
-    const isUnique = await  isRoutineNameUnique(routine_name);
+    const isUnique = await isRoutineNameUnique(routine_name);
     if (!isUnique) {
 
       // ****** >>> REPLACE THIS ALERT WITH A MODAL <<< ******
@@ -66,7 +65,7 @@ Please choose a different Routine Name.`
   }
 });
 
-
+//runs a post request for the routine data, and its individual exercise rows
 savebtn.addEventListener('click', async function (event) {
   event.preventDefault();
 
@@ -88,12 +87,12 @@ savebtn.addEventListener('click', async function (event) {
     alert('Failed to create Routine')
   }
 
+  //go through each row of input and post an exercise with the previously generated routines id
   let rows = document.querySelectorAll('#nameInput'); // Using class instead of ID
   rows.forEach(async function (row) {
     let name = row.value;
     let weight = row.parentElement.querySelector('#weightInput').value;
     let reps = row.parentElement.querySelector('#repsInput').value;
-
 
     const getRoutineIdResponse = await fetch(`/api/routines/${routine_name}`);
     const getRoutineIdData = await getRoutineIdResponse.json();
@@ -117,8 +116,5 @@ savebtn.addEventListener('click', async function (event) {
     } else {
       alert("unable to create table at this time")
     }
-
-
-
   });
 });

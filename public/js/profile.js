@@ -14,7 +14,7 @@ document.querySelector('.profileData').addEventListener('click', async function 
 });
 
 
-
+//function
 async function handleDeleteButtonClick(event, deleteButton) {
   event.preventDefault();
 
@@ -37,7 +37,7 @@ async function handleDeleteButtonClick(event, deleteButton) {
         alert('Unable to delete Routine. Please try again.');
       }
     } catch (err) {
-      console.error('An unexpected error occurred:', error);
+      console.error('An unexpected error occurred:', err);
     }
   }
 }
