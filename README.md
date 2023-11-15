@@ -198,7 +198,7 @@
   ```
   Enter your user name and password within that file in the empty spaces. After saving the file run the following in your terminal to have the initial data be seeded into the database:
   ```
-  npm run seeds
+  npm run seed
   ```
   Once the data has been seeded the user can then start the server. Each time your wish to start the server, simply run the following code in your terminal:
   ```
@@ -208,7 +208,7 @@
 
   ## Usage
 
-  To use this project, either navigate to (https://sheltered-inlet-69891-1c93b8a30eb8.herokuapp.com/) for the officially deployed link, or if you installed the application on your own then navigate to http://localhost:3001/. From the home page, the user can see a carousel of other user's workouts on display as well as a short description of the website. From there the user can either sign in, sign up, or go straight to the discovery page. Should the user have an account and be logged in, the user gains access to a few more options. A user once logged in can create their own workout routines or edit the ones they have already created. The user has the power to edit or delete any of their workouts at any time. Should a user navigate to the discovery page, they can then scroll through all the other routines created by other individuals using the site. Any one of these workouts can be saved to later be edited or used. Should a user finish any editing or saving they can then logout for the day, and all of their workout routines will persist and be saved for the next loggin.
+  To use this project, either navigate [here](https://sheltered-inlet-69891-1c93b8a30eb8.herokuapp.com/) for the officially deployed link, or if you installed the application on your own system then navigate to http://localhost:3001/. From the home page, the user can see a carousel of other user's workouts on display as well as a short description of the website. From there the user can either sign in, sign up, or go straight to the discovery page. Should the user have an account and be logged in, the user gains access to a few more options. A user once logged in can create their own workout routines or edit the ones they have already created. The user has the power to edit or delete any of their workouts at any time. Should a user navigate to the discovery page, they can then scroll through all the other routines created by other individuals using the site. Any one of these workouts can be saved to later be edited or used. Should a user finish any editing or saving they can then logout for the day, and all of their workout routines will persist and be saved for the next login.
 
   ## Credits
 

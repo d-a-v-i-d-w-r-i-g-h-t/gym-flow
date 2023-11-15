@@ -1,4 +1,5 @@
-$(document).ready(function() {
+//slick carousel function using slick and jquery
+$(document).ready(function () {
     $('.carousel-container').slick({
         dots: true,
         arrows: true,
