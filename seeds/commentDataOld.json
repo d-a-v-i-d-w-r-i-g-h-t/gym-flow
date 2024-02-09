@@ -2,241 +2,201 @@
   {
     "text": "Great workout! Really felt the burn during bench press.",
     "user_id": 1,
-    "routine_id": 1,
-    "date_created": "2023-11-27 10:45:22"
+    "routine_id": 1
   },
   {
     "text": "Squats were challenging but worth it. Feeling stronger already!",
     "user_id": 2,
-    "routine_id": 1,
-    "date_created": "2023-12-02 14:30:18"
+    "routine_id": 1
   },
   {
     "text": "Lunges are killer, but I love the leg day challenge!",
     "user_id": 3,
-    "routine_id": 2,
-    "date_created": "2023-12-05 16:20:55"
+    "routine_id": 2
   },
   {
     "text": "Box jumps add a nice explosive element. Great routine!",
     "user_id": 4,
-    "routine_id": 2,
-    "date_created": "2023-12-08 09:55:41"
+    "routine_id": 2
   },
   {
     "text": "Plank variations are a killer core workout. Keep it up!",
     "user_id": 5,
-    "routine_id": 3,
-    "date_created": "2023-12-01 17:38:29"
+    "routine_id": 3
   },
   {
     "text": "Leg raises really target the lower abs. Feeling the burn!",
     "user_id": 6,
-    "routine_id": 3,
-    "date_created": "2023-12-07 08:10:12"
+    "routine_id": 3
   },
   {
     "text": "Pull-ups are tough but rewarding. Seeing progress!",
     "user_id": 7,
-    "routine_id": 4,
-    "date_created": "2023-11-29 12:20:36"
+    "routine_id": 4
   },
   {
     "text": "Shoulder press added a nice challenge. Loving this routine!",
     "user_id": 8,
-    "routine_id": 4,
-    "date_created": "2023-12-03 15:42:04"
+    "routine_id": 4
   },
   {
     "text": "HIIT cardio is my favorite! Sweating buckets, but it's worth it.",
     "user_id": 9,
-    "routine_id": 5,
-    "date_created": "2023-11-30 18:55:27"
+    "routine_id": 5
   },
   {
     "text": "Boxing punches are a fun way to mix things up. Great routine!",
     "user_id": 10,
-    "routine_id": 5,
-    "date_created": "2023-12-06 07:48:59"
+    "routine_id": 5
   },
   {
     "text": "Lateral raises really target those shoulder muscles. Feeling pumped!",
     "user_id": 11,
-    "routine_id": 6,
-    "date_created": "2023-12-09 10:15:30"
+    "routine_id": 6
   },
   {
     "text": "Medicine ball slams are my new stress reliever. Awesome routine!",
     "user_id": 12,
-    "routine_id": 6,
-    "date_created": "2023-11-28 14:20:55"
+    "routine_id": 6
   },
   {
     "text": "Kettlebell swings are a great full-body workout. Loving it!",
     "user_id": 13,
-    "routine_id": 7,
-    "date_created": "2023-11-26 21:35:47"
+    "routine_id": 7
   },
   {
     "text": "Battle rope waves really get the heart pumping. Solid routine!",
     "user_id": 14,
-    "routine_id": 7,
-    "date_created": "2023-12-04 16:07:39"
+    "routine_id": 7
   },
   {
     "text": "Incline bench press is a classic for a reason. Great chest day!",
     "user_id": 15,
-    "routine_id": 8,
-    "date_created": "2023-12-10 09:28:16"
+    "routine_id": 8
   },
   {
     "text": "Lat pulldowns added some variety. Feeling the gains!",
     "user_id": 1,
-    "routine_id": 8,
-    "date_created": "2023-12-02 11:59:33"
+    "routine_id": 8
   },
   {
     "text": "Treadmill sprints are intense but effective. Feeling the burn!",
     "user_id": 2,
-    "routine_id": 9,
-    "date_created": "2023-11-28 20:40:12"
+    "routine_id": 9
   },
   {
     "text": "Rowing machine is my go-to for cardio. Solid routine!",
     "user_id": 3,
-    "routine_id": 9,
-    "date_created": "2023-12-06 13:05:48"
+    "routine_id": 9
   },
   {
     "text": "Yoga-inspired routines are great for flexibility. Feeling zen!",
     "user_id": 4,
-    "routine_id": 10,
-    "date_created": "2023-12-08 18:17:59"
+    "routine_id": 10
   },
   {
     "text": "Warrior poses really challenge balance. Excellent routine!",
     "user_id": 5,
-    "routine_id": 10,
-    "date_created": "2023-11-27 07:22:10"
+    "routine_id": 10
   },
   {
     "text": "Fantastic workout! Bench press is a game-changer.",
     "user_id": 6,
-    "routine_id": 1,
-    "date_created": "2023-11-29 14:10:08"
+    "routine_id": 1
   },
   {
     "text": "Leg day is tough, but the results are worth it.",
     "user_id": 7,
-    "routine_id": 1,
-    "date_created": "2023-12-04 16:55:33"
+    "routine_id": 1
   },
   {
     "text": "Lunges are my nemesis, but I conquered them!",
     "user_id": 8,
-    "routine_id": 2,
-    "date_created": "2023-11-30 09:38:22"
+    "routine_id": 2
   },
   {
     "text": "Box jumps made me feel like an athlete. Love it!",
     "user_id": 9,
-    "routine_id": 2,
-    "date_created": "2023-12-05 11:20:47"
+    "routine_id": 2
   },
   {
     "text": "Plank variations are a core-strengthening must-do.",
     "user_id": 10,
-    "routine_id": 3,
-    "date_created": "2023-11-26 22:45:19"
+    "routine_id": 3
   },
   {
     "text": "Leg raises are the secret to killer abs. Feeling strong!",
     "user_id": 11,
-    "routine_id": 3,
-    "date_created": "2023-12-01 13:35:56"
+    "routine_id": 3
   },
   {
     "text": "Pull-ups are a challenge, but the progress is motivating!",
     "user_id": 12,
-    "routine_id": 4,
-    "date_created": "2023-12-03 08:14:20"
+    "routine_id": 4
   },
   {
     "text": "Shoulder press added a burn I didn't know I needed. Love it!",
     "user_id": 13,
-    "routine_id": 4,
-    "date_created": "2023-12-09 17:50:41"
+    "routine_id": 4
   },
   {
     "text": "HIIT cardio is my stress reliever. Sweating out the week!",
     "user_id": 14,
-    "routine_id": 5,
-    "date_created": "2023-11-29 19:27:58"
+    "routine_id": 5
   },
   {
     "text": "Boxing punches are a fun way to unleash energy. Great routine!",
     "user_id": 15,
-    "routine_id": 5,
-    "date_created": "2023-12-07 12:03:29"
+    "routine_id": 5
   },
   {
     "text": "Lateral raises are sculpting my shoulders. Feeling powerful!",
     "user_id": 1,
-    "routine_id": 6,
-    "date_created": "2023-12-01 08:56:47"
+    "routine_id": 6
   },
   {
     "text": "Medicine ball slams are the therapy I never knew I needed. Awesome!",
     "user_id": 2,
-    "routine_id": 6,
-    "date_created": "2023-11-28 16:30:15"
+    "routine_id": 6
   },
   {
     "text": "Kettlebell swings are a full-body burn. Loving the challenge!",
     "user_id": 3,
-    "routine_id": 7,
-    "date_created": "2023-12-06 22:10:08"
+    "routine_id": 7
   },
   {
     "text": "Battle rope waves are intense but exhilarating. Solid routine!",
     "user_id": 4,
-    "routine_id": 7,
-    "date_created": "2023-12-10 10:45:52"
+    "routine_id": 7
   },
   {
     "text": "Incline bench press never gets old. Great chest pump!",
     "user_id": 5,
-    "routine_id": 8,
-    "date_created": "2023-11-27 14:38:20"
+    "routine_id": 8
   },
   {
     "text": "Lat pulldowns are the key to a strong back. Feeling the gains!",
     "user_id": 6,
-    "routine_id": 8,
-    "date_created": "2023-12-03 18:20:09"
+    "routine_id": 8
   },
   {
     "text": "Treadmill sprints are my cardio of choice. Burn baby burn!",
     "user_id": 7,
-    "routine_id": 9,
-    "date_created": "2023-12-09 07:05:31"
+    "routine_id": 9
   },
   {
     "text": "Rowing machine is a low-impact favorite. Solid routine!",
     "user_id": 8,
-    "routine_id": 9,
-    "date_created": "2023-11-26 11:25:17"
+    "routine_id": 9
   },
   {
     "text": "Yoga-inspired routines are my zen time. Namaste!",
     "user_id": 9,
-    "routine_id": 10,
-    "date_created": "2023-12-02 13:48:45"
+    "routine_id": 10
   },
   {
     "text": "Warrior poses challenge my balance and strength. Excellent routine!",
     "user_id": 10,
-    "routine_id": 10,
-    "date_created": "2023-12-08 16:55:39"
+    "routine_id": 10
   }
 ]
