@@ -3,70 +3,60 @@
     "routine_name": "Full Body Workout",
     "share": true,
     "description": "A comprehensive routine targeting all major muscle groups.",
-    "user_id": 1,
-    "date_created": "2023-11-25 09:23:15"
+    "user_id": 1
   },
   {
     "routine_name": "Leg Day Blast",
     "share": true,
     "description": "Powerful leg exercises for strength and endurance.",
-    "user_id": 2,
-    "date_created": "2023-12-06 16:42:57"
+    "user_id": 2
   },
   {
     "routine_name": "Core Crusher",
     "share": true,
     "description": "An intense core workout for abdominal strength.",
-    "user_id": 2,
-    "date_created": "2023-12-03 14:18:34"
+    "user_id": 2
   },
   {
     "routine_name": "Upper Body Sculpt",
     "share": true,
     "description": "Focus on building a well-defined upper body.",
-    "user_id": 3,
-    "date_created": "2023-11-27 21:09:48"
+    "user_id": 3
   },
   {
     "routine_name": "HIIT Cardio Circuit",
     "share": true,
     "description": "High-intensity interval training for cardiovascular fitness.",
-    "user_id": 3,
-    "date_created": "2023-11-30 08:37:22"
+    "user_id": 3
   },
   {
     "routine_name": "Flexibility Flow",
     "share": true,
     "description": "Yoga-inspired routine for flexibility and balance.",
-    "user_id": 3,
-    "date_created": "2023-12-10 11:56:03"
+    "user_id": 3
   },
   {
     "routine_name": "Strength and Power",
     "share": true,
     "description": "Emphasizing strength and power training techniques.",
-    "user_id": 4,
-    "date_created": "2023-12-01 18:27:49"
+    "user_id": 4
   },
   {
     "routine_name": "Back Attack",
     "share": true,
     "description": "Targeting the muscles of the back for a strong and toned back.",
-    "user_id": 5,
-    "date_created": "2023-11-28 05:14:38"
+    "user_id": 5
   },
   {
     "routine_name": "Endurance Challenge",
     "share": true,
     "description": "Designed to improve overall endurance and stamina.",
-    "user_id": 6,
-    "date_created": "2023-11-26 17:59:10"
+    "user_id": 6
   },
   {
     "routine_name": "Mindful Movement",
     "share": true,
     "description": "A routine focusing on mindful movement and flexibility.",
-    "user_id": 7,
-    "date_created": "2023-12-05 13:20:41"
+    "user_id": 7
   }
 ]
