@@ -48,6 +48,7 @@ router.get('/discover', async (req, res) => {
                             attributes: ['user_name'],
                         },
                     ],
+                    order: [['date_created', 'DESC']] // sort by date_created in descending order
                 },
             ],
         });

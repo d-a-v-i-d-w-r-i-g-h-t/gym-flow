@@ -9,7 +9,7 @@ router.get('/:routine_id', async (req, res) => {
         where: {
             routine_id: req.params.routine_id,
           },
-        order: [['created_date', 'DESC']] // sort by created_date in descending order
+        order: [['date_created', 'DESC']] // sort by date_created in descending order
       });
       res.status(200).json(commentdb);
     }catch(err){
