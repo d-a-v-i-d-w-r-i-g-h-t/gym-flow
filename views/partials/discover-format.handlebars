@@ -1,42 +1,52 @@
 <div class="discoverAll" data-username="{{username}}">
+
     <div class="dropdown">
+
         <button class="btn btn-secondary dropdown-toggle sortbtn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Sort By
         </button>
+
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/discover/oldest">Date (Oldest)</a></li>
             <li><a class="dropdown-item" href="/discover/newest">Date (Newest)</a></li>
             <li><a class="dropdown-item" href="/discover/most-comments">Most Discussed</a></li>
             <li><a class="dropdown-item" href="/discover/least-comments">Least Discussed</a></li>
         </ul>
+
         <h2>Routines  <i class="fa-solid fa-down-long fa-bounce" style="color: #34495e;"></i></h2>
+
         {{#each routines as |routine|}}
         <div class="routine-nav">
             <a href="#{{routine.id}}">
-        <button class="routine-btn">{{routine_name}}</button>
-        </a>
+                <button class="routine-btn">{{routine_name}}</button>
+            </a>
         </div>
         {{/each}}
+
     </div>
+
     <div class="discover">
+
         {{!-- use helper function to pass loggedIn variable to each routine for use inside the each block --}}
         {{#eachWithLoggedIn routines loggedIn }}
         <div class="cardy">
             <div 
                 class="discover-post"
                 data-user-id="{{user_id}}">
-                <div>
 
+                <div>
                     <a href="/profiles/{{user_id}}">
-                    <button id="{{id}}">@{{user.user_name}}</button>
+                        <button id="{{id}}">@{{user.user_name}}</button>
                     </a>
                     <p><span class="routine-description">{{description}}</span></p>
                     <p>Date Created: {{formatDate date_created}}</p>
                 </div>
+
                 <div class="dataTable">
                     <table>
                         <h2><span class="routine-name">{{routine_name}}</span></h2>
                         <p id="hiddenRid">{{id}}</p>
+
                         <thead class="tableHeaders">
                             <tr>
                                 <th width="200">Name</th>
@@ -44,6 +54,7 @@
                                 <th width="150">Reps</th>
                             </tr>
                         </thead>
+
                         {{#each exercises as |exercise|}}
                         <tbody>
                             <tr class="trow">
@@ -53,8 +64,10 @@
                             </tr>
                         </tbody>
                         {{/each}}
+
                     </table>
                 </div>
+
             </div>
 
             {{!-- Routine action buttons at bottom of card --}}
@@ -63,7 +76,7 @@
 
                 {{!-- Like button, for user to like/unlike a routine --}}
 
-                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
+                {{!-- if user is not logged in, make the Like button an anchor tag href link to the login page --}}
                 {{#unless loggedIn}}
                 <a href="/login">
                 {{/unless}}
@@ -92,12 +105,11 @@
 
                 {{!-- Comment button, to view existing comments and allow adding comments to routines --}}
                 
-                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
                 {{#unless loggedIn}}
-                <a href="/login">
+                <a>
                 {{/unless}}
                 <button
-                    {{#if loggedIn}}class="comment-button"{{/if}}
+                    class="comment-button"
                     data-routine-id="{{id}}"
                     data-commented="{{#if userCommented}}true{{else}}false{{/if}}">
                     <span class="comment-count">{{commentCount}}</span>
@@ -119,43 +131,49 @@
 
 
                 {{!-- Save button, to save a routine to user's My Flow page of personal routines --}}
-                {{!-- if user is not logged in, make the share button an anchor tag href link to the login page --}}
+                {{!-- if user is not logged in, make the Save button an anchor tag href link to the login page --}}
                 {{#unless loggedIn}}
                 <a href="/login">
                 {{/unless}}
-                {{!-- if user is logged in, button gets class 'like-button' and event listener will hear it --}}
-                <button
-                    class="{{#if loggedIn}}save-button {{/if}}bottom-right-btn"
-                    data-routine-id="{{id}}"
-                    data-saved="{{#if userSaved}}true{{else}}false{{/if}}">
-                    <i
-                        class="
-                            {{#if userSaved}}
-                            fa-solid
-                            {{else}}
-                            fa-regular
-                            {{/if}} fa-floppy-disk"
-                    ></i>
-                </button>
+                    {{!-- if user is logged in, button gets class 'save-button' and event listener will hear it --}}
+                    <button
+                        class="{{#if loggedIn}}save-button {{/if}}bottom-right-btn"
+                        data-routine-id="{{id}}"
+                        data-saved="{{#if userSaved}}true{{else}}false{{/if}}">
+                        <i
+                            class="
+                                {{#if userSaved}}
+                                fa-solid
+                                {{else}}
+                                fa-regular
+                                {{/if}} fa-floppy-disk"
+                        >
+                        </i>
+                    </button>
                 {{!-- if user is not logged in, close anchor tag --}}
                 {{#unless loggedIn}}
                 </a>
                 {{/unless}}
                 
             </div>
+
             <div 
                 class="comments display-none"
                 data-routine-id="{{id}}"
                 data-username="{{username}}"
                 data-comments-visible="false"
             >
-                {{#each comments as |comment|}}
-                <div class="oldComment">
+
+                {{#each comments}}
+                <div class="oldComment{{#unless ../loggedIn}}{{#if @last}} no-bottom-border{{/if}}{{/unless}}">
                     <h4>@{{user.user_name}}</h4>
                     <p class="storedComment">{{text}}</p>
                     <p>Posted: {{formatDate date_created}}</p>
                 </div>
                 {{/each}}
+
+                {{!-- if user is logged in, display the new comment input field --}}
+                {{#if loggedIn}}
                 <div class="send-comment">
                     <textarea class="new-comment-textarea"></textarea>
                     <button class="send-comment-button">
@@ -165,8 +183,13 @@
                         ></i>
                     </button>
                 </div>
+                {{/if}}
+
             </div>
+
         </div>
         {{/eachWithLoggedIn}}
+
     </div>
+
 </div>
