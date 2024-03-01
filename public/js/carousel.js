@@ -10,6 +10,6 @@ $(document).ready(function () {
         cssEase: 'linear',
         autoplaySpeed: 4000,
         autoplay: true,
-
+        aspectRatio: true,
     });
 });    
