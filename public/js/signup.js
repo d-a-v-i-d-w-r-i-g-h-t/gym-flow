@@ -81,7 +81,7 @@ const signupFormHandler = async (event) => {
     return; // Stop signup execution
   }
 
-  // Api call to create a new user
+  // API call to create a new user
   if (user_name && email && password) {
     const response = await fetch('/api/users/signup', {
       method: 'POST',
@@ -89,7 +89,7 @@ const signupFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // Redirects top the homepage if the user creation was successful
+    // Redirects to the homepage if the user creation was successful
     if (response.ok) {
       document.location.replace('/');
     } else {
