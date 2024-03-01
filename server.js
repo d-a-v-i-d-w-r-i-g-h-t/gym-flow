@@ -36,6 +36,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+const listenMessage = isDevelopment ? `Now listening on http://localhost:${PORT}/` : 'Now listening';
+
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(listenMessage));
 });
