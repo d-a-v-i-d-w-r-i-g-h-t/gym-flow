@@ -110,20 +110,17 @@ header button:after,
     max-width: 100%;
 }
 
-
-.carousel-container img {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-    height: 400px;
-    align-items: center;
-    max-width: 100%;
-}
-
 .carousel-container {
     display: flex;
     justify-content: center;
     max-width: 1200px;
+}
+
+.carousel-container img {
+    display: block;
+    margin: 20px;
+    height: auto;
+    max-width: 100%;
 }
 
 .about-us {
