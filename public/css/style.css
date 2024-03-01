@@ -1,8 +1,8 @@
 :root {
-    --primary: rgb(85, 220, 253);
+    --primary: #55dcfd;
     --secondary: #ecf0f1;
     --third: #34495e;
-    --fourth: rgb(222, 39, 17);
+    --fourth: #de2711;
 }
 
 body {
@@ -126,7 +126,7 @@ header button:after,
     max-width: 1200px;
 }
 
-.aboutUs {
+.about-us {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,13 +139,13 @@ header button:after,
     margin-top: 50px;
 }
 
-.aboutUs h2 {
+.about-us h2 {
     font-size: 40px;
     color: var(--third);
     text-shadow: 2px 2px var(--primary);
 }
 
-.aboutUs p {
+.about-us div {
     font-weight: bold;
     border: 3px solid var(--fourth);
     border-radius: 15px;
@@ -154,6 +154,17 @@ header button:after,
     font-size: 20px;
     color: var(--secondary);
 }
+
+.about-us a {
+    font-weight: normal;
+    color: var(--secondary);
+    background: var(--fourth);
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
 
 .options {
     border-top: 3px solid var(--third);
@@ -184,7 +195,6 @@ header button:after,
 
 .details h3 {
     font-size: 40px;
-    text-decoration: underline;
     color: var(--primary);
 }
 
@@ -240,8 +250,7 @@ footer a {
 .signup-form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-end; /* Align items to the right */
     border: 2px solid var(--third);
     padding: 20px;
     border-radius: 15px;
@@ -257,6 +266,10 @@ footer a {
 .form-group input {
     font-size: 20px;
     font-weight: bold;
+}
+
+.form button {
+    align-self: center; /* Center the button */
 }
 
 .btn-primary {
@@ -388,7 +401,7 @@ footer a {
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    color: rgb(85, 220, 253);
+    color: var(--primary)
 }
 
 .bottom-right-btn {
@@ -495,7 +508,7 @@ footer a {
     margin: 20px;
 }
 
-.createDataTable{
+.createDataTable {
     margin-left: 20px;
     display: flex;
     flex-direction: column;
@@ -506,59 +519,59 @@ footer a {
     border-radius: 15px;
 }
 
-.createDataTable label{
+.createDataTable label {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.createButtons{
+.createButtons {
     display: flex;
     flex-direction: row;
     width: 100%;
     text-decoration: none;
 }
 
-.createButtons button{
+.createButtons button {
     margin-top: 20px;
     width: 100%;
     background: var(--third);
     color: var(--primary);
 }
 
-.first-input{
+.first-input {
     margin-right: 5px;
 }
-.last-input{
+.last-input {
     margin-left: 4.5px;
 }
 
-.descriptionInput{
+.descriptionInput {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.descriptionInput textarea{
+.descriptionInput textarea {
     width: 400px;
     height: 200px;
     margin-top: 10px;
     margin-bottom: 20px;
 }
 
-.profileData{
+.profileData {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.headerDiv{
+.headerDiv {
     display: flex;
     justify-content: center;
 }
 
-.profileHeader{
+.profileHeader {
     text-align: center;
     background: var(--primary);
     border: 2px solid var(--third);
@@ -567,48 +580,48 @@ footer a {
     margin: 50px 0px 50px 0px;
 }
 
-.profilebtns{
+.profilebtns {
     color: var(--primary);
 }
 
-#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden, #hiddenRid{
+#hidden-id, .hidden-description, .hidden-name, .hiddenExerciseId, #hidden-e-id, .hidden-id, #hidden, #hiddenRid {
     display: none;
 }
 
-.editTag{
+.editTag {
     text-decoration: none;
     width: 100%;
 }
 
-.rNameUpdate{
+.rNameUpdate {
     height: 30px;
 }
 
-.trashButton{
+.trashButton {
     align-items: center;
     background: var(--third);
     margin-left: 5px;
 }
 
-.edit-exercise-header{
+.edit-exercise-header {
     padding-top: 250px;
     text-align: center;
     color: var(--third);
 }
 
-.edit-table{
+.edit-table {
     display: flex;
     justify-content: space-around;
     margin-bottom: 20px;
 }
 
-.edit-table-names{
+.edit-table-names {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
 }
 
-.exercise-container{
+.exercise-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -617,7 +630,7 @@ footer a {
     border-radius: 15px;
 }
 
-.exercise-container button{
+.exercise-container button {
     background: var(--third);
     color: var(--primary);
     font-weight: bold;
@@ -625,17 +638,17 @@ footer a {
     border-bottom-right-radius: 12px;
 }
 
-.editEButton{
+.editEButton {
     background: var(--third);
     padding: 3px 5px 3px 5px;
     border: 2px solid black;
 }
 
-.header-container{
+.header-container {
     display: flex;
 }
 
-.otherProfileUsername{
+.otherProfileUsername {
     margin-top: 250px;
     padding: 10px;
     background: var(--third);
@@ -646,49 +659,53 @@ footer a {
     position: sticky;
 }
 
-.at{
+.at {
     color: var(--fourth);
 }
 
-.welcome{
+.welcome {
     margin-top: 250px;
 }
 
-.userProfile{
+.userProfile {
     margin-top: 250px;
 }
 
-.oldComment{
+.oldComment {
     padding-top: 30px;
     border-bottom: 2px solid var(--fourth);
 }
 
-.oldComment h4{
+.no-bottom-border {
+    border-bottom: none; /* Remove border for last .oldComment */
+}
+
+.oldComment h4 {
     color: var(--primary);
 }
 
-.storedComment{
+.storedComment {
     font-weight: bold;
 }
 
-.send-comment{
+.send-comment {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
 }
 
-.send-comment textarea{
+.send-comment textarea {
     width: 90%;
     margin: 10px;
 }
-.send-comment button{
+.send-comment button {
     margin: 10px;
     background: var(--third);
     border: 2px solid var(--fourth);
 }
 
-.send-comment button:hover{
+.send-comment button:hover {
     background: var(--secondary);
 }
 
@@ -702,7 +719,7 @@ footer a {
     .discoverAll {
         flex-direction: column;
     }
-    .sort-title{
+    .sort-title {
         padding-bottom: none;
     }
 
@@ -712,15 +729,17 @@ footer a {
 }
 
 @media screen and (max-width: 670px) {
-    .sort-title{
+    .sort-title {
         padding-top: 270px;
         text-align: center;
     }
-    .createbtn{
+
+    .createbtn {
         padding-top: 300px;
         flex-direction: column;
         align-items: center;
     }
+
     .cardy {
         width: 400px;
     }
@@ -756,21 +775,24 @@ footer a {
 }
 
 @media screen and (max-width: 1270px) {
-    .carousel-container{
+    .carousel-container {
         max-width: 800px;
     }
 }
+
 @media screen and (max-width: 1030px) {
-    .carousel-container{
+    .carousel-container {
         max-width: 600px;
     }
-    .details{
+
+    .details {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 60%;
     }
-    .details img{
+
+    .details img {
         width: 600px;
     }
     .info{
@@ -778,10 +800,11 @@ footer a {
         text-align: center;
     }
 
-    .aboutUs p{
+    .about-us p {
         font-size: 15px;
     }
-    .aboutUs{
+
+    .about-us {
         margin-left: 100px;
         margin-right: 100px;
         padding-left: 50px;
@@ -790,52 +813,61 @@ footer a {
 }
 
 @media screen and (max-width: 700px) {
-    .carousel-container{
+    .carousel-container {
         max-width: 450px;
     }
-    .carousel-container img{
+
+    .carousel-container img {
         max-width: 450px;
     }
-    .details{
+
+    .details {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 60%;
     }
-    .info h3{
+
+    .info h3 {
         font-size: 20px;
     }
-    .info p{
+
+    .info p {
         font-size: 15px;
     }
-    .details img{
+
+    .details img {
         width: 200px;
     }
-    .info{
+
+    .info {
         max-width: 300px;
         text-align: center;
     }
 
-    .aboutUs p{
+    .about-us p {
         font-size: 15px;
     }
-    .aboutUs{
+
+    .about-us {
         margin-left: 50px;
         margin-right: 50px;
     }
-    footer{
+
+    footer {
         font-size: 15px;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .aboutUs{
+    .about-us {
         padding-left: 20px;
         padding-right: 20px;
         margin-right: 20px;
         margin-left: 20px;
     }
-    .carousel-container{
+
+    .carousel-container {
         max-width: 400px;
     }
 }
